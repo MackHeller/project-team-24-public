@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour {
     private static bool _isCreatingWire = false;
 	private static Level _level;
 
-	void Awake() {
+	void Start() {
 		/*
-		 * Replace later, putting this here since the level editor will need to
+		 * Not functional, putting this here since the level editor will need to
 		 * allow a centralized way to load levels.
 		 */ 
 		_level = new Level ();
+		LevelWriter.createLevelMethod ();
+		PremadeLevels.getPremadeLevels ().loadFourInputAndGate ();
 		// level.loadLevel ("");
 	}
 

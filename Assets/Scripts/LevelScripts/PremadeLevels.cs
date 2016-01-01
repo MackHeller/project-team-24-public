@@ -2,10 +2,10 @@
 using System.Collections;
 
 /// <summary>
-/// Class for loading premade levels.
+/// Class for loading premade levels. Follows the Singleton Design Pattern.
 /// </summary>
 public class PremadeLevels : MonoBehaviour{
-
+	
 	public GameObject inputPrefab;
 	public GameObject outputPrefab;
 	public GameObject canvas;
@@ -15,11 +15,18 @@ public class PremadeLevels : MonoBehaviour{
 	// the bottom-left x, y, z coordinates of the canvas shown on screen
 	private Vector3 canvasStart;
 
-	void Start() {
+	// singleton instance of PremadeLevels
+	private static PremadeLevels _instance;
+
+	public static PremadeLevels getPremadeLevels() {
+		return _instance;
+	}
+
+	void Awake() {
+		_instance = this;
 		canvasWidth = canvas.GetComponent<RectTransform> ().rect.width;
 		canvasHeight = canvas.GetComponent<RectTransform> ().rect.height;
 		Vector3 canvasPos = canvas.transform.position;
-		this.loadFourInputAndGate ();
 		canvasStart = new Vector3 (canvasPos.x - canvasWidth / 2, canvasPos.y - canvasHeight / 2, 0);
 	}
 
@@ -29,7 +36,7 @@ public class PremadeLevels : MonoBehaviour{
 	/// </summary>
 	/// <param name="index">between 1-8</param>
 	public GameObject instantiateInputAtIndex (int index) {
-		return instantiateInputAt (canvasWidth / 4, canvasHeight / 8 * index - canvasHeight / 6);
+		return this.instantiateInputAt (canvasWidth / 4, canvasHeight / 8 * index - canvasHeight / 6);
 	}
 
 	/// <summary>
@@ -38,7 +45,7 @@ public class PremadeLevels : MonoBehaviour{
 	/// </summary>
 	/// <param name="index">between 1-8</param>
 	public GameObject instantiateOutputAtIndex (int index) {
-		return instantiateOutputAt (canvasWidth / 8 * 7, canvasHeight / 8 * index - canvasHeight / 6);
+		return this.instantiateOutputAt (canvasWidth / 8 * 7, canvasHeight / 8 * index - canvasHeight / 6);
 	}
 
 	/// <summary>

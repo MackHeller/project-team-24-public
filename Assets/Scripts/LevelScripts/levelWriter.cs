@@ -74,6 +74,10 @@ public class LevelWriter {
 		ArrayList<bool> arrOut = new ArrayList<bool> ();
 		arrOut.Add (true);
 		lv.setLevelOutput (arrOut);
-		LevelWriter.saveAsNewLevel ("FourInputAndGate", lv);
+
+		ArrayList<LogicModule> gates = new ArrayList<LogicModule> ();
+		lv.setGates (gates);
+
+		lv.saveLevel ();
 	}
 }

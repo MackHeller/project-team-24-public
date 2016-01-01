@@ -1,0 +1,16 @@
+{"LevelName": "FourInputAndGate",
+"Creator": "Freddy",
+"Par": 0,
+"MinScore":1,
+"Inputs": [{"Id": 0,
+"Value": "True"},
+{"Id": 1,
+"Value": "True"},
+{"Id": 2,
+"Value": "True"},
+{"Id": 3,
+"Value": "True"}
+],
+"Outputs": [{"Id": 0,
+"Value": "True"}
+]}
