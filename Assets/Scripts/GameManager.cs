@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour {
 	private static Level _level;
 
 	void Awake() {
+		/*
+		 * Replace later, putting this here since the level editor will need to
+		 * allow a centralized way to load levels.
+		 */ 
 		_level = new Level ();
 		// level.loadLevel ("");
 	}
