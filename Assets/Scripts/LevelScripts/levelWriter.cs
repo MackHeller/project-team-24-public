@@ -9,7 +9,7 @@ public class LevelWriter {
 
     public static void saveAsNewLevel(string levelName, Level level) {
         writerLevel(Application.dataPath + "/Levels/" + levelName + ".JSON", level);
-    }
+	}
 
     private static void writerLevel(string filePath, Level level) {
         StreamWriter sw = null;

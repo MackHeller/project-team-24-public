@@ -19,9 +19,8 @@ public class PremadeLevels : MonoBehaviour{
 		canvasWidth = canvas.GetComponent<RectTransform> ().rect.width;
 		canvasHeight = canvas.GetComponent<RectTransform> ().rect.height;
 		Vector3 canvasPos = canvas.transform.position;
-		canvasStart = new Vector3 (canvasPos.x - canvasWidth / 2, canvasPos.y - canvasHeight / 2, 0);
-
 		this.loadFourInputAndGate ();
+		canvasStart = new Vector3 (canvasPos.x - canvasWidth / 2, canvasPos.y - canvasHeight / 2, 0);
 	}
 
 	/// <summary>
@@ -29,7 +28,7 @@ public class PremadeLevels : MonoBehaviour{
 	/// based on its input. More lightweight than instantiateInputAt.
 	/// </summary>
 	/// <param name="index">between 1-8</param>
-	private GameObject instantiateInputAtIndex (int index) {
+	public GameObject instantiateInputAtIndex (int index) {
 		return instantiateInputAt (canvasWidth / 4, canvasHeight / 8 * index - canvasHeight / 6);
 	}
 
@@ -38,7 +37,7 @@ public class PremadeLevels : MonoBehaviour{
 	/// based on its input. More lightweight than instantiateOutputAt.
 	/// </summary>
 	/// <param name="index">between 1-8</param>
-	private GameObject instantiateOutputAtIndex (int index) {
+	public GameObject instantiateOutputAtIndex (int index) {
 		return instantiateOutputAt (canvasWidth / 8 * 7, canvasHeight / 8 * index - canvasHeight / 6);
 	}
 
@@ -78,6 +77,7 @@ public class PremadeLevels : MonoBehaviour{
 	/// Difficulty: 		1
 	/// </summary>
 	public void loadFourInputAndGate() {
+
 		instantiateInputAtIndex (2);
 		instantiateInputAtIndex (4);
 		instantiateInputAtIndex (6);

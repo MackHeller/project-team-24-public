@@ -19,7 +19,6 @@ public class OutputTrigger : MonoBehaviour {
         } else {
             Debug.Log("This object isnt a wire.");
         }
-
     }
 
     /// <summary>

@@ -22,9 +22,11 @@ public class Level : MonoBehaviour {
 
     void Start() {
         // for testing only
+		/*
         loadLevel("level4-Mack");
         saveLevel();
         saveAsNewLevel("mackLevel", "MackHeller2");
+        */
     }
 
     public void loadLevel(string levelName) {
