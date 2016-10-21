@@ -14,8 +14,19 @@ TODO
 
 #### Roles & responsibilities TODO
 
-Describe the different roles (e.g. developers, communication facilitator,
-proof-reader, etc.) on the team, and the responsibilities associated with each role.
+Initial Roles
+Dylan: Has most front end experience of all of us, so will focus on 
+front-end but will do a bit of everything.
+
+Mack: We’re all going to do QA, but Mack will check over it and make 
+sure everything is standardized since he has industry experience with it.
+
+Freddy: Will focus on gamification and level design. The goal is to 
+try to make it more engaging and built pre-set puzzles for students to 
+solve and learn concepts.
+
+Maria and Herman: Focus on back-end.
+
 
 #### Events
 
@@ -28,6 +39,15 @@ Please describe the meetings you planning to have:
  - The meeting took place in person in room 3200 BA.
  - The purpose of the meeting was to discuss our project options. Each group member put forward a
  list of ideas. We then analysed the positives and negatives or each idea (giving each one a final score).
+ Please refer to Brainstorming Google Doc (link under Artifacts)
+ 
+ Meeting 2:
+ - Sunday Oct 16th 2016
+ - The meeting took place over Google hangouts 
+ - We finalised which problem we were going to solve. We discussed roles, 
+ target audience, workflow, weekly tasked and initial blockers. Please refer
+ to Idea Pitch in artifacts. 
+ 
 
 #### Artifacts
 
@@ -39,6 +59,13 @@ For example:
 
  - This was our Google doc for brainstorming projects:
  https://docs.google.com/document/d/1tk2mM-Xtwt5FsJttGMynXladwTwrXXg8JyssoEF-3R4/edit#heading=h.yf78gz76xn9u
+ 
+ - This was our inital idea pitch document 
+ https://docs.google.com/document/d/1ZudBNRvR8-_ENPn0iIKP1kgpEqE3eHTR9S8XgofgTZ0/edit#
+ 
+ - This was the powerpoint we made for first tutorial presentation
+ https://docs.google.com/presentation/d/11heSnry-yuDU1Bd7YDkrXR6Lu127vbpL4n35MP0dL-g/edit
+ 
 
 
 ## Product
