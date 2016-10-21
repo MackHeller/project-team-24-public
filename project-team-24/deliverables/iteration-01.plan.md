@@ -60,7 +60,7 @@ For example:
  - This was our Google doc for brainstorming projects:
  https://docs.google.com/document/d/1tk2mM-Xtwt5FsJttGMynXladwTwrXXg8JyssoEF-3R4/edit#heading=h.yf78gz76xn9u
  
- - This was our inital idea pitch document 
+ - This was our initial idea pitch document 
  https://docs.google.com/document/d/1ZudBNRvR8-_ENPn0iIKP1kgpEqE3eHTR9S8XgofgTZ0/edit#
  
  - This was the powerpoint we made for first tutorial presentation
