@@ -46,11 +46,20 @@ Decisions did not turn out as well as you hoped:
 
  * Once again, list a few (2 - 5) decisions, from most to least important.
  * As before, support your arguments by referring/linking to process artifacts.
+ 
+ Set up fairly ambitious goals for this specific week considering it’s midterm week
+ - We still need to become more familiar with Unity as a group
+ - We ended up not liking the decisions to use Gibhub Issues. We would rather have a tool 
+  that lets us nest tasks. We are looking for other options currently. 
 
 We are planning to make the following changes to our process:
 
  * List the changes you are planning to make, if any, from most to least important.
  * For each change, explain why you are making it by referring to a decision that didn't work well.
+ 
+ Set some hard deadlines rather than just list priorities - 
+ we need everyone to pick up Unity if we want to be able to move forward with dev. 
+ An alternative product management tool that we are looking at is Trello. 
 
 
 ## Product - Review
@@ -60,12 +69,20 @@ Goals/tasks that were met/completed:
  * List goals/tasks, from most to least important.
  * If a goal/task was not part of the original iteration plan, please mention it.
  * For each goal/task, refer to artifact(s) that show that it was met/completed.
+ 
+ - We have a concrete problem to solve (Google doc for brainstorming projects)
+ - Very rough idea of implementation down and how our group will function. (initial idea pitch document)
+
 
 Goals/tasks that were planned but not met/completed:
 
  * List goals/tasks, from most to least important.
  * For each goal/task, explain why it was not met/completed.
    e.g. Did you change your mind, or did you just not get to it yet?
+   
+   Having all group member trained in Unity 
+   - Midterm week gave our group members very little additional time to learn Unity 
+
 
 (Optional) Goals/tasks that were not originally planned, but ended up being not met/completed:
 
@@ -77,3 +94,6 @@ Going into the next iteration, our main insights are:
 
  * List the few (2-5) high-level concepts that should guide your work for the next few weeks.
  * These concepts should help you prioritize features and decide on where to focus your efforts.
+ 
+ - Aim for high-utility/low-tasks first
+ - Set concrete deadlines for team to follow rather than just priorities
