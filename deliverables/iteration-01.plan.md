@@ -34,19 +34,7 @@ Please describe the meetings you planning to have:
  * When and where? In-person or online?
  * What's the purpose of each meeting?
 
- Meeting 1:
- - Thursday Oct 6th 2016
- - The meeting took place in person in room 3200 BA.
- - The purpose of the meeting was to discuss our project options. Each group member put forward a
- list of ideas. We then analysed the positives and negatives or each idea (giving each one a final score).
- Please refer to Brainstorming Google Doc (link under Artifacts)
- 
- Meeting 2:
- - Sunday Oct 16th 2016
- - The meeting took place over Google hangouts 
- - We finalised which problem we were going to solve. We discussed roles, 
- target audience, workflow, weekly tasked and initial blockers. Please refer
- to Idea Pitch in artifacts. 
+
  
 
 #### Artifacts

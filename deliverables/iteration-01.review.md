@@ -4,6 +4,28 @@
 
  * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
  * Where: PHYSICAL LOCATION AND/OR ONLINE
+ 
+  Meeting 1:
+  - Thursday Oct 6th 2016
+  - The meeting took place in person in room 3200 BA.
+  - The purpose of the meeting was to discuss our project options. Each group member put forward a
+  list of ideas. We then analysed the positives and negatives or each idea (giving each one a final score).
+  Please refer to Brainstorming Google Doc (link under Artifacts)
+  
+  Meeting 2:
+  - Sunday Oct 16th 2016
+  - The meeting took place over Google hangouts 
+  - We finalised which problem we were going to solve. We discussed roles, 
+  target audience, workflow, weekly tasked and initial blockers. Please refer
+  to Idea Pitch in artifacts. 
+  
+  Meeting 3:
+  - Sunday Oct 23th 2016 
+  - The meeting took place over Google hangouts
+  - We reviewed what we did this week. Discussed additional ways to organise ourselves,
+  discussed goals for future weeks. 
+   
+  
 
 ## Process - Reflection
 
@@ -13,6 +35,12 @@ Decisions turned out well:
 
  * List a few (2-5) decisions, from most to least important.
  * Support your argument (that a decisions was successful) by referring/linking to process artifact(s).
+ 
+ We met most of our goals and produced all artifacts, overall went well.
+ - Setting meetings: Got weekly meeting set up, doing well regardless of midterm week
+ - Choosing an idea: Chose concrete idea out of our 15+ ideas
+ - Creating slides: Presentation went well, got favorable reception from TA and audience. 
+
 
 Decisions did not turn out as well as you hoped:
 
