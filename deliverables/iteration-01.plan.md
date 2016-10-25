@@ -60,11 +60,6 @@ Our goals (and their associated tasks) for this iteration are as follows, listed
 
 ### Artifacts
 
-* Describe the artifacts (diagrams, interactive mock-ups, wireframes, actual code, etc.) that you are planning to produce by the end of (and during) this iteration.
-* Be precise. For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
-
-List of Problems that we could solve
-Overview document of implementation (rough)
-Slides for idea presentation in tutorial
-Decision of which idea to pick from our idea-bank and more in depth consideration for that idea
-Decide who will do the formal writeup for which parts of the deliverable (we’ll all brainstorm together)
+* Document outlining our list of ideas including the problem, solution and target audience for each
+* Document outlining our chosen idea with more in depth consideration for that idea
+* Slides for our chosen idea presentation in tutorial
