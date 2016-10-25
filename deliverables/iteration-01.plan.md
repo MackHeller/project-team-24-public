@@ -7,43 +7,48 @@
 
 ## Process
 
-Introduction
-These are the preliminary group meetings group 24 had to discuss our csc301 group project. We had many additional
-discussions on Slack; a social network application.
-TODO
 
-#### Roles & responsibilities TODO
+#### Roles & responsibilities
 
-Initial Roles
-Dylan: Has most front end experience of all of us, so will focus on 
-front-end but will do a bit of everything.
+Initial Roles:
+Dylan: Has the most front end experience in our team, so his role within the team
+will be that of the designated front-end developer. In addition to writing the
+front-end implementation, he will also be the individual that other members go to
+when questions arise concerning the front-end.
 
-Mack: We’re all going to do QA, but Mack will check over it and make 
-sure everything is standardized since he has industry experience with it.
+Mack: In addition to being a general developer, Mack will be the primary quality
+assurance specialist of the team. His task will be to go through the code to 
+make sure that quality requirements are fulfilled.
 
-Freddy: Will focus on gamification and level design. The goal is to 
-try to make it more engaging and built pre-set puzzles for students to 
-solve and learn concepts.
+Freddy: Will focus on gamification and level design. The primary goal of this 
+project is education, but a large part of effective education is engagement; it is for 
+this purpose that Freddy will be given the task of creating engaging and 
+interesting level designs and game features.
 
-Maria and Herman: Focus on back-end.
+Maria and Herman: Maria and Herman will be the dedicated developers for this 
+project. Focusing mainly on the implementation of the project but occasionally 
+moving into other areas if help is needed.
 
 
 #### Events
 
-Please describe the meetings you planning to have:
- * When and where? In-person or online?
- * What's the purpose of each meeting?
-
-
+	The current plan regarding events is to have, at minimum, one face-to-face meeting weekly and to make use
+of Slack (a team communication application) on a consistent bases. If a face-to-face meeting is not 
+possible then an online meeting can be held in the form of a group call. In general, the purpose of these 
+meetings is to go over what has been done and assign general tasks to be completed by the next meeting time. 
+The meetings will also be a knowledge sharing period where team members can help solve any issues of concern 
+other members are having. Smaller decisions will be handled in the group chat over Slack.
  
 
 #### Artifacts
 
-Please describe the artifacts that you will produce in order to organize and keep track of your team's progress.
-For example:
- * To-do lists, burndown chart, schedule, etc.
- * If you include charts/diagrams, make sure to explain what they represent.
- * If you're maintaining a to-do list, make sure to mention which tool you're using, how you are prioritizing items and how items get assigned to team members.
+	Our team will make use of several applications for team organization and task distribution. For team organization we will make use
+of Slack(the team communications application); decisions made over Slack will likely be on topics not concerning direct implementation 
+but more so on scheduling and other team issues. General brainstorming and info aggregation will be handled by the use of google docs. 
+The group editing allowed by google docs will also assist during weekly meetings if we unable to meet face-to-face. for assigning tasks 
+and tracking progress we will make use of a to-do list, primarily over the tool Trello. The Trello interface is composed of a project backlog, 
+a blocked task list, an in-progress task list, tasks to be tested, tasks which are completed, and lastly tasks which have been merged and pushed.
+The assignment of these tasks, and their associated priority, will be carried out during either the group meetings or over Slack.
 
  - This was our Google doc for brainstorming projects:
  https://docs.google.com/document/d/1tk2mM-Xtwt5FsJttGMynXladwTwrXXg8JyssoEF-3R4/edit#heading=h.yf78gz76xn9u
@@ -51,7 +56,7 @@ For example:
  - This was our initial idea pitch document: 
  https://docs.google.com/document/d/1ZudBNRvR8-_ENPn0iIKP1kgpEqE3eHTR9S8XgofgTZ0/edit#
  
- - This was the powerpoint we made for first tutorial presentation:
+ - This was the powerpoint we made for first the tutorial presentation:
  https://docs.google.com/presentation/d/11heSnry-yuDU1Bd7YDkrXR6Lu127vbpL4n35MP0dL-g/edit
  
 
