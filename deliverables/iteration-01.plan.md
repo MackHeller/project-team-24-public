@@ -11,6 +11,7 @@
 #### Roles & responsibilities
 
 Initial Roles:
+
 Dylan: Has the most front end experience in our team, so his role within the team
 will be that of the designated front-end developer. In addition to writing the
 front-end implementation, he will also be the individual that other members go to
@@ -32,7 +33,7 @@ moving into other areas if help is needed.
 
 #### Events
 
-	The current plan regarding events is to have, at minimum, one face-to-face meeting weekly and to make use
+The current plan regarding events is to have, at minimum, one face-to-face meeting weekly and to make use
 of Slack (a team communication application) on a consistent bases. If a face-to-face meeting is not 
 possible then an online meeting can be held in the form of a group call. In general, the purpose of these 
 meetings is to go over what has been done and assign general tasks to be completed by the next meeting time. 
@@ -42,13 +43,11 @@ other members are having. Smaller decisions will be handled in the group chat ov
 
 #### Artifacts
 
-	Our team will make use of several applications for team organization and task distribution. For team organization we will make use
+Our team will make use of several applications for team organization and task distribution. For team organization we will make use
 of Slack(the team communications application); decisions made over Slack will likely be on topics not concerning direct implementation 
 but more so on scheduling and other team issues. General brainstorming and info aggregation will be handled by the use of google docs. 
 The group editing allowed by google docs will also assist during weekly meetings if we unable to meet face-to-face. for assigning tasks 
-and tracking progress we will make use of a to-do list, primarily over the tool Trello. The Trello interface is composed of a project backlog, 
-a blocked task list, an in-progress task list, tasks to be tested, tasks which are completed, and lastly tasks which have been merged and pushed.
-The assignment of these tasks, and their associated priority, will be carried out during either the group meetings or over Slack.
+and tracking progress we will make use of a to-do list, primarily over the tool Trello. The Trello interface is composed of a project backlog, a blocked task list, an in-progress task list, tasks to be tested, tasks which are completed, and lastly tasks which have been merged and pushed. The assignment of these tasks, and their associated priority, will be carried out during either the group meetings or over Slack.
 
  - This was our Google doc for brainstorming projects:
  https://docs.google.com/document/d/1tk2mM-Xtwt5FsJttGMynXladwTwrXXg8JyssoEF-3R4/edit#heading=h.yf78gz76xn9u
