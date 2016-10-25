@@ -3,7 +3,7 @@
 ## Iteration 1
 
  * Start date: Thursday Oct 6th 2016
- * End date: Friday Oct 21st 2016
+ * End date: Thursday Oct 20th 2016
 
 ## Process
 
