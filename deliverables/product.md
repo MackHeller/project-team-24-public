@@ -6,7 +6,11 @@ We believe our tool can be useful for anybody who wishes to learn Computer Organ
 * Students for CSC258 and similar courses. They are the demographic most likely to learn the material that the tool will educate them on and thus the people we believe will be most likely to use the tool.
 * Instructors for CSC258 and similar courses. We believe that they will appreciate having the ability to easily create customizable problem sets for their students which will enable students to succeed. We hope this will also help with promoting the use of our product by encouraging or requiring its use within their class.
 
-A commonly used circuit builder which does not have the game-like features is LogiSim (http://www.cburch.com/logisim/). You can find multiple other tools for practicing circuit creation (https://www.google.ca/#q=online+circuit+builder). However, many of these other tools heavily emphasize electrical properties, which is not mentioned beyond the first week in CSC258.
+A commonly used circuit builder which does not have the game-like features is [LogiSim](http://www.cburch.com/logisim/).
+
+![LogiSim Screenshot](http://www.cburch.com/logisim/shot-2.7.0.png "LogiSim Screenshot")
+
+You can find [multiple other tools for practicing circuit creation on Google](https://www.google.ca/#q=online+circuit+builder) however many of these other tools heavily emphasize electrical properties, which is not mentioned beyond the first week in CSC258.
 
 There are two primary issues with other tools: 
 * They provide too many options and are unfriendly to beginners who are taking an introductory circuit-building and hardware course. 
