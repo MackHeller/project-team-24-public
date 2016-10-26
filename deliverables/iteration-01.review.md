@@ -30,6 +30,7 @@ We met most of our goals and produced all artifacts, overall went well.
 Decisions that turned out well:
 
  * Setting meetings: Got weekly meeting set up, everyone was able to meet even though we were busy with midterm week
+ * Use of Slack: Slack has turned out to be excellent for coordinating meeting locations and times as well as general project related communication. We set up a GitHub integration in slack so we receive notifications of the progress everyone is making on our project.
  * Use of Google docs: Collaborating when creating our planned artifacts was really easy. It allowed us to rapidly brainstorm and iterate on our ideas and we were able to create excellent presentation slides that got favorable reception from TA and audience. 
 
 Decisions that did not turn out as well as you hoped:
