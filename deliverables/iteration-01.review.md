@@ -25,7 +25,7 @@
 
 ## Process - Reflection
 
-We met most of our goals and produced all artifacts, overall went well.
+We met most of our goals and produced all artifacts, in general everything went well.
 
 Decisions that turned out well:
 
