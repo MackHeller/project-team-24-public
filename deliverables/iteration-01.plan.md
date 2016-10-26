@@ -25,12 +25,8 @@ The current plan regarding events is to have, at minimum, one face-to-face meeti
  
 ### Artifacts
 
-Our team will make use of several applications for team organization and task distribution. For team organization we will make use of Slack; decisions made over Slack will likely be on topics not concerning direct implementation but more so on scheduling and other team issues. General brainstorming and info aggregation will be handled by the use of google docs. The group editing allowed by Google docs will also assist during weekly meetings if we unable to meet face-to-face. For assigning tasks and tracking progress we will make use of the project management tool Trello. We'll break down our goals into small, granular tasks and create a card for each in Trello. Then each card will be categorized into the following lists: backlog, blocked, in-progress, undergoing testing, completed, and merged/pushed. The assignment of these tasks, and their associated priority, will be carried out during either the group meetings or over Slack.
+Our team will make use of several applications for team organization and task distribution. For team organization we will make use of Slack; decisions made over Slack will likely be on topics not concerning direct implementation but more so on scheduling and other team issues. General brainstorming and info aggregation will be handled by the use of Google docs. The group editing allowed by Google docs will also assist during weekly meetings if we unable to meet face-to-face. For assigning tasks and tracking progress we will make use of the GitHub issues. We'll break down our goals into small, granular tasks and create an issue for each. The assignment of these tasks, and their associated priority, will be carried out during either the group meetings or over Slack.
 
-**TODO: move this to review.md**
-* [Google doc for brainstorming projects](https://docs.google.com/document/d/1tk2mM-Xtwt5FsJttGMynXladwTwrXXg8JyssoEF-3R4)
-* [Initial idea pitch document](https://docs.google.com/document/d/1ZudBNRvR8-_ENPn0iIKP1kgpEqE3eHTR9S8XgofgTZ0)
-* [Presentation for the first tutorial](https://docs.google.com/presentation/d/11heSnry-yuDU1Bd7YDkrXR6Lu127vbpL4n35MP0dL-g)
 
 ## Product
 
