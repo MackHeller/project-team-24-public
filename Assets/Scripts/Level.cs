@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using C5;
 
-public class Level : MonoBehaviour {
+public class Level {
+	/*
+	 * A puzzle level. After giving a set of inputs to a
+	 * set of LogicObjects, it expects a set of outputs
+	 * and compares whether the set of outputs is correct.
+	 */
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	protected ArrayList<LogicObject> inputs;
+
+	// TODO: consider ramifications and modify.
+	protected ArrayList<bool> expectedOutputs;
 }
