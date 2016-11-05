@@ -17,7 +17,7 @@ public class Level {
     }
     /*
      * Checks if gate exists in the current level
-     * 
+     * name = name of a valid gate
      * */
     public bool hasGate(String name)
     {
@@ -30,6 +30,12 @@ public class Level {
         }
         return false;
     }
+    /*
+     * TODO: do we want the functionality to return MaxValue for Unlimited gates?
+     * get the max amount of a certain gate the level allows. If there is no limit it returns the MaxValue.
+     * Throws Exception if gate does not exist
+     * name = name of a valid gate
+     * */
     public int getGateAmount(String name)
     {
         for (int i = 0; i < levelInformation["Gates"].Count; i++)
@@ -48,8 +54,11 @@ public class Level {
             }
         }
         throw new System.
-            ArgumentException("Tried to request gate that does not exist in the current level");
+            Exception("Tried to request gate that does not exist in the current level");
     }
+    /*
+     * gets all of the inputs. Returns as an array of booleans
+     * */
     public ArrayList<bool> getLevelInput()
     {
         ArrayList<bool> inputs = new ArrayList<bool>();
@@ -59,6 +68,9 @@ public class Level {
         }
         return inputs;
     }
+    /*
+     * gets all of the outputs. Returns as an array of booleans
+     * */
     public ArrayList<bool> getLevelOutput()
     {
         ArrayList<bool> output = new ArrayList<bool>();
