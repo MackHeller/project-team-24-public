@@ -9,19 +9,16 @@ public class levelReader : MonoBehaviour
 {
     private JsonData levelInformation;
     private String jsonString;
-    private String fileName;
     // Use this for initialization
     void Start()
     {
-        fileName = Application.dataPath +"/Levels/level1.JSON";
-        Reader();
+        loadNewLevel("level1");
     }
-    // Update is called once per frame
-    void Update()
+    void loadNewLevel(String fileName)
     {
-
+        Reader(Application.dataPath + "/Levels/" + fileName +".JSON");
     }
-    void Reader()
+    void Reader(String fileName)
     {
         StreamReader sr = null;
 
