@@ -11,7 +11,7 @@ public class Level {
 	 * and compares whether the set of outputs is correct.
 	 */
     protected JsonData levelInformation;
-    void loadLevel(string levelName)
+    public void loadLevel(string levelName)
     {
         levelInformation = levelReader.loadNewLevel(levelName);
     }
@@ -19,7 +19,7 @@ public class Level {
      * Checks if gate exists in the current level
      * 
      * */
-    bool hasGate(String name)
+    public bool hasGate(String name)
     {
         for (int i = 0; i < levelInformation["Gates"].Count; i++)
         {
@@ -30,7 +30,7 @@ public class Level {
         }
         return false;
     }
-    int getGateAmount(String name)
+    public int getGateAmount(String name)
     {
         for (int i = 0; i < levelInformation["Gates"].Count; i++)
         {
@@ -50,7 +50,7 @@ public class Level {
         throw new System.
             ArgumentException("Tried to request gate that does not exist in the current level");
     }
-    ArrayList<bool> getLevelInput()
+    public ArrayList<bool> getLevelInput()
     {
         ArrayList<bool> inputs = new ArrayList<bool>();
         for (int i = 0; i < levelInformation["Inputs"].Count; i++)
@@ -59,7 +59,7 @@ public class Level {
         }
         return inputs;
     }
-    ArrayList<bool> getLevelOutput()
+    public ArrayList<bool> getLevelOutput()
     {
         ArrayList<bool> output = new ArrayList<bool>();
         for (int i = 0; i < levelInformation["Output"].Count; i++)
@@ -68,5 +68,8 @@ public class Level {
         }
         return output;
     }
-    JsonData getAllLevelInformation() { return levelInformation; }
+    public String getLevelName() { return levelInformation["LevelName"].ToString();}
+    public int getLevelPar() { return Convert.ToInt32(levelInformation["Par"].ToString()); }
+    public int getMinScore() { return Convert.ToInt32(levelInformation["MinScore"].ToString()); }
+    public JsonData getAllLevelInformation() { return levelInformation; }
 }
