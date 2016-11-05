@@ -5,29 +5,37 @@ using System.IO;
 using LitJson;
 using C5;
 
-public class levelReader : MonoBehaviour
+public class levelReader 
 {
-    private JsonData levelInformation;
-    private String jsonString;
     // Use this for initialization
     void Start()
     {
+        //for testing purposes only
         loadNewLevel("level1");
     }
-    void loadNewLevel(String fileName)
+    /*
+     *  Takes the name of a level, makes a filepath to that level and calls loadNewLevel
+     *  If you already have the full filepath you can call Reader directly
+     *  levelName = name of a valid level 
+     */
+    public static JsonData loadNewLevel(String levelName)
     {
-        Reader(Application.dataPath + "/Levels/" + fileName +".JSON");
+        return Reader(Application.dataPath + "/Levels/" + levelName + ".JSON");
     }
-    void Reader(String fileName)
+    /*
+     * Sets levelInformation as the JSON that is read in from the given filePath 
+     * filePath = location of a valid JSON file
+     * */
+    private static JsonData Reader(String filePath)
     {
         StreamReader sr = null;
-
+        String jsonString = "";
         try
         {
-            sr = new StreamReader(fileName);
+            sr = new StreamReader(filePath);
             jsonString = sr.ReadToEnd();
+            //for testing purposes only
             Debug.Log(jsonString);
-            levelInformation = JsonMapper.ToObject(jsonString);
         }
         catch (IOException e)
         {
@@ -43,37 +51,7 @@ public class levelReader : MonoBehaviour
         {
             if (sr != null) sr.Dispose();
         }
+        return JsonMapper.ToObject(jsonString);
     }
-
-    JsonData getGate(String name)
-    {
-        for (int i = 0; i < levelInformation["Gates"].Count; i++)
-        {
-            if (levelInformation["Gates"][i].ToString() == name)
-            {
-                return levelInformation["Gates"][i];
-            }
-        }
-        return null;
-    }
-    ArrayList<bool> getLevelInput()
-    {
-        ArrayList<bool> inputs = new ArrayList<bool>();
-        for (int i = 0; i < levelInformation["Inputs"].Count; i++)
-        {
-            inputs.Add(Convert.ToBoolean(levelInformation["Inputs"][i].ToString()));
-        }
-        return inputs;
-    }
-    ArrayList<bool> getLevelOutput()
-    {
-        ArrayList<bool> output = new ArrayList<bool>();
-        for (int i = 0; i < levelInformation["Output"].Count; i++)
-        {
-            output.Add(Convert.ToBoolean(levelInformation["Output"][i].ToString()));
-        }
-        return output;
-    }
-
-
+    
 }

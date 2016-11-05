@@ -4,13 +4,13 @@
 	"MinScore": 8,
 	"Gates": [{
 		"Name": "AND",
-		"amount": "Unlimited"
+		"Amount": "Unlimited"
 	}, {
 		"Name": "OR",
-		"amount": "0"
+		"Amount": "0"
 	}, {
 		"Name": "XOR",
-		"amount": "2"
+		"Amount": "2"
 	}],
 	"Inputs": [{
 		"Id": "1",
