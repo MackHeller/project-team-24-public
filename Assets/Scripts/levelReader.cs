@@ -49,25 +49,32 @@ public class levelReader : MonoBehaviour
 
     JsonData getGate(String name)
     {
-        for (int i = 0; i < levelInformation["gates"].Count; i++)
+        for (int i = 0; i < levelInformation["Gates"].Count; i++)
         {
-            if (levelInformation["gates"][i].ToString() == name)
+            if (levelInformation["Gates"][i].ToString() == name)
             {
-                return levelInformation["gates"][i];
+                return levelInformation["Gates"][i];
             }
         }
         return null;
     }
-    ArrayList getLevelInput(String name)
+    ArrayList getLevelInput()
     {
-        for (int i = 0; i < levelInformation["gates"].Count; i++)
+        ArrayList inputs = new ArrayList();
+        for (int i = 0; i < levelInformation["Inputs"].Count; i++)
         {
-            if (levelInformation["gates"][i].ToString() == name)
-            {
-                return levelInformation["gates"][i];
-            }
+            inputs.Add(levelInformation["Inputs"][i].ToString());
         }
-        return null;
+        return inputs;
+    }
+    ArrayList getLevelOutput()
+    {
+        ArrayList output = new ArrayList();
+        for (int i = 0; i < levelInformation["Output"].Count; i++)
+        {
+            output.Add(levelInformation["Output"][i].ToString());
+        }
+        return output;
     }
 
 

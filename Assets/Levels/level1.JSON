@@ -1,20 +1,20 @@
 {
-	"name":"mackLevel"
-	"par": 5,
+	"LevelName":"mackLevel"
+	"Par": 5,
 	"MinScore": 8,
-	"gates" : [
+	"Gates" : [
 		{"Name": "AND", "amount": "Unlimited"},
 		{"Name":"OR", "amount":"0"},
 		{"Name": "XOR", "amount":"2"}
 	]
-	"Input" : [
+	"Inputs" : [
 		{"Id":"1","Value":"True"}
 		{"Id":"2","Value":"True"}
 		{"Id":"3","Value":"False"}
 		{"Id":"4","Value":"False"}
 		{"Id":"5","Value":"True"}
 	]
-	"Output" : [
+	"Outputs" : [
 		{"Id":"1","Value":"False"}
 		{"Id":"2","Value":"True"}
 		{"Id":"3","Value":"False"}
