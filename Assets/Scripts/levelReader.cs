@@ -13,7 +13,8 @@ public class levelReader : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        fileName = "Levels/level1.JSON";
+        fileName = Application.dataPath +"/Levels/level1.JSON";
+        Reader();
     }
     // Update is called once per frame
     void Update()
@@ -28,19 +29,18 @@ public class levelReader : MonoBehaviour
         {
             sr = new StreamReader(fileName);
             jsonString = sr.ReadToEnd();
+            Debug.Log(jsonString);
             levelInformation = JsonMapper.ToObject(jsonString);
         }
         catch (IOException e)
         {
             Console.WriteLine("Cannot read file");
             Console.WriteLine(e.Message);
-
         }
         catch (UnauthorizedAccessException e)
         {
             Console.WriteLine("Cannot access file");
             Console.WriteLine(e.Message);
-
         }
         finally
         {
