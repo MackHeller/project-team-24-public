@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using System.IO;
 using LitJson;
+using C5;
 
 public class levelReader : MonoBehaviour
 {
@@ -58,21 +59,21 @@ public class levelReader : MonoBehaviour
         }
         return null;
     }
-    ArrayList getLevelInput()
+    ArrayList<bool> getLevelInput()
     {
-        ArrayList inputs = new ArrayList();
+        ArrayList<bool> inputs = new ArrayList<bool>();
         for (int i = 0; i < levelInformation["Inputs"].Count; i++)
         {
-            inputs.Add(levelInformation["Inputs"][i].ToString());
+            inputs.Add(Convert.ToBoolean(levelInformation["Inputs"][i].ToString()));
         }
         return inputs;
     }
-    ArrayList getLevelOutput()
+    ArrayList<bool> getLevelOutput()
     {
-        ArrayList output = new ArrayList();
+        ArrayList<bool> output = new ArrayList<bool>();
         for (int i = 0; i < levelInformation["Output"].Count; i++)
         {
-            output.Add(levelInformation["Output"][i].ToString());
+            output.Add(Convert.ToBoolean(levelInformation["Output"][i].ToString()));
         }
         return output;
     }
