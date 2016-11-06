@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using C5;
+using C5;
+using System;
 
 public class Wire : LogicObject {
 	/*
@@ -11,5 +12,17 @@ public class Wire : LogicObject {
 	//bool input;
 
 	// The list of boolean outputs that the module outputs
-	//ArrayList<bool> outputs;
+
+	ArrayList<bool> outputs;
+
+    public ArrayList<bool> notify_input(ArrayList<bool> input_set)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void notify_output(ArrayList<LogicObject> outputObjects)
+    {
+        throw new NotImplementedException();
+    }
+
 }

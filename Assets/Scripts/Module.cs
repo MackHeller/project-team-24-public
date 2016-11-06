@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using C5;
+using C5;
+using System;
 
 public class Module : LogicObject {
 	/*
@@ -24,12 +25,25 @@ public class Module : LogicObject {
 	//}
 
 	// Applys the module's logic to the input arraylist of booleans
-	//ArrayList<bool> apply_logic(ArrayList<bool> inputs) {
 
-	//}
+	ArrayList<LogicObject> apply_logic(ArrayList<bool> inputs) {
+        return null;
+	}
+
 
 	// Notifies the output LogicObjects of a set of inputs
 	//void notify_output (ArrayList<LogicObject> outputObjects) {
 
-	//}
+
+	
+
+    ArrayList<bool> LogicObject.notify_input(ArrayList<bool> input_set)
+    {
+        throw new NotImplementedException();
+    }
+
+    void LogicObject.notify_output(ArrayList<LogicObject> outputObjects)
+    {
+        throw new NotImplementedException();
+    }
 }
