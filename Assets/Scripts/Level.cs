@@ -4,16 +4,45 @@ using C5;
 using System;
 using LitJson;
 
-public class Level {
+public class Level : MonoBehaviour{
     /*
 	 * A puzzle level. After giving a set of inputs to a
 	 * set of LogicObjects, it expects a set of outputs
 	 * and compares whether the set of outputs is correct.
 	 */
-    protected JsonData levelInformation;
+    protected String levelName;
+    protected int levelPar;
+    protected int minScore;
+    protected ArrayList<Module> gates;
+    protected ArrayList<bool> input;
+    protected ArrayList<bool> output;
+    //for testing only
+    void Start()
+    {
+        loadLevel("level1");
+        saveAsNewLevel("level2");
+    }
     public void loadLevel(string levelName)
     {
-        levelInformation = levelReader.loadNewLevel(levelName);
+        this.levelName = levelName;
+        setLevelValues(LevelReader.loadNewLevel(levelName));
+    }
+    public void saveAsNewLevel(string levelName)
+    {
+        LevelWriter.saveAsNewLevel(levelName, this);
+    }
+    public void saveAsNewLevel()
+    {
+        LevelWriter.saveAsNewLevel(this.levelName, this);
+    }
+    public void setLevelValues(JsonData jsonData)
+    {
+        this.levelName = LevelReader.getLevelName(jsonData);
+        this.levelPar = LevelReader.getLevelPar(jsonData);
+        this.minScore = LevelReader.getMinScore(jsonData);
+        this.gates = LevelReader.getGates(jsonData);
+        this.input = LevelReader.getLevelInput(jsonData);
+        this.output = LevelReader.getLevelOutput(jsonData);
     }
     /*
      * Checks if gate exists in the current level
@@ -21,9 +50,9 @@ public class Level {
      * */
     public bool hasGate(String name)
     {
-        for (int i = 0; i < levelInformation["Gates"].Count; i++)
+        for (int i = 0; i < gates.Count; i++)
         {
-            if (levelInformation["Gates"][i].ToString() == name)
+            if (gates[i].getName().Equals(name))
             {
                 return true;
             }
@@ -31,57 +60,26 @@ public class Level {
         return false;
     }
     /*
-     * TODO: do we want the functionality to return MaxValue for Unlimited gates?
      * get the max amount of a certain gate the level allows. If there is no limit it returns the MaxValue.
      * Throws Exception if gate does not exist
      * name = name of a valid gate
      * */
     public int getGateAmount(String name)
     {
-        for (int i = 0; i < levelInformation["Gates"].Count; i++)
+        for (int i = 0; i < gates.Count; i++)
         {
-            if (levelInformation["Gates"][i].ToString() == name)
+            if (gates[i].getName().Equals(name))
             {
-                //In the case that we have an unlimited amount of gates
-                if (levelInformation["Gates"][i]["Amount"].ToString() == "Unlimited")
-                {
-                    return Int32.MaxValue;
-                }
-                else
-                {
-                    return Convert.ToInt32(levelInformation["Gates"][i]["Amount"].ToString());
-                }
+                return gates[i].getAmount();
             }
         }
         throw new System.
             Exception("Tried to request gate that does not exist in the current level");
     }
-    /*
-     * gets all of the inputs. Returns as an array of booleans
-     * */
-    public ArrayList<bool> getLevelInput()
-    {
-        ArrayList<bool> inputs = new ArrayList<bool>();
-        for (int i = 0; i < levelInformation["Inputs"].Count; i++)
-        {
-            inputs.Add(Convert.ToBoolean(levelInformation["Inputs"][i].ToString()));
-        }
-        return inputs;
-    }
-    /*
-     * gets all of the outputs. Returns as an array of booleans
-     * */
-    public ArrayList<bool> getLevelOutput()
-    {
-        ArrayList<bool> output = new ArrayList<bool>();
-        for (int i = 0; i < levelInformation["Output"].Count; i++)
-        {
-            output.Add(Convert.ToBoolean(levelInformation["Output"][i].ToString()));
-        }
-        return output;
-    }
-    public String getLevelName() { return levelInformation["LevelName"].ToString();}
-    public int getLevelPar() { return Convert.ToInt32(levelInformation["Par"].ToString()); }
-    public int getMinScore() { return Convert.ToInt32(levelInformation["MinScore"].ToString()); }
-    public JsonData getAllLevelInformation() { return levelInformation; }
+    public ArrayList<Module> getGates() { return gates; }
+    public ArrayList<bool> getLevelInput(){return input;}
+    public ArrayList<bool> getLevelOutput(){return output;}
+    public String getLevelName() { return levelName;}
+    public int getLevelPar() { return levelPar; }
+    public int getMinScore() { return minScore; }
 }

@@ -43,4 +43,16 @@ public class Module : LogicObject {
     {
         throw new NotImplementedException();
     }
+
+    public string getName()
+    {
+        //TODO
+        return "Name";
+    }
+
+    public int getAmount()
+    {
+        //TODO
+        return -1;
+    }
 }

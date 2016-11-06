@@ -4,7 +4,7 @@
 	"MinScore": 8,
 	"Gates": [{
 		"Name": "AND",
-		"Amount": "Unlimited"
+		"Amount": "-1 "
 	}, {
 		"Name": "OR",
 		"Amount": "0"
