@@ -11,6 +11,6 @@ public class Level {
 
 	protected ArrayList<LogicObject> inputs;
 
-	// TODO: consider ramifications and modify.
-	protected ArrayList<bool> expectedOutputs;
+	//TODO: consider ramifications and modify.
+	//protected ArrayList<bool> expectedOutputs;
 }

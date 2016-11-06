@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using C5;
+//using C5;
 
 public class Wire : LogicObject {
 	/*
@@ -8,8 +8,8 @@ public class Wire : LogicObject {
 	 */
 
 	// The list of boolean inputs that the module takes in
-	bool input;
+	//bool input;
 
 	// The list of boolean outputs that the module outputs
-	ArrayList<bool> outputs;
+	//ArrayList<bool> outputs;
 }

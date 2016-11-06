@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using C5;
+//using C5;
 
 public interface LogicObject {
 	/*
@@ -11,7 +11,7 @@ public interface LogicObject {
 	 * TODO: consider if there's a better set object than arraylist.
 	 */
 
-	ArrayList<bool> notify_input (ArrayList<bool> input_set);
+	//ArrayList<bool> notify_input (ArrayList<bool> input_set);
 
-	void notify_output (ArrayList<LogicObject> outputObjects);
+	//void notify_output (ArrayList<LogicObject> outputObjects);
 }
