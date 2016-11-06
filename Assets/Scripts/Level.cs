@@ -19,8 +19,8 @@ public class Level : MonoBehaviour{
     //for testing only
     void Start()
     {
-        loadLevel("level1");
-        saveAsNewLevel("level2");
+        loadLevel("level2");
+        saveAsNewLevel("level3");
     }
     public void loadLevel(string levelName)
     {

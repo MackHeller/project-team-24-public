@@ -13,55 +13,46 @@ public class LevelWriter {
     private static void writer(string filePath, Level level)
     {
         StreamWriter sw = null;
-        string json = String.Format(@"{
-	                                    ""LevelName"": ""{0}"",
-                                        ""Par"": {1},
-	                                    ""MinScore"": {2}",
-                                        level.getLevelName(),level.getLevelPar(),level.getMinScore());
+        string json = "{\"LevelName\": \"" + level.getLevelName() + "\",\n\"Par\": " + level.getLevelPar() + ",\n\"MinScore\":" + level.getMinScore();
         //do gates
         ArrayList<Module> gates = level.getGates();
         if (gates.Count > 0)
-            json = json + @",""Gates"": [";
+            json = json + ",\n\"Gates\": [";
         for (int i=0;i< gates.Count; i++)
         {
-            json = String.Format(json + @"{
-                                        ""Name"": {0},
-		                                ""Amount"": {1}},", gates[i].getName(), convertMaxValue(gates[i].getAmount()));
+            json = json + "{\"Name\": \""+ gates[i].getName() + "\",\n\"Amount\": "+ convertMaxValue(gates[i].getAmount()) + "},\n";
         }
         if (gates.Count > 0)
-            json = json.Remove(json.Length - 1) + "]";
+            json = json.Remove(json.Length - 2) + "\n]";
 
         //do inputs
         ArrayList<bool> inputs = level.getLevelInput();
         if (inputs.Count > 0)
-            json = json + @",""Inputs"": [";
+            json = json + ",\n\"Inputs\": [";
         for (int i = 0; i < inputs.Count; i++)
         {
-            json = String.Format(json + @"{
-                                        ""Id"": {0},
-		                                ""Value"": {1}},", i, inputs[i]);
+            json = json + "{\"Id\": "+i+",\n\"Value\": \""+ inputs[i] + "\"},\n";
         }
         if (inputs.Count > 0)
-            json = json.Remove(json.Length - 1) + "]";
+            json = json.Remove(json.Length - 2) + "\n]";
 
         //do outputs
         ArrayList<bool> outputs = level.getLevelOutput();
         if (outputs.Count > 0)
-            json = json + @",""Outputs"": [";
+            json = json + ",\n\"Outputs\": [";
         for (int i = 0; i < outputs.Count; i++)
         {
-            json = String.Format(json + @"{
-                                        ""Id"": {0},
-		                                ""Value"": {1}},", i, outputs[i]);
+            json = json + "{\"Id\": " + i + ",\n\"Value\": \"" + outputs[i] + "\"},\n";
         }
         if (outputs.Count > 0)
-            json = json.Remove(json.Length - 1) + "]";
-
+            json = json.Remove(json.Length - 2) + "\n]";
+        json = json + "}";
         //for testing
         Debug.Log(json);
         try
         {
             sw = new StreamWriter(filePath);
+            sw.WriteLine(json);
         }
         catch (IOException e)
         {

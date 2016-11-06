@@ -1,0 +1,1 @@
+{"LevelName": "mackLevel","Par": 5,"MinScore":8,"Inputs": [{"Id": 0,"Value": "True"},{"Id": 1,"Value": "True"},{"Id": 2,"Value": "False"},{"Id": 3,"Value": "False"},{"Id": 4,"Value": "True"}],"Outputs": [{"Id": 0,"Value": "False"},{"Id": 1,"Value": "True"},{"Id": 2,"Value": "False"},{"Id": 3,"Value": "False"}]}
