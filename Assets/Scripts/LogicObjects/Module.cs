@@ -31,7 +31,7 @@ using System;
 	}
 
 	// Applys the module's logic to the input arraylist of booleans
-	virtual public IList<LogicObject> apply_logic(IList<bool> inputs) {
+	virtual public IList<bool> apply_logic(IList<bool> inputs) {
 		throw new NotImplementedException();
 	}
 
