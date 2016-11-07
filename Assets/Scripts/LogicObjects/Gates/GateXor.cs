@@ -24,7 +24,7 @@ public class GateAND : Module {
 	override public IList<LogicObject> apply_logic(IList<bool> inputs) {
 		bool output = inputs [0];
 		for (int i = 1; i < inputs.Count; i++) {
-			output = output & inputs [i];
+			output = output ^ inputs [i];
 		}
 		List<bool> ls = new List<bool> ();
 		ls.Add (output);

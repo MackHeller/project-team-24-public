@@ -13,12 +13,12 @@ public class Wire : LogicObject {
 	// The list of boolean outputs that is wired to
 	IList<bool> outputs;
 
-	public void notify_input(IList<bool> input_set)
+	public void notify_input(IList<bool> input_list)
     {
         throw new NotImplementedException();
     }
 
-    public void notify_output(IList<LogicObject> outputObjects)
+	public void notify_output(IList<bool> output_list)
     {
         throw new NotImplementedException();
     }

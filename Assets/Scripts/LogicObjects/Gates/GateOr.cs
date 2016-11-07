@@ -3,15 +3,15 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class GateAND : Module {
+public class GateOr : Module {
 	/*
-	 * An many-to-one OR gate.
+	 * An many-to-one AND gate.
 	 * 
 	 * TODO: adjust module to wait on multiple inputs.
 	 */
 
 	// Constructor called by the factory method
-	public GateAND (int num_inputs, IList<LogicObject> output_objects) {
+	public GateOr (int num_inputs, IList<LogicObject> output_objects) {
 		input_bool_count = num_inputs;
 		output_object_count = 1;
 		if (output_objects.Count > 1) {
@@ -24,7 +24,7 @@ public class GateAND : Module {
 	override public IList<LogicObject> apply_logic(IList<bool> inputs) {
 		bool output = inputs [0];
 		for (int i = 1; i < inputs.Count; i++) {
-			output = output & inputs [i];
+			output = output | inputs [i];
 		}
 		List<bool> ls = new List<bool> ();
 		ls.Add (output);
