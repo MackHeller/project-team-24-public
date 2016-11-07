@@ -21,7 +21,7 @@ public class GateOr : Module {
 	}
 
 	// Applys the module's logic to the input arraylist of booleans
-	override public IList<LogicObject> apply_logic(IList<bool> inputs) {
+	override public IList<bool> apply_logic(IList<bool> inputs) {
 		bool output = inputs [0];
 		for (int i = 1; i < inputs.Count; i++) {
 			output = output | inputs [i];
