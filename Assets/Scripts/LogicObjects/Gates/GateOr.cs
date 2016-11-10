@@ -11,17 +11,17 @@ public class GateOr : Module {
 	 */
 
 	// Constructor called by the factory method
-	public GateOr (int num_inputs, IList<LogicObject> output_objects) {
-		input_bool_count = num_inputs;
-		output_object_count = 1;
-		if (output_objects.Count > 1) {
+	public GateOr (int num_inputs, IList<LogicObject> outputObjects) {
+		inputBoolCount = num_inputs;
+		outputObjectCount = 1;
+		if (outputObjects.Count > 1) {
 			throw new ArgumentException ();
 		}
-		outputs = output_objects;
+		outputs = outputObjects;
 	}
 
 	// Applys the module's logic to the input arraylist of booleans
-	override public IList<bool> apply_logic(IList<bool> inputs) {
+	override public IList<bool> applyLogic(IList<bool> inputs) {
 		bool output = inputs [0];
 		for (int i = 1; i < inputs.Count; i++) {
 			output = output | inputs [i];
@@ -32,7 +32,7 @@ public class GateOr : Module {
 	}
 
 	// Notifies the output LogicObjects of a set of inputs
-	override public void notify_output (IList<bool> output_list) {
-		outputs [0].notify_input (output_list);
+	override public void notifyOutput (IList<bool> outputList) {
+		outputs [0].notifyInput (outputList);
 	}
 }

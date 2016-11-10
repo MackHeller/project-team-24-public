@@ -8,7 +8,7 @@ public interface LogicObject {
 	 * boolean inputs and notifies an ordered set of outputs
 	 */
 
-	void notify_input (IList<bool> input_list);
+	void notifyInput (IList<bool> inputList);
 
-	void notify_output (IList<bool> output_list);
+	void notifyOutput (IList<bool> outputList);
 }

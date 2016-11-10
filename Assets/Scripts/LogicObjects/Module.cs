@@ -15,28 +15,36 @@ using System;
 	
 	// The list of logicObject outputs
 	protected IList<LogicObject> outputs;
-	protected int input_bool_count;
-	protected int output_object_count;
+	protected IList<bool> inputs;
 
-	public void set_outputs(IList<LogicObject> outputObjects) {
+	// Limitations for input/outputs. Not for all modules, may abstract to
+	// a separate class.
+	protected int inputBoolCount;
+	protected int outputObjectCount;
+
+	public void setOutputs(IList<LogicObject> outputObjects) {
 		outputs = outputObjects;
 	}
 
+	public void setInputs(IList<bool> inputBools) {
+		inputs = inputBools;
+	}
+
 	// Notifies the module that an input set of boolean logic has arrived
-	public void notify_input (IList<bool> input_list) {
-		if (input_list.Count != input_bool_count || outputs.Count != output_object_count) {
+	public void notifyInput (IList<bool> inputList) {
+		if (inputList.Count != inputBoolCount || outputs.Count != outputObjectCount) {
 			throw new System.ArgumentOutOfRangeException ();
 		}
-		notify_output (apply_logic(input_list));
+		notifyOutput (applyLogic(inputList));
 	}
 
 	// Applys the module's logic to the input arraylist of booleans
-	virtual public IList<bool> apply_logic(IList<bool> inputs) {
+	virtual public IList<bool> applyLogic(IList<bool> inputs) {
 		throw new NotImplementedException();
 	}
 
 	// Notifies the output LogicObjects of a set of inputs
-	virtual public void notify_output (IList<bool> output_list) {
+	virtual public void notifyOutput (IList<bool> outputList) {
 		throw new NotImplementedException();
 	}
 
