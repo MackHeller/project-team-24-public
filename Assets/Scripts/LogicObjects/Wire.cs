@@ -13,26 +13,41 @@ public class Wire : LogicObject {
 	// The list of boolean outputs that is wired to
 	private IList<LogicObject> outputs;
 
+	public void setOutputs(IList<LogicObject> outputObjects) {
+		outputs = outputObjects;
+	}
+
+	public IList<LogicObject> getOutputs() {
+		return outputs;
+	}
+
+	public void setInput(bool boolean) {
+		input = boolean;
+	}
+
+	public bool getInput() {
+		return input;
+	}
 
 	public void notifyInput(IList<bool> inputList)
     {
 		if (inputList.Count != 1) {
 			throw new ArgumentException ();
 		}
-		input = inputList [0];
-		notify_output (inputList);
+		setInput (inputList [0]);
+		notifyOutput (inputList);
     }
 
 	/*
 	 * Notifies each of the objects that the wire leads to that logic 
 	 * is being sent.
 	 * 
-	 * @param output_list: list of LogicObjects that the wire leads to
+	 * @param outputList: list of LogicObjects that the wire leads to
 	 */
-	public void notify_output(IList<bool> output_list)
+	public void notifyOutput (IList<bool> outputList)
     {
-		for (int i = 0; i < output_list.Count; i++) {
-			obj.notifyInput (LogicUtil.oneBoolList (output_list [i]));
+		for (int i = 0; i < outputList.Count; i++) {
+			outputs[i].notifyInput (LogicUtil.oneBoolList (outputList [i]));
 		}
     }
 }
