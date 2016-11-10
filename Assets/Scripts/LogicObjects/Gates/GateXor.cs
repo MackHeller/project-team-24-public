@@ -3,36 +3,28 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class GateXor : Module {
+public class GateXOR : Module {
 	/*
 	 * An many-to-one OR gate.
 	 * 
 	 * TODO: adjust module to wait on multiple inputs.
 	 */
 
-	// Constructor called by the factory method
-	public GateXor (int numInputs, IList<LogicObject> outputObjects) {
-		inputBoolCount = numInputs;
-		outputObjectCount = 1;
-		if (outputObjects.Count > 1) {
-			throw new ArgumentException ();
-		}
-		outputs = outputObjects;
+	public GateXOR (int numInputs) {
+		initialize (numInputs, 1);
 	}
 
-	// Applys the module's logic to the input arraylist of booleans
-	override public IList<bool> applyLogic(IList<bool> inputs) {
-		bool output = inputs [0];
+	// Applys the module's logic to the input list of booleans
+	override protected IList<bool?> applyLogic(IList<bool?> inputs) {
+		bool? output = inputs [0];
 		for (int i = 1; i < inputs.Count; i++) {
 			output = output ^ inputs [i];
 		}
-		List<bool> ls = new List<bool> ();
-		ls.Add (output);
-		return ls;
+		return LogicUtil.oneBoolList(output);
 	}
 
 	// Notifies the output LogicObjects of a set of inputs
-	override public void notifyOutput (IList<bool> outputList) {
-		outputs [0].notifyInput (outputList);
+	override protected void notifyOutput (IList<bool?> outputList) {
+		outputWires[0].notifyInput (outputList[0]);
 	}
 }

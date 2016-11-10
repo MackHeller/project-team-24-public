@@ -2,52 +2,58 @@
 using System.Collections.Generic;
 using System;
 
-public class Wire : LogicObject {
+public class Wire {
 	/*
 	 * A wire which takes one input and can have several outputs.
 	 */
 
 	// The boolean input that the wire takes in
-	private bool input;
+	protected bool? input;
 
-	// The list of boolean outputs that is wired to
-	private IList<LogicObject> outputs;
+	// The list of boolean outputs that is wired to and their
+	// input indexes. Would use a map, can't find atm.
+	protected IList<Module> outputs;
+	protected IList<int> outputsInputIndices;
 
-	public void setOutputs(IList<LogicObject> outputObjects) {
-		outputs = outputObjects;
+	public Wire() {
+		outputs = new List<Module> ();
+		outputsInputIndices = new List<int> ();
 	}
 
-	public IList<LogicObject> getOutputs() {
+	public void addOutput(Module outputObject, int wiredToIndex) {
+		outputs.Add (outputObject);
+		outputsInputIndices.Add (wiredToIndex);
+	}
+
+	public IList<Module> getOutputs() {
 		return outputs;
 	}
 
-	public void setInput(bool boolean) {
+	public void setInput(bool? boolean) {
 		input = boolean;
 	}
 
-	public bool getInput() {
+	public bool? getInput() {
 		return input;
 	}
 
-	public void notifyInput(IList<bool> inputList)
+	public void notifyInput(bool? givenInput)
     {
-		if (inputList.Count != 1) {
-			throw new ArgumentException ();
-		}
-		setInput (inputList [0]);
-		notifyOutput (inputList);
+		setInput (givenInput);
+		notifyOutput (givenInput);
     }
 
 	/*
 	 * Notifies each of the objects that the wire leads to that logic 
 	 * is being sent.
 	 * 
-	 * @param outputList: list of LogicObjects that the wire leads to
+	 * @param givenInput: list of LogicObjects that the wire leads to
 	 */
-	public void notifyOutput (IList<bool> outputList)
+	protected void notifyOutput (bool? givenInput)
     {
-		for (int i = 0; i < outputList.Count; i++) {
-			outputs[i].notifyInput (LogicUtil.oneBoolList (outputList [i]));
+		for (int i = 0; i < outputs.Count; i++) {
+			int objectInputIndex = outputsInputIndices [i];
+			outputs [i].notifyInput (objectInputIndex, givenInput);
 		}
     }
 }

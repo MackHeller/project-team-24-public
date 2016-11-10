@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-	public class Module : LogicObject {
+	public class Module {
 	/*
 	 * Superclass of all modules. Modules can be gates, muxes, or
 	 * any logic device. Wires are not modules.
@@ -14,37 +14,50 @@ using System;
 	 */
 	
 	// The list of logicObject outputs
-	protected IList<LogicObject> outputs;
-	protected IList<bool> inputs;
+	protected IList<Wire> outputWires;
+	protected IList<bool?> outputs;
+	protected IList<bool?> inputs;
+	protected int inputsSetCount;
 
-	// Limitations for input/outputs. Not for all modules, may abstract to
-	// a separate class.
-	protected int inputBoolCount;
-	protected int outputObjectCount;
+	protected void initialize(int numInputs, int numOutputs) {
+		inputs = new List<bool?> (numInputs);
+		LogicUtil.initializeNullList (inputs, numInputs);
 
-	public void setOutputs(IList<LogicObject> outputObjects) {
-		outputs = outputObjects;
+		outputs = new List<bool?> (numOutputs);
+		LogicUtil.initializeNullList (outputs, numOutputs);
+
+		outputWires = new List<Wire> (numOutputs);
+		LogicUtil.initializeNullWireList (outputWires, numOutputs);
+
+		inputsSetCount = 0;
 	}
 
-	public void setInputs(IList<bool> inputBools) {
-		inputs = inputBools;
+	public void setOutput(int outputIndex, Wire wire) {
+		outputWires [outputIndex] = wire;
+	}
+
+	public void setInput(int inputIndex, bool? val) {
+		if (inputs [inputIndex] == null && val != null) {
+			inputsSetCount++;
+		}
+		inputs [inputIndex] = val;
 	}
 
 	// Notifies the module that an input set of boolean logic has arrived
-	public void notifyInput (IList<bool> inputList) {
-		if (inputList.Count != inputBoolCount || outputs.Count != outputObjectCount) {
-			throw new System.ArgumentOutOfRangeException ();
+	public void notifyInput (int inputIndex, bool? val) {
+		setInput (inputIndex, val);
+		if (inputsSetCount == inputs.Count) {
+			notifyOutput (applyLogic (inputs));
 		}
-		notifyOutput (applyLogic(inputList));
 	}
 
-	// Applys the module's logic to the input arraylist of booleans
-	virtual public IList<bool> applyLogic(IList<bool> inputs) {
+	// Applys the module's logic to the input list of booleans
+	virtual protected IList<bool?> applyLogic(IList<bool?> inputs) {
 		throw new NotImplementedException();
 	}
 
 	// Notifies the output LogicObjects of a set of inputs
-	virtual public void notifyOutput (IList<bool> outputList) {
+	virtual protected void notifyOutput (IList<bool?> outputList) {
 		throw new NotImplementedException();
 	}
 
