@@ -15,63 +15,63 @@ namespace AssemblyCSharp
 
 			GateAND gate = new GateAND(2);
 			Wire wire1 = new Wire ();
-			gate.setOutput (0, wire1);
+			gate.setOutputAt (0, wire1);
 
 			gate.notifyInput (0, true);
 			gate.notifyInput (1, true);
-			Assert.AreEqual (true.ToString(), wire1.getInput().ToString());
+			Assert.AreEqual (true.ToString(), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, false);
-			Assert.AreEqual (false.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (false.ToString (), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, true);
 			gate.notifyInput (1, false);
-			Assert.AreEqual (false.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (false.ToString (), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, false);
-			Assert.AreEqual (false.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (false.ToString (), wire1.getBooleanValue().ToString());
 		}
 
 		[Test]
 		public void orTest() {
 			GateOR gate = new GateOR(2);
 			Wire wire1 = new Wire ();
-			gate.setOutput (0, wire1);
+			gate.setOutputAt (0, wire1);
 
 			gate.notifyInput (0, true);
 			gate.notifyInput (1, true);
-			Assert.AreEqual (true.ToString(), wire1.getInput().ToString());
+			Assert.AreEqual (true.ToString(), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, false);
-			Assert.AreEqual (true.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (true.ToString (), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, true);
 			gate.notifyInput (1, false);
-			Assert.AreEqual (true.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (true.ToString (), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, false);
-			Assert.AreEqual (false.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (false.ToString (), wire1.getBooleanValue().ToString());
 		}
 
 		[Test]
 		public void xorTest() {
 			GateXOR gate = new GateXOR(2);
 			Wire wire1 = new Wire ();
-			gate.setOutput (0, wire1);
+			gate.setOutputAt (0, wire1);
 
 			gate.notifyInput (0, true);
 			gate.notifyInput (1, true);
-			Assert.AreEqual (false.ToString(), wire1.getInput().ToString());
+			Assert.AreEqual (false.ToString(), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, false);
-			Assert.AreEqual (true.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (true.ToString (), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, true);
 			gate.notifyInput (1, false);
-			Assert.AreEqual (true.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (true.ToString (), wire1.getBooleanValue().ToString());
 
 			gate.notifyInput (0, false);
-			Assert.AreEqual (false.ToString (), wire1.getInput().ToString());
+			Assert.AreEqual (false.ToString (), wire1.getBooleanValue().ToString());
 		}
 	}
 

@@ -8,7 +8,7 @@ public class Wire {
 	 */
 
 	// The boolean input that the wire takes in
-	protected bool? input;
+	protected bool? boolVal;
 
 	// The list of boolean outputs that is wired to and their
 	// input indexes. Would use a map, can't find atm.
@@ -30,11 +30,11 @@ public class Wire {
 	}
 
 	public void setInput(bool? boolean) {
-		input = boolean;
+		boolVal = boolean;
 	}
 
-	public bool? getInput() {
-		return input;
+	public bool? getBooleanValue() {
+		return boolVal;
 	}
 
 	public void notifyInput(bool? givenInput)
