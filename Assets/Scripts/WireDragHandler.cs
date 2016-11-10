@@ -7,9 +7,8 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 	public GameObject prefab;
 	Vector3 screenpoint;
 	Vector3 offset;
-	GameObject draggable;
+	public static GameObject draggable;
 	float mx1, my1;
-	//Vector3 mp1;
 	#region IBeginDragHandler implementation
 
 	public void OnBeginDrag (PointerEventData evenStData)
@@ -56,11 +55,15 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 	#endregion
 
 	#region IEndDragHandler implementation
-
 	public void OnEndDrag (PointerEventData eventData)
 	{
-		Destroy (draggable);
+		//if(draggable){
+		//}
+		//draggable = null;
+		//Destroy (draggable);
+		//draggable.transform = prev;
+		//WireCollider.OnEndDrag(eventData);
+		//Debug.Log("drag end")
 	}
-
 	#endregion
 }

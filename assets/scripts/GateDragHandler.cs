@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class GateDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
+public class GateDragHandler : MonoBehaviour, IDragHandler {
 
 	Vector3 screenpoint;
 	Vector3 offset;
@@ -15,15 +15,6 @@ public class GateDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
 		Vector3 posmove = Camera.main.ScreenToWorldPoint (
 			new Vector3 (Input.mousePosition.x, Input.mousePosition.y, disttoscreen));
 		transform.position = new Vector3 (posmove.x, transform.position.y, posmove.z);
-	}
-
-	#endregion
-
-	#region IEndDragHandler implementation
-
-	public void OnEndDrag (PointerEventData eventData)
-	{
-		//throw new System.NotImplementedException ();
 	}
 
 	#endregion
