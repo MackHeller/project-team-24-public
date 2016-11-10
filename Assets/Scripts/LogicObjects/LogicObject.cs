@@ -6,9 +6,11 @@ public interface LogicObject {
 	/*
 	 * A LogicObject can be notified about an ordered set of 
 	 * boolean inputs and notifies an ordered set of outputs
+	 * 
+	 * Not currently in use, but likely will be in the future.
 	 */
 
-	void notify_input (IList<bool> input_list);
+	void notifyInput (IList<bool> inputList);
 
-	void notify_output (IList<bool> output_list);
+	void notifyOutput (IList<bool> outputList);
 }

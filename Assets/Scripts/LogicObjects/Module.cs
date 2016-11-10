@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-	public class Module : LogicObject {
+	public class Module {
 	/*
 	 * Superclass of all modules. Modules can be gates, muxes, or
 	 * any logic device. Wires are not modules.
@@ -14,29 +14,50 @@ using System;
 	 */
 	
 	// The list of logicObject outputs
-	protected IList<LogicObject> outputs;
-	protected int input_bool_count;
-	protected int output_object_count;
+	protected IList<Wire> outputWires;
+	protected IList<bool?> outputs;
+	protected IList<bool?> inputs;
+	protected int inputsSetCount;
 
-	public void set_outputs(IList<LogicObject> outputObjects) {
-		outputs = outputObjects;
+	protected void initialize(int numInputs, int numOutputs) {
+		inputs = new List<bool?> (numInputs);
+		LogicUtil.initializeNullList (inputs, numInputs);
+
+		outputs = new List<bool?> (numOutputs);
+		LogicUtil.initializeNullList (outputs, numOutputs);
+
+		outputWires = new List<Wire> (numOutputs);
+		LogicUtil.initializeNullWireList (outputWires, numOutputs);
+
+		inputsSetCount = 0;
+	}
+
+	public void setOutput(int outputIndex, Wire wire) {
+		outputWires [outputIndex] = wire;
+	}
+
+	public void setInput(int inputIndex, bool? val) {
+		if (inputs [inputIndex] == null && val != null) {
+			inputsSetCount++;
+		}
+		inputs [inputIndex] = val;
 	}
 
 	// Notifies the module that an input set of boolean logic has arrived
-	public void notify_input (IList<bool> input_list) {
-		if (input_list.Count != input_bool_count || outputs.Count != output_object_count) {
-			throw new System.ArgumentOutOfRangeException ();
+	public void notifyInput (int inputIndex, bool? val) {
+		setInput (inputIndex, val);
+		if (inputsSetCount == inputs.Count) {
+			notifyOutput (applyLogic (inputs));
 		}
-		notify_output (apply_logic(input_list));
 	}
 
-	// Applys the module's logic to the input arraylist of booleans
-	virtual public IList<bool> apply_logic(IList<bool> inputs) {
+	// Applys the module's logic to the input list of booleans
+	virtual protected IList<bool?> applyLogic(IList<bool?> inputs) {
 		throw new NotImplementedException();
 	}
 
 	// Notifies the output LogicObjects of a set of inputs
-	virtual public void notify_output (IList<bool> output_list) {
+	virtual protected void notifyOutput (IList<bool?> outputList) {
 		throw new NotImplementedException();
 	}
 

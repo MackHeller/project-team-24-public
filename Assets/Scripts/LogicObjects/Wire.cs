@@ -2,24 +2,58 @@
 using System.Collections.Generic;
 using System;
 
-public class Wire : LogicObject {
+public class Wire {
 	/*
 	 * A wire which takes one input and can have several outputs.
 	 */
 
 	// The boolean input that the wire takes in
-	bool input;
+	protected bool? input;
 
-	// The list of boolean outputs that is wired to
-	IList<bool> outputs;
+	// The list of boolean outputs that is wired to and their
+	// input indexes. Would use a map, can't find atm.
+	protected IList<Module> outputs;
+	protected IList<int> outputsInputIndices;
 
-	public void notify_input(IList<bool> input_list)
+	public Wire() {
+		outputs = new List<Module> ();
+		outputsInputIndices = new List<int> ();
+	}
+
+	public void addOutput(Module outputObject, int wiredToIndex) {
+		outputs.Add (outputObject);
+		outputsInputIndices.Add (wiredToIndex);
+	}
+
+	public IList<Module> getOutputs() {
+		return outputs;
+	}
+
+	public void setInput(bool? boolean) {
+		input = boolean;
+	}
+
+	public bool? getInput() {
+		return input;
+	}
+
+	public void notifyInput(bool? givenInput)
     {
-        throw new NotImplementedException();
+		setInput (givenInput);
+		notifyOutput (givenInput);
     }
 
-	public void notify_output(IList<bool> output_list)
+	/*
+	 * Notifies each of the objects that the wire leads to that logic 
+	 * is being sent.
+	 * 
+	 * @param givenInput: list of LogicObjects that the wire leads to
+	 */
+	protected void notifyOutput (bool? givenInput)
     {
-        throw new NotImplementedException();
+		for (int i = 0; i < outputs.Count; i++) {
+			int objectInputIndex = outputsInputIndices [i];
+			outputs [i].notifyInput (objectInputIndex, givenInput);
+		}
     }
 }
