@@ -22,4 +22,22 @@ public class WireCollider : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		throw new System.NotImplementedException ();
 	}
 	#endregion
+
+	#region IDragHandler implementation
+
+	public void OnDrag (PointerEventData eventData)
+	{
+		throw new System.NotImplementedException ();
+	}
+
+	#endregion
+
+	#region IEndDragHandler implementation
+
+	public void OnEndDrag (PointerEventData eventData)
+	{
+		throw new System.NotImplementedException ();
+	}
+
+	#endregion
 }

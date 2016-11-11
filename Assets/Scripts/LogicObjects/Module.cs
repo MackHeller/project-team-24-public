@@ -32,11 +32,11 @@ using System;
 		inputsSetCount = 0;
 	}
 
-	public void setOutput(int outputIndex, Wire wire) {
+	public void setOutputAt(int outputIndex, Wire wire) {
 		outputWires [outputIndex] = wire;
 	}
 
-	public void setInput(int inputIndex, bool? val) {
+	public void setInputAt(int inputIndex, bool? val) {
 		if (inputs [inputIndex] == null && val != null) {
 			inputsSetCount++;
 		}
@@ -45,7 +45,7 @@ using System;
 
 	// Notifies the module that an input set of boolean logic has arrived
 	public void notifyInput (int inputIndex, bool? val) {
-		setInput (inputIndex, val);
+		setInputAt (inputIndex, val);
 		if (inputsSetCount == inputs.Count) {
 			notifyOutput (applyLogic (inputs));
 		}
