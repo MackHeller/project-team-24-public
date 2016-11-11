@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - WireTag
+  - GateTag
+  - InputTag
+  - OutputTag
   layers:
   - Default
   - TransparentFX

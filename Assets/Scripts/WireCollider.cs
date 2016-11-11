@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class WireCollider : MonoBehaviour {
+public class WireCollider : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
 	bool booltag = false;
 	public void OnTriggerEnter(Collider other){
@@ -16,4 +16,10 @@ public class WireCollider : MonoBehaviour {
 		}
 	}
 		
+	#region IBeginDragHandler implementation
+	public void OnBeginDrag (PointerEventData eventData)
+	{
+		throw new System.NotImplementedException ();
+	}
+	#endregion
 }
