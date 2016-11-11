@@ -461,7 +461,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 647210324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.407, y: 0.553, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -540,7 +540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1031868739
 Transform:
   m_ObjectHideFlags: 0
@@ -614,11 +614,11 @@ GameObject:
   - 114: {fileID: 1277725000}
   m_Layer: 0
   m_Name: InputTrigger
-  m_TagString: Untagged
+  m_TagString: InputTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1277724999
 Transform:
   m_ObjectHideFlags: 0
@@ -626,7 +626,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1277724998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.7, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -665,13 +665,14 @@ GameObject:
   - 4: {fileID: 1286308465}
   - 65: {fileID: 1286308468}
   - 114: {fileID: 1286308467}
+  - 114: {fileID: 1286308466}
   m_Layer: 0
   m_Name: OutputTrigger
-  m_TagString: Untagged
+  m_TagString: OutputTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1286308465
 Transform:
   m_ObjectHideFlags: 0
@@ -679,12 +680,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1286308464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.52, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 647210329}
   m_RootOrder: 3
+--- !u!114 &1286308466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1286308464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef80b4635034a04391d76c321b70b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1000014259962670, guid: c39921d89311fe54fa619b908d30661d, type: 2}
 --- !u!114 &1286308467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,7 +901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1552145614
 Transform:
   m_ObjectHideFlags: 0
@@ -936,14 +949,13 @@ GameObject:
   - 33: {fileID: 1578485806}
   - 64: {fileID: 1578485805}
   - 23: {fileID: 1578485804}
-  - 114: {fileID: 1578485808}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1578485804
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1005,18 +1017,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &1578485808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1578485803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fef80b4635034a04391d76c321b70b57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1000014259962670, guid: c39921d89311fe54fa619b908d30661d, type: 2}
 --- !u!1 &1603100493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,11 +1031,11 @@ GameObject:
   - 114: {fileID: 1603100498}
   m_Layer: 0
   m_Name: output
-  m_TagString: OuputTag
+  m_TagString: OutputTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1603100494
 Transform:
   m_ObjectHideFlags: 0
@@ -1126,7 +1126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1655320073
 Transform:
   m_ObjectHideFlags: 0
@@ -1203,6 +1203,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011038564984, guid: 042e89b3acba94440a7b4da8daab3349, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013752019126, guid: 042e89b3acba94440a7b4da8daab3349, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
