@@ -37,6 +37,72 @@ namespace AssemblyCSharp
 		}
 
 		/*
+		 * Tests whether the LogicManager runs and correctly checks the output
+		 * for a bigger level containing two OR gates hooked into an AND gate.
+		 */
+		[Test]
+		public void threeGateTest() {
+			// Need to use toString() to compare nullable (3-value) bools
+
+			LogicManager manager = new LogicManager (4, 1);
+			manager.setInputLogicAt (0, true);
+			manager.setInputLogicAt (1, false);
+			manager.setInputLogicAt (2, true);
+			manager.setInputLogicAt (3, false);
+			manager.setExpectedOutputLogicAt (0, true);
+
+			GateOR or1 = new GateOR (2);
+			GateOR or2 = new GateOR (2);
+			Wire wire1 = new Wire ();
+			Wire wire2 = new Wire ();
+			GateAND and = new GateAND (2);
+
+			// hook up the input wires 
+			manager.getInputWireAt (0).addOutput (or1, 0);
+			manager.getInputWireAt (1).addOutput (or1, 1);
+			manager.getInputWireAt (2).addOutput (or2, 0);
+			manager.getInputWireAt (3).addOutput (or2, 1);
+
+			// hook up the OR gate outputs to 2 wires
+			or1.setOutputAt (0, wire1);
+			or2.setOutputAt (0, wire2);
+
+			// hook up the 2 wire outputs into the AND gate
+			wire1.addOutput (and, 0);
+			wire2.addOutput (and, 1);
+
+			// hook up AND gate output to the output wire
+			and.setOutputAt (0, manager.getOutputWireAt (0));
+
+
+			// 10 10 -> 1
+			manager.run ();
+			Assert.IsTrue(manager.checkIfOutputIsCorrect());
+
+			// 00 10 -> 0
+			manager.setInputLogicAt (0, false);
+			manager.setExpectedOutputLogicAt (0, false);
+			manager.run ();
+			Assert.IsTrue(manager.checkIfOutputIsCorrect());
+
+			// 10 00 -> 0
+			manager.setInputLogicAt (0, true);
+			manager.setInputLogicAt (2, false);
+			manager.setExpectedOutputLogicAt (0, false);
+			manager.run ();
+			Assert.IsTrue(manager.checkIfOutputIsCorrect());
+
+			// 11 11 -> 1
+			manager.setInputLogicAt (0, true);
+			manager.setInputLogicAt (1, true);
+			manager.setInputLogicAt (2, true);
+			manager.setInputLogicAt (3, true);
+			manager.setExpectedOutputLogicAt (0, true);
+			manager.run ();
+			Assert.IsTrue(manager.checkIfOutputIsCorrect());
+		}
+
+		/*
 		 * Tests whether add, remove, contains, and get for wires works
 		 * properly.
 		 */
