@@ -534,7 +534,6 @@ GameObject:
   - 33: {fileID: 1031868742}
   - 65: {fileID: 1031868741}
   - 23: {fileID: 1031868740}
-  - 114: {fileID: 1031868743}
   m_Layer: 0
   m_Name: Input
   m_TagString: InputTag
@@ -603,17 +602,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1031868738}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1031868743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1031868738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccf68ed1b4d3d44da296a0ab16a50ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1277724998
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1578485804
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class DropHandler : MonoBehaviour, IDropHandler {
 
 	public void OnDrop (PointerEventData eventData)
 	{
-		WireDragHandler.draggable.transform.SetParent (transform);
+		//WireDragHandler.draggable.transform.SetParent (transform);
 	}
 
 	#endregion

@@ -8,7 +8,8 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 	Vector3 screenpoint;
 	Vector3 offset;
 	public static GameObject draggable;
-	float mx1, my1;
+	float mx2, my2;
+	public static float mx1, my1;
 	#region IBeginDragHandler implementation
 
 	public void OnBeginDrag (PointerEventData evenStData)
@@ -30,7 +31,7 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 		//	new Vector3 (Input.mousePosition.x, Input.mousePosition.y, disttoscreen));
 		//draggable.transform.position = new Vector3 (posmove.x, transform.position.y, posmove.z);
 		//Vector3 offset = Input.mousePosition - mp1;
-		float mx2, my2, hyp;
+		float hyp;
 		mx2 = Input.mousePosition.x;
 		my2 = Input.mousePosition.y;
 		float xdiff, ydiff, xpos, ypos, rotation;
@@ -44,11 +45,7 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 		Vector3 posmove = Camera.main.ScreenToWorldPoint (
 			new Vector3 (xpos, ypos, disttoscreen));
 		draggable.transform.position = new Vector3 (posmove.x, draggable.transform.position.y, posmove.z);
-		//draggable.transform.position = new Vector3 (xpos, draggable.transform.position.y, ypos);
 		draggable.transform.rotation = Quaternion.Euler (0, rotation * Mathf.Rad2Deg + 90, 0);
-		//draggable.transform.Rotate(0, offset.x, 0);
-		//Vector3 c = draggable.transform.localScale + Vector3(1, 0, 0);
-
 		draggable.transform.localScale = new Vector3(hyp/30.0f, 0.1f, 0.1f);
 	}
 
@@ -57,13 +54,9 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 	#region IEndDragHandler implementation
 	public void OnEndDrag (PointerEventData eventData)
 	{
-		//if(draggable){
-		//}
-		//draggable = null;
-		//Destroy (draggable);
-		//draggable.transform = prev;
-		//WireCollider.OnEndDrag(eventData);
-		//Debug.Log("drag end")
+		WireCollider script;
+		script = draggable.GetComponent<WireCollider>();
+		script.helper (mx2, my2);
 	}
 	#endregion
 }

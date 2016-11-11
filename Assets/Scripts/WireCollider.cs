@@ -2,42 +2,33 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class WireCollider : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class WireCollider : MonoBehaviour{
 
 	bool booltag = false;
+	float mousex, mousey;
 	public void OnTriggerEnter(Collider other){
 		if(other.gameObject.CompareTag("InputTag")){
 			booltag = true;
+			Debug.Log ("enter trig");
 		}
 	}
 	public void OnTriggerExit(Collider other){
 		if(other.gameObject.CompareTag("InputTag")){
 			booltag = false;
+			Debug.Log ("exit trig");
 		}
 	}
-		
-	#region IBeginDragHandler implementation
-	public void OnBeginDrag (PointerEventData eventData)
-	{
-		throw new System.NotImplementedException ();
-	}
-	#endregion
-
-	#region IDragHandler implementation
-
-	public void OnDrag (PointerEventData eventData)
-	{
-		throw new System.NotImplementedException ();
+	public void Start(){
+		mousex = WireDragHandler.mx1;
+		mousey = WireDragHandler.my1;
+		//Debug.Log ("Mouse set");
 	}
 
-	#endregion
-
-	#region IEndDragHandler implementation
-
-	public void OnEndDrag (PointerEventData eventData)
-	{
-		throw new System.NotImplementedException ();
+	public void helper(float x, float y){
+		if (booltag) {
+			Debug.Log ("set mouse final");
+		} else {
+			Destroy (this.gameObject);
+		}	
 	}
-
-	#endregion
 }
