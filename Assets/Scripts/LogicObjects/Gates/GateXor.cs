@@ -6,8 +6,6 @@ using System.Collections.Generic;
 public class GateXOR : Module {
 	/*
 	 * An many-to-one OR gate.
-	 * 
-	 * TODO: adjust module to wait on multiple inputs.
 	 */
 
 	public GateXOR (int numInputs) {

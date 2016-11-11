@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-public class Wire {
+public class Wire : LogicObject {
 	/*
 	 * A wire which takes one input and can have several outputs.
 	 */

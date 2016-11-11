@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using System;
 
-	public class Module {
+public class Module : LogicObject{
 	/*
 	 * Superclass of all modules. Modules can be gates, muxes, or
 	 * any logic device. Wires are not modules.
 	 * Modules can contain other modules.
-	 * 
-	 * TODO: modify interface and code to handle multiple inputs (wait on
-	 * all inputs if existent), currently only one-to-many, need many-to-many.
-	 * Looking for an efficient implementation via directed graphs.
 	 */
 	
 	// The list of logicObject outputs
+	protected int id;
+
 	protected IList<Wire> outputWires;
 	protected IList<bool?> outputs;
 	protected IList<bool?> inputs;
 	protected int inputsSetCount;
 
 	protected void initialize(int numInputs, int numOutputs) {
+
 		inputs = new List<bool?> (numInputs);
 		LogicUtil.initializeNullList (inputs, numInputs);
 

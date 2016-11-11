@@ -2,15 +2,20 @@
 using System;
 using System.Collections.Generic;
 
-public interface LogicObject {
+public class LogicObject {
 	/*
-	 * A LogicObject can be notified about an ordered set of 
-	 * boolean inputs and notifies an ordered set of outputs
+	 * A logicObject is a wire or a module.
 	 * 
-	 * Not currently in use, but likely will be in the future.
+	 * Each logicObject has an ID.
 	 */
 
-	void notifyInput (IList<bool> inputList);
+	int id;
 
-	void notifyOutput (IList<bool> outputList);
+	public int getId () {
+		return id;
+	}
+
+	public void setId(int objectId) {
+		id = objectId;
+	}
 }

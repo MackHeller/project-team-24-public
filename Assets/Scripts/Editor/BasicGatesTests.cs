@@ -6,8 +6,10 @@ namespace AssemblyCSharp
 {
 	public class BasicGatesTests
 	{
+		// Tests a series of 2-to-1 gates for all values.
 		// Note: a reference (References -> Edit references) to NUnit's DDL file (find
 		// online) is needed to run these tests
+
 
 		[Test]
 		public void andTest() {
