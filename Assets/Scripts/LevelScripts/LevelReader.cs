@@ -10,11 +10,16 @@ public class LevelReader
     /*
      *  Takes the name of a level, makes a filepath to that level and calls loadNewLevel
      *  If you already have the full filepath you can call Reader directly
-     *  levelName = name of a valid level 
+     *  levelName = name of a valid level - the levelCreator
      */
     public static JsonData loadNewLevel(String levelName)
     {
         return Reader(Application.dataPath + "/Levels/" + levelName + ".JSON");
+    }
+
+    public static JsonData loadLevelMetaData(String levelName)
+    {
+        return Reader(Application.dataPath + "/Levels/levelMetaData.JSON");
     }
     /*
      * Sets levelInformation as the JSON that is read in from the given filePath 
@@ -92,6 +97,7 @@ public class LevelReader
         return output;
     }
     public static String getLevelName(JsonData levelInformation) { return levelInformation["LevelName"].ToString(); }
+    public static String getCreator(JsonData levelInformation) { return levelInformation["Creator"].ToString(); }
     public static int getLevelPar(JsonData levelInformation) { return Convert.ToInt32(levelInformation["Par"].ToString()); }
     public static int getMinScore(JsonData levelInformation) { return Convert.ToInt32(levelInformation["MinScore"].ToString()); }
     public static JsonData getAllLevelInformation(JsonData levelInformation) { return levelInformation; }

@@ -11,6 +11,7 @@ public class Level : MonoBehaviour{
 	 * and compares whether the set of outputs is correct.
 	 */
     private String levelName;
+    private String creator;
     private int levelPar;
     private int minScore;
     private ArrayList<Module> gates;
@@ -19,8 +20,8 @@ public class Level : MonoBehaviour{
     //for testing only
     void Start()
     {
-        loadLevel("level2");
-        saveAsNewLevel("level3");
+        loadLevel("level3");
+        saveAsNewLevel("level4","Mack");
     }
     public void loadLevel(string levelName)
     {
@@ -28,18 +29,18 @@ public class Level : MonoBehaviour{
         setLevelValues(LevelReader.loadNewLevel(levelName));
     }
     /*
-     * save level with a new file name
-     * */
-    public void saveAsNewLevel(string levelName)
-    {
-        LevelWriter.saveAsNewLevel(levelName, this);
-    }
-    /*
      * save level with level's existing file name
      * */
     public void saveAsNewLevel()
     {
-        LevelWriter.saveAsNewLevel(this.levelName, this);
+        saveAsNewLevel(this.levelName, this.creator);
+    }
+    /*
+     * save level with a new file name
+     * */
+    public void saveAsNewLevel(string levelName, string creator)
+    {
+        LevelWriter.saveAsNewLevel(createLevelname(levelName, creator), this);
     }
     public void setLevelValues(JsonData jsonData)
     {
@@ -49,6 +50,7 @@ public class Level : MonoBehaviour{
         this.gates = LevelReader.getGates(jsonData);
         this.input = LevelReader.getLevelInput(jsonData);
         this.output = LevelReader.getLevelOutput(jsonData);
+        this.creator = LevelReader.getCreator(jsonData);
     }
     /*
      * Checks if gate exists in the current level
@@ -82,12 +84,14 @@ public class Level : MonoBehaviour{
         throw new System.
             Exception("Tried to request gate that does not exist in the current level");
     }
+    private String createLevelname(String level, String creator) { return level + "-" + creator; }
     /* getter methods
      */
     public ArrayList<Module> getGates() { return gates; }
     public ArrayList<bool> getLevelInput(){return input;}
     public ArrayList<bool> getLevelOutput(){return output;}
     public String getLevelName() { return levelName;}
+    public String getCreator() { return creator; }
     public int getLevelPar() { return levelPar; }
     public int getMinScore() { return minScore; }
     /* setter methods
@@ -98,4 +102,5 @@ public class Level : MonoBehaviour{
     public void setLevelName(String levelName) { this.levelName = levelName; }
     public void setLevelPar(int levelPar) { this.levelPar = levelPar; }
     public void setMinScore(int minScore) { this.minScore = minScore; }
+    public void setCreator(String creator) { this.creator = creator; }
 }
