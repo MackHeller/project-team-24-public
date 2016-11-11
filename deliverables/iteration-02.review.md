@@ -12,9 +12,13 @@
  * Where: In person in BA3200
  * What: The purpose of the meeting was to discuss project implementation. We were able to design the various user paths as well as hash out many of the systems we wish to put in place. [Implementation Structure][Implementation Structure]
 #### Meeting 2
- * When: Friday Oct 4th 2016
+ * When: Friday Nov 4th 2016
  * Where: In person in BA2200
  * What: The purpose of this meeting was to do any last minute corrects or clarifications before we began development over the weekend. 
+#### Meeting 3
+  * When: Thursday Nov 11th 2016
+  * Where: In person in BA3200
+  * What: The purpose of this meeting was to touch base after a weekend of implementation. We discussed what had been done and what we needed to do moving forward.   
 ## Process - Reflection
 
 TODO
