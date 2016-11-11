@@ -101,7 +101,21 @@ public class LevelReader
     public static int getLevelPar(JsonData levelInformation) { return Convert.ToInt32(levelInformation["Par"].ToString()); }
     public static int getMinScore(JsonData levelInformation) { return Convert.ToInt32(levelInformation["MinScore"].ToString()); }
     public static JsonData getAllLevelInformation(JsonData levelInformation) { return levelInformation; }
-
+    /*
+     * get a list of all level names
+     * */
+    public static String[] getAllLevelNames()
+    {
+        String[] allfiles = System.IO.Directory.GetFiles(Application.dataPath + "/Levels/", "*.JSON", System.IO.SearchOption.TopDirectoryOnly);
+        for (int i = 0; i < allfiles.Length; i++)
+        {
+            int startIndex = (Application.dataPath + "/Levels/").Length;
+            int endIndex = allfiles[i].Length - 5;
+            allfiles[i] = allfiles[i].Substring(startIndex, endIndex - startIndex);
+            Debug.Log(allfiles[i]);
+        }
+        return allfiles;
+    }
     /*
      * Taken from 
      * https://gist.github.com/sinergy/5626704

@@ -2,6 +2,7 @@
 using System.Collections;
 using C5;
 using System;
+using System.Linq;
 using LitJson;
 
 public class Level : MonoBehaviour{
@@ -20,8 +21,9 @@ public class Level : MonoBehaviour{
     //for testing only
     void Start()
     {
-        loadLevel("level3");
-        saveAsNewLevel("level4","Mack");
+        loadLevel("level4-Mack");
+        saveLevel();
+        saveAsNewLevel("mackLevel", "MackHeller");
     }
     public void loadLevel(string levelName)
     {
@@ -31,16 +33,21 @@ public class Level : MonoBehaviour{
     /*
      * save level with level's existing file name
      * */
-    public void saveAsNewLevel()
+    public void saveLevel()
     {
-        saveAsNewLevel(this.levelName, this.creator);
+        LevelWriter.saveAsNewLevel(createLevelname(this.levelName, this.creator), this);
     }
     /*
      * save level with a new file name
      * */
-    public void saveAsNewLevel(string levelName, string creator)
+    public void saveAsNewLevel(string levelName, string creator) 
     {
-        LevelWriter.saveAsNewLevel(createLevelname(levelName, creator), this);
+        String filename = createLevelname(levelName, creator);
+        if (LevelReader.getAllLevelNames().Contains(filename))
+            throw new ArgumentException("Cannot create a new File, a level with the name: "+ levelName +
+                " created by: "+ creator+" already exists");
+        else
+            LevelWriter.saveAsNewLevel(filename, this);
     }
     public void setLevelValues(JsonData jsonData)
     {
