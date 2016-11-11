@@ -28,8 +28,9 @@ public class InputTrigger : MonoBehaviour {
 	/// <param name="other">Other.</param>
 	void OnTriggerStay(Collider other){
 		if (other.tag == "WireTag") { //check if it's a wire
-			Vector3 x = gameObject.transform.position;
-			other.transform.position = x;
+			//fix snap
+			//Vector3 x = gameObject.transform.position;
+			//other.transform.position = x;
 		}
 	}
 
