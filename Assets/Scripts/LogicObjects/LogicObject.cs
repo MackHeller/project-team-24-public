@@ -1,21 +1,19 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// A LogicObject is a wire or a module, and every LogicObject has an ID.
+/// </summary>
 public class LogicObject {
-	/*
-	 * A logicObject is a wire or a module.
-	 * 
-	 * Each logicObject has an ID.
-	 */
 
-	int id;
+    int id;
 
-	public int getId () {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int objectId) {
-		id = objectId;
-	}
+    public void setId(int objectId) {
+        id = objectId;
+    }
 }
