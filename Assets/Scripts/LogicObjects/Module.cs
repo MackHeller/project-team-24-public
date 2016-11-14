@@ -1,73 +1,71 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-public class Module : LogicObject{
-	/*
-	 * Superclass of all modules. Modules can be gates, muxes, or
-	 * any logic device. Wires are not modules.
-	 * Modules can contain other modules.
-	 */
-	
-	// The list of logicObject outputs
-	protected int id;
+/// <summary>
+/// Superclass of all modules. Modules can be gates, muxes, or
+/// any logic device. Wires are not modules.
+/// Modules can contain other modules.
+/// </summary>
+public class Module : LogicObject {
 
-	protected IList<Wire> outputWires;
-	protected IList<bool?> outputs;
-	protected IList<bool?> inputs;
-	protected int inputsSetCount;
+    // The list of logicObject outputs
+    protected int id;
 
-	protected void initialize(int numInputs, int numOutputs) {
+    protected IList<Wire> outputWires;
+    protected IList<bool?> outputs;
+    protected IList<bool?> inputs;
+    protected int inputsSetCount;
 
-		inputs = new List<bool?> (numInputs);
-		LogicUtil.initializeNullList (inputs, numInputs);
+    protected void initialize(int numInputs, int numOutputs) {
 
-		outputs = new List<bool?> (numOutputs);
-		LogicUtil.initializeNullList (outputs, numOutputs);
+        inputs = new List<bool?>(numInputs);
+        LogicUtil.initializeNullList(inputs, numInputs);
 
-		outputWires = new List<Wire> (numOutputs);
-		LogicUtil.initializeNullWireList (outputWires, numOutputs);
+        outputs = new List<bool?>(numOutputs);
+        LogicUtil.initializeNullList(outputs, numOutputs);
 
-		inputsSetCount = 0;
-	}
+        outputWires = new List<Wire>(numOutputs);
+        LogicUtil.initializeNullWireList(outputWires, numOutputs);
 
-	public void setOutputAt(int outputIndex, Wire wire) {
-		outputWires [outputIndex] = wire;
-	}
+        inputsSetCount = 0;
+    }
 
-	public void setInputAt(int inputIndex, bool? val) {
-		if (inputs [inputIndex] == null && val != null) {
-			inputsSetCount++;
-		}
-		inputs [inputIndex] = val;
-	}
+    public void setOutputAt(int outputIndex, Wire wire) {
+        outputWires[outputIndex] = wire;
+    }
 
-	// Notifies the module that an input set of boolean logic has arrived
-	public void notifyInput (int inputIndex, bool? val) {
-		setInputAt (inputIndex, val);
-		if (inputsSetCount == inputs.Count) {
-			notifyOutput (applyLogic (inputs));
-		}
-	}
+    public void setInputAt(int inputIndex, bool? val) {
+        if (inputs[inputIndex] == null && val != null) {
+            inputsSetCount++;
+        }
+        inputs[inputIndex] = val;
+    }
 
-	// Applys the module's logic to the input list of booleans
-	virtual protected IList<bool?> applyLogic(IList<bool?> inputs) {
-		throw new NotImplementedException();
-	}
+    // Notifies the module that an input set of boolean logic has arrived
+    public void notifyInput(int inputIndex, bool? val) {
+        setInputAt(inputIndex, val);
+        if (inputsSetCount == inputs.Count) {
+            notifyOutput(applyLogic(inputs));
+        }
+    }
 
-	// Notifies the output LogicObjects of a set of inputs
-	virtual protected void notifyOutput (IList<bool?> outputList) {
-		throw new NotImplementedException();
-	}
+    // Applys the module's logic to the input list of booleans
+    virtual protected IList<bool?> applyLogic(IList<bool?> inputs) {
+        throw new NotImplementedException();
+    }
 
-    public string getName()
-    {
+    // Notifies the output LogicObjects of a set of inputs
+    virtual protected void notifyOutput(IList<bool?> outputList) {
+        throw new NotImplementedException();
+    }
+
+    public string getName() {
         //TODO
         return "Name";
     }
 
-    public int getAmount()
-    {
+    public int getAmount() {
         //TODO
         return -1;
     }

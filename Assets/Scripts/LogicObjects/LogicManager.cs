@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using System;
 
+/// <summary>
+/// Manages the backend logic of all logicObjects in a level.
+/// </summary>
 public class LogicManager {
-	/*
-	 * Manages the backend logic of all logicObjects in a level.
-	 */
 
 	// hashtable of wires and modules for accessibility
 	Hashtable wires;
