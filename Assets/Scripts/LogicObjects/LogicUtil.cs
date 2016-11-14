@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using System;
 
+/// <summary>
+/// Class containing utility function for LogicObjects.
+/// </summary>
 public class LogicUtil {
-	/*
-	 * Class containing utility function for LogicObjects.
-	 */
 
 	public static void initializeNullList(IList<bool?> ls, int size) {
 		for (int i = 0; i < size; i++) {

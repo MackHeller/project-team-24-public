@@ -1,43 +1,40 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 
 public class DragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
 
-	public Rigidbody prefab;
-	Vector3 screenpoint;
-	Vector3 offset;
-	Rigidbody draggable;
+    public Rigidbody prefab;
+    Vector3 screenpoint;
+    Vector3 offset;
+    Rigidbody draggable;
 
-	#region IBeginDragHandler implementation
+    #region IBeginDragHandler implementation
 
-	public void OnBeginDrag (PointerEventData evenStData)
-	{
-		draggable = Instantiate(prefab);
-	}
+    public void OnBeginDrag(PointerEventData evenStData) {
+        draggable = Instantiate(prefab);
+    }
 
-	#endregion
+    #endregion
 
-	#region IDragHandler implementation
+    #region IDragHandler implementation
 
-	public void OnDrag (PointerEventData eventData)
-	{
-		float disttoscreen = Camera.main.WorldToScreenPoint(draggable.transform.position).z;
-		Vector3 posmove = Camera.main.ScreenToWorldPoint (
-			new Vector3 (Input.mousePosition.x, Input.mousePosition.y, disttoscreen));
-		draggable.transform.position = new Vector3 (posmove.x, transform.position.y, posmove.z);
-	}
+    public void OnDrag(PointerEventData eventData) {
+        float disttoscreen = Camera.main.WorldToScreenPoint(draggable.transform.position).z;
+        Vector3 posmove = Camera.main.ScreenToWorldPoint(
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y, disttoscreen));
+        draggable.transform.position = new Vector3(posmove.x, transform.position.y, posmove.z);
+    }
 
-	#endregion
+    #endregion
 
-	#region IEndDragHandler implementation
+    #region IEndDragHandler implementation
 
-	public void OnEndDrag (PointerEventData eventData)
-	{
-		//throw new System.NotImplementedException ();
-	}
+    public void OnEndDrag(PointerEventData eventData) {
+        //throw new System.NotImplementedException ();
+    }
 
-	#endregion
+    #endregion
 }
 
 
