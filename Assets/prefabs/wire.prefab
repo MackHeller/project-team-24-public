@@ -23,7 +23,7 @@ GameObject:
   - 65: {fileID: 65000013959698180}
   - 23: {fileID: 23000014178153858}
   - 54: {fileID: 54000012525479724}
-  - 114: {fileID: 114000010008646314}
+  - 114: {fileID: 114000014174804700}
   m_Layer: 0
   m_Name: wire
   m_TagString: WireTag
@@ -107,7 +107,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114000010008646314
+--- !u!114 &114000014174804700
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -115,6 +115,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000014259962670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 897d7916d11cee44a91443f349f7486b, type: 3}
+  m_Script: {fileID: 11500000, guid: ca5a0a74afaad3d428f83c7ff1503cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

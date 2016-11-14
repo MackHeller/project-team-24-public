@@ -29,11 +29,8 @@ public class OutputTrigger : MonoBehaviour {
 	/// <param name="other">could be a wire or a gate</param>
 
 	void OnTriggerStay(Collider other){
-		//NOTE:placed objects can't be moved right now
 		if (other.tag == "WireTag") { //check if it's a wire
 			//fix snap
-			//Vector3 x = gameObject.transform.position;
-			//other.transform.position = x;
 		}
 	}
 
