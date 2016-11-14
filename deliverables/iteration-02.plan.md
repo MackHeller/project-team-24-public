@@ -52,4 +52,5 @@ Artifacts
    For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
    
  * Document an outline of the student of our project. We will outline details answers to questions like what will the user flow be? How will the user interact with our project?
- * We will create the initial basic objects required for our program to functions, these include but are not limited to:   
+ * We will create the initial basic objects required for our program to functions, these include but are not limited to: levels, inputTriggers, outputTriggers, logic objects, file readers/writers
+ * We will create a document listing the tasks assigned to each person    
