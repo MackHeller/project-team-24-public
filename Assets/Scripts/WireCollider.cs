@@ -27,16 +27,13 @@ public class WireCollider : MonoBehaviour {
     }
 
     public void helper(float x, float y) {
-        if (!booltag) {
-            Destroy(this.gameObject);
-        }
         dropped = true;
     }
 
     public void FixedUpdate() {
         if (dropped) {
             if (!booltag || !booltag2) {
-                Destroy(this.gameObject);
+                Destroy(gameObject.transform.parent.gameObject);
             }
         }
     }

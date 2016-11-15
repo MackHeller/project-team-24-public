@@ -4,15 +4,24 @@ using UnityEngine.EventSystems;
 
 public class DragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
 
-    public Rigidbody prefab;
-    Vector3 screenpoint;
-    Vector3 offset;
-    Rigidbody draggable;
+    public GameObject prefab;
+    private Vector3 offset;
+    private float zDistFromCamera;
+    private GameObject draggable;
 
     #region IBeginDragHandler implementation
 
     public void OnBeginDrag(PointerEventData evenStData) {
-        draggable = Instantiate(prefab);
+        if (prefab == null) {
+            draggable = gameObject;
+        } else {
+            draggable = Instantiate(prefab);
+        }
+
+        Vector3 startPos = transform.position;
+        zDistFromCamera = Mathf.Abs(startPos.z - Camera.main.transform.position.z);
+        Vector3 posTouched = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistFromCamera);
+        offset = startPos - Camera.main.ScreenToWorldPoint(posTouched);
     }
 
     #endregion
@@ -20,10 +29,8 @@ public class DragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     #region IDragHandler implementation
 
     public void OnDrag(PointerEventData eventData) {
-        float disttoscreen = Camera.main.WorldToScreenPoint(draggable.transform.position).z;
-        Vector3 posmove = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y, disttoscreen));
-        draggable.transform.position = new Vector3(posmove.x, transform.position.y, posmove.z);
+        Vector3 posTouched = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistFromCamera);
+        draggable.transform.position = Camera.main.ScreenToWorldPoint(posTouched) + offset;
     }
 
     #endregion
@@ -31,7 +38,8 @@ public class DragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     #region IEndDragHandler implementation
 
     public void OnEndDrag(PointerEventData eventData) {
-        //throw new System.NotImplementedException ();
+        offset = Vector3.zero;
+        draggable = null;
     }
 
     #endregion
