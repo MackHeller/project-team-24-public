@@ -1,9 +1,9 @@
 # YOUR PRODUCT/TEAM NAME
 
-## Iteration 1
+## Iteration 2
 
  * Start date: Thursday Oct 26st 2016
- * End date: Wednesday Nov 15 2016
+ * End date: Wednesday Nov 16 2016
 
 ## Process
 
