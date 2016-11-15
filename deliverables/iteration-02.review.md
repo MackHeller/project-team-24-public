@@ -18,12 +18,15 @@
 #### Meeting 3
   * When: Thursday Nov 11th 2016
   * Where: In person in BA3200
-  * What: The purpose of this meeting was to touch base after a weekend of implementation. We discussed what had been done and what we needed to do moving forward.   
+  * What: The purpose of this meeting was to touch base after a weekend of implementation. We discussed what had been done and what we needed to do moving forward. 
+
+#### Meeting 4
+  * When: Tuesday Nov 15th 2016
+  * Where: In person in BA3200
+  * What: we reviewed everything we've done this iteration. We discussed the last touches we needed to make to our project as well as how we are going to make the video
 ## Process - Reflection
 
-TODO
-
-
+One change that we made to our goals is that we didn't implement accounts. This would have required us to set up a database and we chose to prioritize other features instead. Instead we saved our levels locally as JSON files 
 ## Product - Review
 
 TODO
