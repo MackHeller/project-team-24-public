@@ -37,7 +37,6 @@ In general, the purpose of these meetings is to go over what has been done and a
 Most of the artifacts used will be the same as the ones used during the previous iteration, and new artifacts have been added to meet team needs. For team organization we will make use of Slack; decisions made over Slack will likely be on topics not concerning direct implementation but more so on scheduling and other team issues. If issues arise regarding implementation details, or other such conflicts, then slack can also be a platform to discuss solutions. General brainstorming and info aggregation will be handled by the use of Google docs. The group editing allowed by Google docs will also assist during weekly meetings if we unable to meet face-to-face. For assigning tasks and tracking progress we will make use of the GitHub issues and the online team-organization application Trello (for more granular tasks). The assignment of these tasks, and their associated priority, will be carried out during either the group meetings or over Slack.
 
  - Link to issue post with responsibilities for this iteration: https://github.com/csc301-fall-2016/project-team-24/issues/11
- - link to brainstorming notes on implementatino details: docs.google.com/document/d/1t1vzYvifu1viiE6vm9i3t4oosKgifU6RrB5jUNmpuho/
 
 
 ## Product
@@ -47,13 +46,13 @@ Goals and tasks:
 Our primary goal is to complete our prototype (i.e. a basic project which allows users to drag-and-drop gates, hook them up with wires, and run simple simulations). 
 
 To achieve our goals, the following tasks take priority:
- (1) To allow the user to create, drag, and drop gates and wires. The creation of gates should allow for multiple duplicates to be made and wires should be flexible enough to connect to any gate on the field. The ability to detect when wires are connected to gates also falls under this task.
- (2) To implement backend logic for all of the gates and wires, and be able to simulate it and check whether the result is correct.
- (3) Integrate the front-end drag and drop together with the back-end logic so the logic is accurately simulated for a user-placed set of gates and wires.
+(1) To allow the user to create, drag, and drop gates and wires. The creation of gates should allow for multiple duplicates to be made and wires should be flexible enough to connect to any gate on the field. The ability to detect when wires are connected to gates also falls under this task.
+(2) To implement backend logic for all of the gates and wires, and be able to simulate it and check whether the result is correct.
+(3) Integrate the front-end drag and drop together with the back-end logic so the logic is accurately simulated for a user-placed set of gates and wires.
  
- Less important (moreso "stretch" goals this iteration)
- (4) Add collision for gates and other draggable logic objects so that there is no unintended overlap in the level
- (5) Add accounts, serialization, and loading from files
+Less important (moreso "stretch" goals this iteration):
+(4) Add collision for gates and other draggable logic objects so that there is no unintended overlap in the level.
+(5) Add accounts, serialization, and loading from files.
  
 
 Artifacts
