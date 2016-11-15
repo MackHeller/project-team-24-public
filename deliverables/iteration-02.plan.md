@@ -46,7 +46,7 @@ For example:
  * If you include charts/diagrams, make sure to explain what they represent.
  * If you're maintaining a to-do list, make sure to mention which tool you're using, how you are prioritizing items and how items get assigned to team members.
 
- 
+ - Link to issue post with responsibilities for this iteration: https://github.com/csc301-fall-2016/project-team-24/issues/11
 
 
 ## Product
@@ -56,6 +56,17 @@ Goals and tasks:
  * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
  * When listing goals/tasks, order the items from most to least important.
  * Feel free (but not obligated) to specify some/all tasks as user stories.
+ 
+ Our primary goal is to complete our prototype (i.e. a basic project which allows users to drag-and-drop gates, hook them up, and run simple simulations). 
+ To achieve our goals, we most importantly need:
+ (1) To allow the user to drag and drop gates and wires
+ (2) To implement backend logic for all of the gates and wires, and be able to simulate it and check whether the result is correct
+ (3) Integrate the front-end drag and drop together with the back-end logic so the logic is accurately simulated for a user-placed set of gates and wires
+ 
+ Less important (moreso "stretch" goals this iteration)
+ (4) Add collision for gates and other draggable logic objects so that there is no overlap in the level
+ (5) Add accounts, serialization, and loading from files
+ 
 
 Artifacts
 
@@ -65,5 +76,8 @@ Artifacts
    For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
    
  * Document an outline of the student of our project. We will outline details answers to questions like what will the user flow be? How will the user interact with our project?
- * We will create the initial basic objects required for our program to functions, these include but are not limited to: levels, inputTriggers, outputTriggers, logic objects, file readers/writers
- * We will create a document listing the tasks assigned to each person    
+
+ - We will create the initial basic objects required for our program to functions, these include but are not limited to: levels, inputTriggers, outputTriggers, logic objects, file readers/writers
+ 
+ - We will create "model" objects for wires and basic gates which can be connected with other wires and basic gates and properly simulate circuit logic
+ - We will create a "model" object which holds wires and gates and allows us to simulate inputs on them as if they were real circuits
