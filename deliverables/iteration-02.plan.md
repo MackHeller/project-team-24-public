@@ -13,15 +13,14 @@ discussions on Slack; a social network application. We planned out our implement
 
 #### Roles & responsibilities
 
-Drag and drop & Collision (Kailey and Maria)
+Maria will work together drag and drop & Collision
  - Can drag over other objects, can’t place over them
  - Need to allow wires to overlap but not gates
  - Need to be able to detect if wire is connected (maybe simple click)
  - Use placeholder game objects for now, Freddy will hook up later
  - Be able to delete objects
  
-Wires and gates backend code (Freddy)
- - Write code for all level, wire, gate, and simulation backend logic
+Freddy will write the code for levels, wire, gate, and simulation backend logic
  
 Accounts (Mack)
  - Probably use a DB for usernames, passwords, and a set of map IDs that they can edit and map IDs which they cannot or something more efficient of the sort to maintain permission
@@ -33,11 +32,10 @@ Integration (Dylan)
 
 #### Events
 
-Please describe the meetings you planning to have:
- * When and where? In-person or online?
- * What's the purpose of each meeting?
+We continue following our previous plan: we will have have, at minimum, one face-to-face meeting weekly and to make use of Slack on a consistent basis. We expect face-to-face meetings to either be on Thursday 10-11AM or Friday 2-3PM depending on team availability.
+If a face-to-face meeting is not possible, then an online meeting will be held in the form of a group call. These backup meetings will be held during the weekend at a time that is convenient for all group members.
 
-The current plan regarding events is to have, at minimum, one face-to-face meeting weekly and to make use of Slack on a consistent basis. If a face-to-face meeting is not possible, then an online meeting will be held in the form of a group call. In general, the purpose of these meetings is to go over what has been done and assign general tasks to be completed by the next meeting time. The meetings will also be a knowledge sharing period where team members can help solve any issues of concern other members are having. Smaller decisions will be handled in the group chat over Slack.
+In general, the purpose of these meetings is to go over what has been done and assign general tasks to be completed by the next meeting time. The meetings will also be a knowledge sharing period where team members can help solve any issues of concern other members are having. Smaller decisions will be handled in the group chat over Slack.
  
 
 #### Artifacts
