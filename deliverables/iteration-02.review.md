@@ -1,6 +1,6 @@
 # Logic Circuit Game
 
-## Iteration 1 - Review & Retrospect
+## Iteration 2 - Review & Retrospect
 
  * When: TODO
  * Where: TODO
@@ -25,7 +25,7 @@
 #### Meeting 4
   * When: Tuesday Nov 15th 2016
   * Where: In person in BA3200
-  * What: we reviewed everything we've done this iteration. We discussed the last touches we needed to make to our project as well as how we are going to make the video
+  * What: We reviewed everything we've done this iteration. We discussed the last touches we needed to make to our project as well as how we are going to make the video
 
 ## Process - Reflection
 
@@ -39,7 +39,7 @@ Decisions that turned out well:
 
 Decisions that did not turn as well as we hoped:
 
-- We made the decision to change to 2D modeling from 3D. whilst integrating the front-end and the backend it came to our attention that future work (in terms of aesthetics) would become easier if we switched to a 2D model. refractoring the code took some time.
+- We made the decision to change to 2D modeling from 3D. Whilst integrating the front-end and the backend it came to our attention that future work (in terms of aesthetics) would become easier if we switched to a 2D model. Refractoring the code took some time.
 
 - We had to change a core design feature, namely the account system. Whilst starting work on the serialization aspect of the program (an aspect which was tied in heavily with the account system) it came to our attention that accounts were not neccessary to fulfil the goals of the program and thus Mack's responsibilities were shifted away from the account system and towards implementing a different form of serialzation.
 
@@ -57,7 +57,7 @@ Goals/tasks that were met/completed:
 
 - Drag and drop features were implemented. Gates can be cloned from a "model" gate and dragged and dropped anywhere on the map, Wires can be used to connect gates, and gates have areas in which placed wires can be detected.
 - The logic and back-end implementation was completed. The Appropriate interfaces were created and the necessary logic was implemented.
-- Level serialization and deserialzation was completed. made use of JSON to save levels locally.
+- Level serialization and deserialzation was completed. Made use of JSON to save levels locally.
 - integrated the front-end with the back-end.
 
 Goals/tasks that were planned but not met/completed:
