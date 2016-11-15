@@ -3,17 +3,32 @@
 ## Iteration 1
 
  * Start date: Thursday Oct 26st 2016
- * End date: 
+ * End date: Wednesday Nov 15 2016
 
 ## Process
 
 Introduction
 This is a summary of the planning group 24 did during the second iteration. We had many additional
-discussions on Slack; a social network application.
+discussions on Slack; a social network application. We planned out our implementation for the prototype and distributed roles for working on the prototype
 
 #### Roles & responsibilities
 
-
+Drag and drop & Collision (Kailey and Maria)
+ - Can drag over other objects, can’t place over them
+ - Need to allow wires to overlap but not gates
+ - Need to be able to detect if wire is connected (maybe simple click)
+ - Use placeholder game objects for now, Freddy will hook up later
+ - Be able to delete objects
+ 
+Wires and gates backend code (Freddy)
+ - Write code for all level, wire, gate, and simulation backend logic
+ 
+Accounts (Mack)
+ - Probably use a DB for usernames, passwords, and a set of map IDs that they can edit and map IDs which they cannot or something more efficient of the sort to maintain permission
+ - Need to be able to log in and out
+ 
+Integration (Dylan)
+ - Put together the front-end (drag and drop with filler objects right now) and the back-end (gate logic)
 
 
 #### Events
