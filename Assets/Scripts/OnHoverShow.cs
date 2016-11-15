@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class OnHoverShow : MonoBehaviour {
 
     public SpriteRenderer spriteOnHover;
     public SpriteRenderer spriteOffHover;
+
+    public void Awake() {
+        toggleSprites(false);
+    }
 
     public void OnMouseEnter() {
         toggleSprites(true);

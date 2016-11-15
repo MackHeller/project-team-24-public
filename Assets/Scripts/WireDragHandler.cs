@@ -9,7 +9,7 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private WireController wireController;
     float zDistFromCamera;
 
-    #region IBeginDragHandler implementation
+    #region DragHandler
 
     public void OnBeginDrag(PointerEventData evenStData) {
         wire = Instantiate(wirePrefab);
@@ -19,17 +19,10 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         zDistFromCamera = Mathf.Abs(startPos.z - Camera.main.transform.position.z);
     }
 
-    #endregion
-
-    #region IDragHandler implementation
-
     public void OnDrag(PointerEventData eventData) {
         wireController.endPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistFromCamera));
     }
 
-    #endregion
-
-    #region IEndDragHandler implementation
     public void OnEndDrag(PointerEventData eventData) {
         WireCollider script;
         script = wire.GetComponentInChildren<WireCollider>();
