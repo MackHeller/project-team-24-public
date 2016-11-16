@@ -18,9 +18,12 @@ public class GateAnd : LogicModule {
     override protected IList<bool?> applyLogic(IList<bool?> inputs) {
         bool? output = inputs[0];
         for (int i = 1; i < inputs.Count; i++) {
-            if (output != true)
-                break;
-            output = output & inputs[i];
+            if (output == null || inputs[i] == null) {
+                return null;
+            } else {
+                output = output.Value && inputs[i].Value;
+            }
+            //output = output & inputs[i];
         }
         return LogicUtil.oneBoolList(output);
     }
