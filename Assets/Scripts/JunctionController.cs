@@ -1,15 +1,45 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Collider2D))]
 public class JunctionController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public Junction junction;
+
+    private SpriteRenderer _sprite;
+    private Collider2D _collider;
+    private bool uninteractableOverride = false;
+
+    public void Awake() {
+        junction = new Junction();
+
+        _collider = GetComponent<Collider2D>();
+        _sprite = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    private Vector3 getPointerPos() {
+        float zDistFromCamera = Mathf.Abs(transform.position.z - Camera.main.transform.position.z);
+        return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistFromCamera));
+    }
+
+    public void FixedUpdate() {
+        if (GameManager.isCreatingWire()) {
+            toggleInteractable(!junction.hasInputModule());
+        } else {
+            toggleInteractable(junction.hasInputModule());
+        }
+        bool hovering = _collider.bounds.Contains(getPointerPos());
+        _sprite.color = new Color(_sprite.color.r, _sprite.color.g, _sprite.color.b, hovering ? 1f : 0.5f);
+    }
+
+    private void toggleInteractable(bool on) {
+        on = on && !uninteractableOverride;
+        _sprite.enabled = on;
+        _collider.enabled = on;
+    }
+
+    public void setUninteractableOverride(bool uninteractableOverride) {
+        this.uninteractableOverride = uninteractableOverride;
+    }
+
 }

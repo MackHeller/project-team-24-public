@@ -3,26 +3,25 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// An many-to-one XOR gate.
-/// </summary>
-public class GateXOR : Module {
 
-    public GateXOR(int numInputs) {
-        initialize(numInputs, 1);
+/// <summary>
+/// An many-to-one AND gate.
+/// </summary>
+public class GateAnd : LogicModule {
+
+    // Constructor called by the factory method
+    public GateAnd(int numInputs) : base(numInputs, 1) {
+
     }
 
     // Applys the module's logic to the input list of booleans
     override protected IList<bool?> applyLogic(IList<bool?> inputs) {
         bool? output = inputs[0];
         for (int i = 1; i < inputs.Count; i++) {
-            output = output ^ inputs[i];
+            if (output != true)
+                break;
+            output = output & inputs[i];
         }
         return LogicUtil.oneBoolList(output);
-    }
-
-    // Notifies the output LogicObjects of a set of inputs
-    override protected void notifyOutput(IList<bool?> outputList) {
-        outputWires[0].notifyInput(outputList[0]);
     }
 }

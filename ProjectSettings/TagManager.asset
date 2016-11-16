@@ -6,8 +6,8 @@ TagManager:
   tags:
   - WireTag
   - GateTag
+  - Junction
   - InputTag
-  - OutputTag
   layers:
   - Default
   - TransparentFX
@@ -44,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 386789143
+    locked: 0
+  - name: Instantiators
+    uniqueID: 2526516695
+    locked: 0
+  - name: PlacedObjects
+    uniqueID: 421852667
+    locked: 0
+  - name: Wires
+    uniqueID: 1841153509
     locked: 0
