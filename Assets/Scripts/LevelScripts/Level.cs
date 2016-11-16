@@ -16,7 +16,7 @@ public class Level : MonoBehaviour {
     private String creator;
     private int levelPar;
     private int minScore;
-    private ArrayList<Module> gates;
+    private ArrayList<LogicModule> gates;
     private ArrayList<bool> input;
     private ArrayList<bool> output;
 
@@ -93,7 +93,7 @@ public class Level : MonoBehaviour {
 
     #region getters
 
-    public ArrayList<Module> getGates() { return gates; }
+    public ArrayList<LogicModule> getGates() { return gates; }
     public ArrayList<bool> getLevelInput() { return input; }
     public ArrayList<bool> getLevelOutput() { return output; }
     public String getLevelName() { return levelName; }
@@ -105,7 +105,7 @@ public class Level : MonoBehaviour {
 
     #region setters
 
-    public void setGates(ArrayList<Module> gates) { this.gates = gates; }
+    public void setGates(ArrayList<LogicModule> gates) { this.gates = gates; }
     public void setLevelInput(ArrayList<bool> input) { this.input = input; }
     public void setLevelOutput(ArrayList<bool> output) { this.output = output; }
     public void setLevelName(String levelName) { this.levelName = levelName; }

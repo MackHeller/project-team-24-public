@@ -15,7 +15,7 @@ public class LevelWriter {
         StreamWriter sw = null;
         string json = "{\"LevelName\": \"" + level.getLevelName() + "\",\n\"Creator\": \"" + level.getCreator() + "\",\n\"Par\": " + level.getLevelPar() + ",\n\"MinScore\":" + level.getMinScore();
         //do gates
-        ArrayList<Module> gates = level.getGates();
+        ArrayList<LogicModule> gates = level.getGates();
         if (gates.Count > 0)
             json = json + ",\n\"Gates\": [";
         for (int i = 0; i < gates.Count; i++) {

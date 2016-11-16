@@ -19,14 +19,14 @@ namespace AssemblyCSharp {
             manager.setInputLogicAt(1, true);
             manager.setExpectedOutputLogicAt(0, true);
 
-            GateAND gate = new GateAND(2);
+            GateAnd gate = new GateAnd(2);
 
             // hook up input wires to the gate
-            manager.getInputWireAt(0).addOutput(gate, 0);
-            manager.getInputWireAt(1).addOutput(gate, 1);
+            manager.getInputWireAt(0).setOutputJunction(gate.getInputJunction(0));
+            manager.getInputWireAt(1).setOutputJunction(gate.getInputJunction(1));
 
             // hook up output wires
-            gate.setOutputAt(0, manager.getOutputWireAt(0));
+            manager.getOutputWireAt(0).setInputJunction(gate.getOutputJunction(0));
 
             // run the circuit
             manager.run();
@@ -54,24 +54,24 @@ namespace AssemblyCSharp {
             GateOR or2 = new GateOR(2);
             Wire wire1 = new Wire();
             Wire wire2 = new Wire();
-            GateAND and = new GateAND(2);
+            GateAnd and = new GateAnd(2);
 
             // hook up the input wires 
-            manager.getInputWireAt(0).addOutput(or1, 0);
-            manager.getInputWireAt(1).addOutput(or1, 1);
-            manager.getInputWireAt(2).addOutput(or2, 0);
-            manager.getInputWireAt(3).addOutput(or2, 1);
+            manager.getInputWireAt(0).setOutputJunction(or1.getInputJunction(0));
+            manager.getInputWireAt(1).setOutputJunction(or1.getInputJunction(1));
+            manager.getInputWireAt(2).setOutputJunction(or2.getInputJunction(0));
+            manager.getInputWireAt(3).setOutputJunction(or2.getInputJunction(1));
 
             // hook up the OR gate outputs to 2 wires
-            or1.setOutputAt(0, wire1);
-            or2.setOutputAt(0, wire2);
+            wire1.setInputJunction(or1.getOutputJunction(0));
+            wire2.setInputJunction(or2.getOutputJunction(0));
 
             // hook up the 2 wire outputs into the AND gate
-            wire1.addOutput(and, 0);
-            wire2.addOutput(and, 1);
+            wire1.setOutputJunction(and.getInputJunction(0));
+            wire2.setOutputJunction(and.getInputJunction(1));
 
             // hook up AND gate output to the output wire
-            and.setOutputAt(0, manager.getOutputWireAt(0));
+            manager.getOutputWireAt(0).setInputJunction(and.getOutputJunction(0));
 
 
             // 10 10 -> 1
@@ -130,11 +130,11 @@ namespace AssemblyCSharp {
         [Test]
         public void addRemoveModulesTest() {
             LogicManager manager = new LogicManager(2, 1);
-            Module addedModule = manager.addModule(new GateOR(10));
-            Module addedModule2 = manager.addModule(new GateXOR(3));
+            LogicModule addedModule = manager.addModule(new GateOR(10));
+            LogicModule addedModule2 = manager.addModule(new GateXOR(3));
 
-            Module foundModule = manager.getModuleAtId(addedModule.getId());
-            Module foundModule2 = manager.getModuleAtId(addedModule2.getId());
+            LogicModule foundModule = manager.getModuleAtId(addedModule.getId());
+            LogicModule foundModule2 = manager.getModuleAtId(addedModule2.getId());
 
             Assert.AreEqual(addedModule, foundModule);
             Assert.AreNotEqual(addedModule2, foundModule);

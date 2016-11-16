@@ -46,8 +46,8 @@ public class LevelReader {
     /// Checks if gate exists in the current level
     /// name = name of a valid gate
     /// </summary>
-    public static ArrayList<Module> getGates(JsonData levelInformation) {
-        ArrayList<Module> gates = new ArrayList<Module>();
+    public static ArrayList<LogicModule> getGates(JsonData levelInformation) {
+        ArrayList<LogicModule> gates = new ArrayList<LogicModule>();
         if (jsonDataContainsKey(levelInformation, "Gates")) {
             for (int i = 0; i < levelInformation["Gates"].Count; i++) {
                 //TODO 
