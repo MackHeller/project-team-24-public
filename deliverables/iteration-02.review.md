@@ -2,9 +2,6 @@
 
 ## Iteration 2 - Review & Retrospect
 
- * When: TODO
- * Where: TODO
-
 ### Summary of Meetings
 
 #### Meeting 1
