@@ -69,5 +69,7 @@ Going into the next iteration, our main insights are:
 
 Product artifacts that we produced this iteration:
  * [Implementation Structure][Implementation Structure] - The structure of our program in terms of Implementation. 
+ * [Demo Video][Demo Video] - Our demo video
 
 [Implementation Structure]: https://docs.google.com/document/d/1t1vzYvifu1viiE6vm9i3t4oosKgifU6RrB5jUNmpuho/edit
+[Demo Video]: https://www.youtube.com/watch?v=I7JMP5TVfIU
