@@ -8,6 +8,7 @@ TagManager:
   - GateTag
   - Junction
   - InputTag
+  - justdropped
   layers:
   - Default
   - TransparentFX
