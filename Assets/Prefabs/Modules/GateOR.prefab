@@ -23,6 +23,8 @@ GameObject:
   - 61: {fileID: 61000013758267106}
   - 114: {fileID: 114000011201839944}
   - 114: {fileID: 114000014064995498}
+  - 50: {fileID: 50000013257432252}
+  - 114: {fileID: 114000013675344574}
   m_Layer: 0
   m_Name: GateOR
   m_TagString: GateTag
@@ -130,6 +132,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012939277576}
   m_RootOrder: 2
+--- !u!50 &50000013257432252
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011145657838}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61000013758267106
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -139,7 +158,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -0.1763525, y: 0.007493973}
   serializedVersion: 2
@@ -156,6 +175,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
+--- !u!114 &114000013675344574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011145657838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e30a46b5a8c29f4f9b63091bcbf18e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000014064995498
 MonoBehaviour:
   m_ObjectHideFlags: 1

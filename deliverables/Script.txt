@@ -1,0 +1,17 @@
+Script:
+Intro:
+Hello and welcome to group 24’s Deliverable 2 demo video.  Our product is a Logic Circuit Game which will provide an engaging and easily accessible way to both teach and learn computer organization skills. Our product has two types of users in mind, teacher and student. Ultimately, ‘student’ users will be able to create circuits through simple drag-and-drop gates and wires, while ‘teacher’ users will be able to design puzzles (or ‘levels’) for their students to attempt. Levels will be stored in JSON files and users will be able to attempt or edit any puzzle existing on their local machine. 
+Let’s examine was has been done so far.
+ What you see before you is a prototype for our product. As you can see we have a series of example logic objects on the left side of the screen.  All logic objects are inherited from the same abstract data type we call ‘logic module’.  Because of this, we can create any number of default logic objects for our game and feel confident that they will function with the rest of our architecture. As you can see the modules can be created by dragging one from the menu and placing it anywhere on the screen. 
+Wires can be created by selecting the output of a logic object and dragging the mouse to the desired destination.  Wires are in fact also logical objects that preform no operations on their given input. When two objects are attached, the output of the first object is directed to the input of the second.  Outputs can be directed to any number of objects, but inputs can only receive one value (because in the real world that would cause a short-circuit). 
+We also have input nodes and output detectors. Input nodes provide the initial signals for our circuit, while output detectors provide a visual representation of their given signal.  For demo purposes we are manipulating the signals by clicking on the input nodes, however in the final product a student attempting a level will be given pre-set input and output nodes that cannot be edited. 
+Another back end task we have completed is the implementation of level persistence, via serializing our objects as JSON files. The files created by our serializing process currently look like this. Deserialization is also functional. 
+So that is our progress thus far. To summarise we have: 
+* Implemented drag and drop features such that gates can be created using the menu, placed anywhere on the map, and moved around after placement, 
+* Wires can be used to connect gates, and gates have areas in which placed wires can be detected.
+* The logic and back-end implementation was completed for our logic modules. 
+* Level serialization and deserialzation was completed by using JSON files to save levels locally.
+* And finally integration between the front and back-end was completed. 
+
+While a lot of implementation has been completed, we still have a ways to go. Our next tasks include: avoiding object collisions, implementing level creation UI, implementing level progression and implementing a menu system. 
+Thank you for listening. 
