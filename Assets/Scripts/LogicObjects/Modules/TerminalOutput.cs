@@ -25,4 +25,8 @@ class TerminalOutput : LogicModule {
     public void setInputJunction(Junction inputJunction) {
         setInputJunction(0, inputJunction);
     }
+    public override string getName()
+    {
+        return "Output";
+    }
 }

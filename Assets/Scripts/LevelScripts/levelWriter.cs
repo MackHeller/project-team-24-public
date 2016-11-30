@@ -19,7 +19,7 @@ public class LevelWriter {
         if (gates.Count > 0)
             json = json + ",\n\"Gates\": [";
         for (int i = 0; i < gates.Count; i++) {
-            json = json + "{\"Name\": \"" + gates[i].getName() + "\",\n\"Amount\": " + convertMaxValue(gates[i].getAmount()) + "},\n";
+            json = json + "{\"Name\": \"" + gates[i].getName() + "\",\n\"Amount\": " + gates[i].getAmountAllowed() + "},\n";
         }
         if (gates.Count > 0)
             json = json.Remove(json.Length - 2) + "\n]";
@@ -53,12 +53,5 @@ public class LevelWriter {
             if (sw != null)
                 sw.Dispose();
         }
-    }
-
-    private static int convertMaxValue(int i) {
-        if (i.Equals(Int32.MaxValue))
-            return -1;
-        return i;
-
     }
 }

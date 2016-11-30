@@ -2,6 +2,11 @@
 "Creator": "MackHeller",
 "Par": 5,
 "MinScore":8,
+"Gates": [{"Name": "And",
+"Amount": 5},
+{"Name": "Or",
+"Amount": -1}
+],
 "Inputs": [{"Id": 0,
 "Value": "True"},
 {"Id": 1,

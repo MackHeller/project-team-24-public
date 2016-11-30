@@ -42,4 +42,8 @@ public class Wire : LogicModule {
     protected override IList<bool?> applyLogic(IList<bool?> inputs) {
         return new List<bool?>(1) { inputs[0] };
     }
+    public override string getName()
+    {
+        return "Wire";
+    }
 }

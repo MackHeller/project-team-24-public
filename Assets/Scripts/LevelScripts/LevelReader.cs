@@ -50,7 +50,26 @@ public class LevelReader {
         ArrayList<LogicModule> gates = new ArrayList<LogicModule>();
         if (jsonDataContainsKey(levelInformation, "Gates")) {
             for (int i = 0; i < levelInformation["Gates"].Count; i++) {
-                //TODO 
+                LogicModule temp;
+                switch (levelInformation["Gates"][i]["Name"].ToString())
+                {
+                    case "And":
+                        temp = new GateAnd(2);
+                        break;
+                    case "Or":
+                        temp = new GateOR(2);
+                        break;
+                    case "Not":
+                        temp = new GateNot();
+                        break;
+                    case "Xor":
+                        temp = new GateXOR(2);
+                        break;
+                    default:
+                        throw new Exception("Cannot find given gate"+ levelInformation["Gates"][i]["Name"].ToString());
+                }
+                temp.setAmountAllowed(Convert.ToInt32(levelInformation["Gates"][i]["Amount"].ToString()));
+                gates.Add(temp);
             }
         }
         return gates;

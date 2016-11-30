@@ -14,6 +14,11 @@ public class GateNot : LogicModule {
 
     }
 
+    public override string getName()
+    {
+        return "Not";
+    }
+
     // Applys the module's logic to the input list of booleans
     override protected IList<bool?> applyLogic(IList<bool?> inputs) {
         return new List<bool?>(1) { !inputs[0] };
