@@ -27,7 +27,7 @@ public class TerminalController : MonoBehaviour {
                 renderer.color = Color.red;
                 break;
             default:
-                renderer.color = Color.white;
+                renderer.color = Color.green;
                 break;
         }
     }

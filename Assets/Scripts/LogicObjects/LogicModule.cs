@@ -14,6 +14,7 @@ public abstract class LogicModule : LogicObject {
     protected IList<Junction> outputJunctions;
     private int numInputs;
     private int numOutputs;
+    private int amountAllowed;
 
     protected LogicModule(int numInputs, int numOutputs) {
         this.numInputs = numInputs;
@@ -100,13 +101,9 @@ public abstract class LogicModule : LogicObject {
     // Applys the module's logic to the input list of booleans
     protected abstract IList<bool?> applyLogic(IList<bool?> inputs);
 
-    public string getName() {
-        //TODO
-        return "Name";
-    }
-
-    public int getAmount() {
-        //TODO
-        return -1;
+    public abstract string getName();
+    public void setAmountAllowed(int amount) { this.amountAllowed = amount; }
+    public int getAmountAllowed() {
+        return amountAllowed;
     }
 }

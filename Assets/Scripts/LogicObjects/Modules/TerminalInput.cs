@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class TerminalInput : LogicModule {
@@ -27,5 +28,10 @@ public class TerminalInput : LogicModule {
 
     public void setOutputJunction(Junction outputJunction) {
         setOutputJunction(0, outputJunction);
+    }
+
+    public override string getName()
+    {
+        return "Input";
     }
 }

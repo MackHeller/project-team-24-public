@@ -24,7 +24,7 @@ public class Level : MonoBehaviour {
         // for testing only
         loadLevel("level4-Mack");
         saveLevel();
-        saveAsNewLevel("mackLevel", "MackHeller");
+        saveAsNewLevel("mackLevel", "MackHeller2");
     }
 
     public void loadLevel(string levelName) {
@@ -59,34 +59,6 @@ public class Level : MonoBehaviour {
         this.input = LevelReader.getLevelInput(jsonData);
         this.output = LevelReader.getLevelOutput(jsonData);
         this.creator = LevelReader.getCreator(jsonData);
-    }
-
-    /// <summary>
-    /// Checks if gate exists in the current level
-    /// name = name of a valid gate
-    /// </summary>
-    public bool hasGate(String name) {
-        for (int i = 0; i < gates.Count; i++) {
-            if (gates[i].getName().Equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /// <summary>
-    /// get the max amount of a certain gate the level allows. If there is no limit it returns the MaxValue.
-    /// Throws Exception if gate does not exist
-    /// name = name of a valid gate
-    /// </summary>
-    public int getGateAmount(String name) {
-        for (int i = 0; i < gates.Count; i++) {
-            if (gates[i].getName().Equals(name)) {
-                return gates[i].getAmount();
-            }
-        }
-        throw new System.
-            Exception("Tried to request gate that does not exist in the current level");
     }
 
     private String createLevelName(String level, String creator) { return level + "-" + creator; }

@@ -12,6 +12,11 @@ public class GateXOR : LogicModule {
 
     }
 
+    public override string getName()
+    {
+        return "Xor";
+    }
+
     // Applys the module's logic to the input list of booleans
     override protected IList<bool?> applyLogic(IList<bool?> inputs) {
         bool? output = inputs[0];
