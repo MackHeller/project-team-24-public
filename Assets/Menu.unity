@@ -636,7 +636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66587a1f2acc6e4ab1cf62058d0ab41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1000012726280126, guid: e33925b152915784bb1b2fc573b2f0a4, type: 2}
 --- !u!1 &1586617679
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,8 +670,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.7, y: 0}
-  m_SizeDelta: {x: 18.1, y: 163.6}
+  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_SizeDelta: {x: 18.8, y: 157.99}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1586617681
 MonoBehaviour:
@@ -835,7 +834,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
