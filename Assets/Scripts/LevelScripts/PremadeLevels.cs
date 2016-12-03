@@ -24,12 +24,36 @@ public class PremadeLevels : MonoBehaviour{
 		this.loadFourInputAndGate ();
 	}
 
+	/// <summary>
+	/// Instantiates an input at the left of the screen, at a  location
+	/// based on its input. More lightweight than instantiateInputAt.
+	/// </summary>
+	/// <param name="index">between 1-8</param>
+	private GameObject instantiateInputAtIndex (int index) {
+		return instantiateInputAt (canvasWidth / 4, canvasHeight / 8 * index - canvasHeight / 6);
+	}
+
+	/// <summary>
+	/// Instantiates an output at the left of the screen, at a  location
+	/// based on its input. More lightweight than instantiateOutputAt.
+	/// </summary>
+	/// <param name="index">between 1-8</param>
+	private GameObject instantiateOutputAtIndex (int index) {
+		return instantiateOutputAt (canvasWidth / 8 * 7, canvasHeight / 8 * index - canvasHeight / 6);
+	}
+
+	/// <summary>
+	/// Instantiates an input at x, y coordinates.
+	/// </summary>
 	private GameObject instantiateInputAt (float x, float y) {
 		GameObject newPrefab = Instantiate (inputPrefab);
 		newPrefab.transform.position = new Vector3 (canvasStart.x + x, canvasStart.y + y, 0);
 		return newPrefab;
 	}
 
+	/// <summary>
+	/// Instantiates an output at x, y coordinates.
+	/// </summary>
 	private GameObject instantiateOutputAt (float x, float y) {
 		GameObject newPrefab = Instantiate (outputPrefab);
 		newPrefab.transform.position = new Vector3 (canvasStart.x + x, canvasStart.y + y, 0);
@@ -42,7 +66,10 @@ public class PremadeLevels : MonoBehaviour{
 	/// Difficulty: 		1
 	/// </summary>
 	public void loadXorGatePuzzle() {
-		
+		instantiateInputAtIndex (4);
+		instantiateInputAtIndex (6);
+
+		instantiateOutputAtIndex (5);
 	}
 
 	/// <summary>
@@ -51,6 +78,11 @@ public class PremadeLevels : MonoBehaviour{
 	/// Difficulty: 		1
 	/// </summary>
 	public void loadFourInputAndGate() {
-		
+		instantiateInputAtIndex (2);
+		instantiateInputAtIndex (4);
+		instantiateInputAtIndex (6);
+		instantiateInputAtIndex (8);
+
+		instantiateOutputAtIndex (5);
 	}
 }
