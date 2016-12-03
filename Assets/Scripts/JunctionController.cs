@@ -11,6 +11,7 @@ public class JunctionController : MonoBehaviour {
     private bool uninteractableOverride = false;
 
     public void Awake() {
+        junction = new Junction();
         _collider = GetComponent<Collider2D>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
     }
@@ -38,6 +39,18 @@ public class JunctionController : MonoBehaviour {
 
     public void setUninteractableOverride(bool uninteractableOverride) {
         this.uninteractableOverride = uninteractableOverride;
+    }
+
+    /**
+     * <summary>Destroys this junction game object if it is not connected to any logic modules.</summary>
+     * <returns>true, if this object was destroyed</returns>
+     */
+    public bool destroyIfDisconnected() {
+        if (!(junction.hasInputModule() || junction.hasObservers())) {
+            Destroy(this);
+            return true;
+        }
+        return false;
     }
 
 }

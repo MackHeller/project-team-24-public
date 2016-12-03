@@ -30,6 +30,13 @@ public class WireController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
+    void OnDestroy() {
+        inputJunction.junction.removeObserver(wireLogic, 0);
+        inputJunction.destroyIfDisconnected();
+        outputJunction.junction.setInputModule(null);
+        outputJunction.destroyIfDisconnected();
+    }
+
     public void setInputJunction(JunctionController inputJunction) {
         this.inputJunction = inputJunction;
         wireLogic.setInputJunction(inputJunction ? inputJunction.junction : null);

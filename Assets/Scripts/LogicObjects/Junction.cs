@@ -28,6 +28,10 @@ public class Junction : LogicObject {
         observers.Remove(new KeyValuePair<LogicModule, int>(observingModule, moduleInputIndex));
     }
 
+    public bool hasObservers() {
+        return observers.Count != 0;
+    }
+
     protected void notifyObservers() {
         foreach (KeyValuePair<LogicModule, int> observingModuleInputs in observers) {
             LogicModule module = observingModuleInputs.Key;
@@ -49,6 +53,7 @@ public class Junction : LogicObject {
 
     public void setInputModule(LogicModule inputModule) {
         this.inputModule = inputModule;
+        notifyObservers();
     }
 
     /// <returns>true if this junction has a module providing the input value</returns>

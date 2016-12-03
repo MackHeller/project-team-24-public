@@ -48,4 +48,19 @@ public class BuiltinModuleController : MonoBehaviour {
         }
         return junctionControllers;
     }
+
+    void OnDestroy() {
+        // Destroy all input junctions if they are not connected to anything else
+        for (int i = 0; i < inputJunctionControllers.Length; i++) {
+            JunctionController jc = inputJunctionControllers[i];
+            jc.junction.removeObserver(module, i);
+            jc.destroyIfDisconnected();
+        }
+        // Destroy all output junctions if they are not connected to anything else
+        for (int i = 0; i < outputJunctionControllers.Length; i++) {
+            JunctionController jc = outputJunctionControllers[i];
+            jc.junction.setInputModule(null);
+            jc.destroyIfDisconnected();
+        }
+    }
 }
