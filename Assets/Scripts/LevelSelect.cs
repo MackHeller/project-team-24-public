@@ -12,9 +12,10 @@ public class LevelSelect : MonoBehaviour {
 		foreach (string s in levels) {
 			pos.y = pos.y - 40;
 			GameObject pref = (GameObject) Instantiate (button, pos ,this.transform.rotation, this.transform);
-			pref.GetComponentInChildren<Text>().text = s;
-			Button b = pref.GetComponent<Button> ();
-
+			Text [] texts = pref.GetComponentsInChildren<Text> ();
+			string[] s1 = s.Split('-');
+			texts [0].text = s1 [0];
+			texts [1].text = "Creator: " + s1 [1];
 		}
 	}
 
