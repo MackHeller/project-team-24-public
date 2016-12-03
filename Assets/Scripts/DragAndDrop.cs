@@ -47,14 +47,8 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
             instantiated.OnEndDrag(eventData);
         } else {
             offset = Vector3.zero;
-			gameObject.tag = "justdropped";
-			Invoke ("setTag", 0.1f); //short delay before setting tag
         }
     }
-
-	public void setTag(){
-		gameObject.tag = "GateTag";
-	}
 
     #endregion
 }

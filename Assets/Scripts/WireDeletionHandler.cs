@@ -15,7 +15,7 @@ public class WireDeletionHandler : MonoBehaviour {
 
 	void OnMouseUp(){
 		if (markedfordeletion) {
-			Destroy (gameObject, 0.1f);
+			//Destroy (gameObject, 0.1f);
 			//removes the gameobject
 			//but the backend wire remains
 			//TODO:need to remove wire from junction
