@@ -57,13 +57,13 @@ public class LevelReader {
                         temp = new GateAnd(2);
                         break;
                     case "Or":
-                        temp = new GateOR(2);
+                        temp = new GateOr(2);
                         break;
                     case "Not":
                         temp = new GateNot();
                         break;
                     case "Xor":
-                        temp = new GateXOR(2);
+                        temp = new GateXor(2);
                         break;
                     default:
                         throw new Exception("Cannot find given gate"+ levelInformation["Gates"][i]["Name"].ToString());

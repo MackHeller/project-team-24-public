@@ -6,14 +6,13 @@ using System.Collections.Generic;
 /// <summary>
 /// An many-to-one XOR gate.
 /// </summary>
-public class GateXOR : LogicModule {
+public class GateXor : LogicModule {
 
-    public GateXOR(int numInputs) : base(numInputs, 1) {
+    public GateXor(int numInputs) : base(numInputs, 1) {
 
     }
 
-    public override string getName()
-    {
+    public override string getName() {
         return "Xor";
     }
 

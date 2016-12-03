@@ -6,13 +6,12 @@ using System.Collections.Generic;
 /// <summary>
 /// A many-to-one OR gate.
 /// </summary>
-public class GateOR : LogicModule {
-    public GateOR(int numInputs) : base(numInputs, 1) {
+public class GateOr : LogicModule {
+    public GateOr(int numInputs) : base(numInputs, 1) {
 
     }
 
-    public override string getName()
-    {
+    public override string getName() {
         return "Or";
     }
 

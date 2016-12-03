@@ -50,8 +50,8 @@ namespace AssemblyCSharp {
             manager.setInputLogicAt(3, false);
             manager.setExpectedOutputLogicAt(0, true);
 
-            GateOR or1 = new GateOR(2);
-            GateOR or2 = new GateOR(2);
+            GateOr or1 = new GateOr(2);
+            GateOr or2 = new GateOr(2);
             Wire wire1 = new Wire();
             Wire wire2 = new Wire();
             GateAnd and = new GateAnd(2);
@@ -130,8 +130,8 @@ namespace AssemblyCSharp {
         [Test]
         public void addRemoveModulesTest() {
             LogicManager manager = new LogicManager(2, 1);
-            LogicModule addedModule = manager.addModule(new GateOR(10));
-            LogicModule addedModule2 = manager.addModule(new GateXOR(3));
+            LogicModule addedModule = manager.addModule(new GateOr(10));
+            LogicModule addedModule2 = manager.addModule(new GateXor(3));
 
             LogicModule foundModule = manager.getModuleAtId(addedModule.getId());
             LogicModule foundModule2 = manager.getModuleAtId(addedModule2.getId());

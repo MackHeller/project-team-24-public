@@ -8,15 +8,13 @@ public class BuiltinModuleController : MonoBehaviour {
 
     public enum BuiltinModules { IN, OUT, NOT, AND, OR, XOR };
 
-    private delegate LogicModule ModuleInstantiator();
-
-    private static Dictionary<BuiltinModules, ModuleInstantiator> builtinModuleInstantiators = new Dictionary<BuiltinModules, ModuleInstantiator>() {
+    private static Dictionary<BuiltinModules, Func<LogicModule>> builtinModuleInstantiators = new Dictionary<BuiltinModules, Func<LogicModule>>() {
         { BuiltinModules.IN, () => new TerminalInput() },
         { BuiltinModules.OUT, () => new TerminalOutput() },
         { BuiltinModules.NOT, () => new GateNot() },
         { BuiltinModules.AND, () => new GateAnd(2) },
-        { BuiltinModules.OR, () => new GateOR(2) },
-        { BuiltinModules.XOR, () => new GateXOR(2) },
+        { BuiltinModules.OR, () => new GateOr(2) },
+        { BuiltinModules.XOR, () => new GateXor(2) },
     };
 
     public BuiltinModules builtinModule;

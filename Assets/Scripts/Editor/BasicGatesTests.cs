@@ -65,7 +65,7 @@ namespace AssemblyCSharp {
 		 */
         [Test]
         public void orTest() {
-            GateOR gate = new GateOR(2);
+            GateOr gate = new GateOr(2);
 
             gate.getInputJunction(0).setValue(true);
             gate.getInputJunction(1).setValue(true);
@@ -87,7 +87,7 @@ namespace AssemblyCSharp {
 		 */
         [Test]
         public void xorTest() {
-            GateXOR gate = new GateXOR(2);
+            GateXor gate = new GateXor(2);
 
             gate.getInputJunction(0).setValue(true);
             gate.getInputJunction(1).setValue(true);
