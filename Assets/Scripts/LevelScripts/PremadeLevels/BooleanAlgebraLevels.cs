@@ -6,7 +6,7 @@ using System;
 /// Class for loading levels which require knowledge of boolean laws and identities
 /// to solve (DeMorgan's, Simplification, Consensus, etc)
 /// </summary>
-public class BasicLevels {
+public class BooleanAlgebraLevels {
 	/*
 	 * TODO: adjust after level editor is completed, require for proper implementation
 	 * of these functions.
