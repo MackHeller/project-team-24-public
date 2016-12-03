@@ -956,7 +956,6 @@ MonoBehaviour:
     type: 2}
   outputPrefab: {fileID: 1000011145657838, guid: f57d56d642a4e054fb2c734dfa830713,
     type: 2}
-  canvas: {fileID: 1971603216}
 --- !u!1 &253931484
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,11 +7,15 @@ public class GameManager : MonoBehaviour {
 	private static Level _level;
 
 	void Start() {
-		/*
-		 * Not functional, putting this here since the level editor will need to
-		 * allow a centralized way to load levels.
-		 */ 
+
 		_level = new Level ();
+		_level.loadLevel ("FourInputAndGate-Freddy");
+
+		/*
+		 * NOTE: not sure if due to a gitIgnore, the prefabs placed in LevelCreationTool
+		 * are removed on pulls.
+		 */ 
+		LevelCreationTool.getInstance ().LoadInputOutputFromLevel (_level);
 	}
 
 	public static Level getLevel() {

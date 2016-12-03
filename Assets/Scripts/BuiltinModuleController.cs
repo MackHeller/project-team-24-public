@@ -45,6 +45,4 @@ public class BuiltinModuleController : MonoBehaviour {
                 location.transform.position, Quaternion.Euler(Vector3.zero), transform))
                     .GetComponent<JunctionController>().junction;
     }
-
-
 }

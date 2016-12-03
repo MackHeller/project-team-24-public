@@ -22,7 +22,7 @@ public class BooleanAlgebraLevels {
 	/// 
 	/// HINT: Recall DeMorgan's Law.
 	/// </summary>
-	public void loadDeMorgans1() {
+	public static void loadDeMorgans1() {
 		/*
 		 * Waiting on the completion of LevelEditor to implement.
 		 */
@@ -43,7 +43,7 @@ public class BooleanAlgebraLevels {
 	/// HINT: Recall DeMorgan's Law. Which gate(s) in this circuit
 	/// 	  could it be applied to?
 	/// </summary>
-	public void loadDeMorgans2() {
+	public static void loadDeMorgans2() {
 		/*
 		 * Waiting on the completion of LevelEditor to implement.
 		 */
@@ -60,7 +60,7 @@ public class BooleanAlgebraLevels {
 	/// 
 	/// HINT: Recall the simplification law.
 	/// </summary>
-	public void loadSimplification1() {
+	public static void loadSimplification1() {
 		/*
 		 * Waiting on the completion of LevelEditor to implement.
 		 */
@@ -77,7 +77,7 @@ public class BooleanAlgebraLevels {
 	/// 
 	/// HINT: Recall the consensus law.
 	/// </summary>
-	public void loadConsensus1() {
+	public static void loadConsensus1() {
 		/*
 		 * Waiting on the completion of LevelEditor to implement.
 		 */

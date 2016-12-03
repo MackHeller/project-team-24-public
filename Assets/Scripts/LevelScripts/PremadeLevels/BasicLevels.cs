@@ -21,7 +21,7 @@ public class BasicLevels {
 	/// HINT: You can hook up the results of 2-input circuits into
 	/// 	  another 2-input circuit.
 	/// </summary>
-	public void loadFourInputAndGate() {
+	public static void loadFourInputAndGate() {
 		LevelCreationTool ltc = LevelCreationTool.getInstance ();
 
 		ltc.instantiateInputAtIndex (2);
@@ -40,7 +40,7 @@ public class BasicLevels {
 	/// 
 	/// HINT: How does XOR's truth table compare to an OR's?
 	/// </summary>
-	public void loadXorGatePuzzle() {
+	public static void loadXorGatePuzzle() {
 		LevelCreationTool ltc = LevelCreationTool.getInstance ();
 
 		ltc.instantiateInputAtIndex (4);
@@ -70,7 +70,7 @@ public class BasicLevels {
 	/// HINT: You can hook up the results of 2-input circuits into
 	/// 	  another 2-input circuit.
 	/// </summary>
-	public void loadAndIntoOrPuzzle() {
+	public static void loadAndIntoOrPuzzle() {
 		/*
 		 * Waiting on the completion of LevelEditor to implement.
 		 */
@@ -98,45 +98,7 @@ public class BasicLevels {
 	/// 
 	/// HINT: Inputs can be used in multiple circuits
 	/// </summary>
-	public void loadDoubleCircuitPuzzle() {
-		/*
-		 * Waiting on the completion of LevelEditor to implement.
-		 */
-		throw new NotImplementedException ();
-	}
-
-	/// <summary>
-	/// Create a NOR gate with only AND and NOT gates.
-	/// Requires the use of DeMorgan's laws.
-	/// 
-	/// Available gates: 	AND, NOT
-	/// Difficulty: 		2/3
-	/// Optimal Gates #:	3
-	/// 
-	/// HINT: Recall DeMorgan's Law.
-	/// </summary>
-	public void loadDeMorgans1() {
-		/*
-		 * Waiting on the completion of LevelEditor to implement.
-		 */
-		throw new NotImplementedException ();
-	}
-
-	/// <summary>
-	/// Consider 2 AND gates hooked into an OR gate and their
-	/// state table.
-	/// Create a circuit with only AND and NOT gates that simulates
-	/// this behaviour.
-	/// Requires DeMorgan's Law.
-	/// 
-	/// Available gates: 	AND, NOT
-	/// Difficulty: 		3/3
-	/// Optimal Gates #:	6
-	/// 
-	/// HINT: Recall DeMorgan's Law. Which gate(s) in this circuit
-	/// 	  could it be applied to?
-	/// </summary>
-	public void loadDeMorgans2() {
+	public static void loadDoubleCircuitPuzzle() {
 		/*
 		 * Waiting on the completion of LevelEditor to implement.
 		 */

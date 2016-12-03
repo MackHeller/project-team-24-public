@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 /// <summary>
-/// Class for loading premade levels. Follows the Singleton Design Pattern.
+/// Class for loading levels. Follows the Singleton Design Pattern.
 /// </summary>
 public class LevelCreationTool : MonoBehaviour{
 	/*
@@ -11,14 +11,15 @@ public class LevelCreationTool : MonoBehaviour{
 	 * of these functions.
 	 */ 
 
+	// Input and output prefabs must be attached to LevelCreationTool in the scene in this implementation
 	public GameObject inputPrefab;
 	public GameObject outputPrefab;
-	public GameObject canvas;
-	private float canvasWidth;
-	private float canvasHeight;
+
+	private float width;
+	private float height;
 
 	// the bottom-left x, y, z coordinates of the canvas shown on screen
-	private Vector3 canvasStart;
+	private Vector3 bottomLeft;
 
 	// singleton instance of PremadeLevels
 	private static LevelCreationTool _instance;
@@ -29,10 +30,25 @@ public class LevelCreationTool : MonoBehaviour{
 
 	void Awake() {
 		_instance = this;
-		canvasWidth = canvas.GetComponent<RectTransform> ().rect.width;
-		canvasHeight = canvas.GetComponent<RectTransform> ().rect.height;
-		Vector3 canvasPos = canvas.transform.position;
-		canvasStart = new Vector3 (canvasPos.x - canvasWidth / 2, canvasPos.y - canvasHeight / 2, 0);
+		width = 57.4f;
+		height = 31.9f;
+		bottomLeft = new Vector3 (0 - width / 2, 10 - height / 2, 0);
+	}
+
+	/// <summary>
+	/// Instantiates the set of inputs/outputs from a level.
+	/// 
+	/// TODO: for whoever is working on the new 'LogicManager', hook these instantiated inputs/outputs up.
+	/// 
+	/// </summary>
+	/// <param name="index">must have between 1-6 inputs and 1-6 outputs for current coordinates</param>
+	public void LoadInputOutputFromLevel (Level level) {
+		for (int i = 1; i < level.getLevelInput ().Count + 1; i++) {
+			this.instantiateInputAtIndex (i);
+		}
+		for (int j = 1; j < level.getLevelOutput ().Count + 1; j++) {
+			this.instantiateOutputAtIndex (j);
+		}
 	}
 
 	/// <summary>
@@ -41,7 +57,7 @@ public class LevelCreationTool : MonoBehaviour{
 	/// </summary>
 	/// <param name="index">between 1-8</param>
 	public GameObject instantiateInputAtIndex (int index) {
-		return this.instantiateInputAt (canvasWidth / 4, canvasHeight / 8 * index - canvasHeight / 6);
+		return this.instantiateInputAt (width / 4, height / 8 * index - height / 6);
 	}
 
 	/// <summary>
@@ -50,7 +66,7 @@ public class LevelCreationTool : MonoBehaviour{
 	/// </summary>
 	/// <param name="index">between 1-8</param>
 	public GameObject instantiateOutputAtIndex (int index) {
-		return this.instantiateOutputAt (canvasWidth / 8 * 7, canvasHeight / 8 * index - canvasHeight / 6);
+		return this.instantiateOutputAt (width / 8 * 7, height / 8 * index - height / 6);
 	}
 
 	/// <summary>
@@ -58,7 +74,7 @@ public class LevelCreationTool : MonoBehaviour{
 	/// </summary>
 	private GameObject instantiateInputAt (float x, float y) {
 		GameObject newPrefab = Instantiate (inputPrefab);
-		newPrefab.transform.position = new Vector3 (canvasStart.x + x, canvasStart.y + y, 0);
+		newPrefab.transform.position = new Vector3 (bottomLeft.x + x, bottomLeft.y + y, 0);
 		return newPrefab;
 	}
 
@@ -67,7 +83,7 @@ public class LevelCreationTool : MonoBehaviour{
 	/// </summary>
 	private GameObject instantiateOutputAt (float x, float y) {
 		GameObject newPrefab = Instantiate (outputPrefab);
-		newPrefab.transform.position = new Vector3 (canvasStart.x + x, canvasStart.y + y, 0);
+		newPrefab.transform.position = new Vector3 (bottomLeft.x + x, bottomLeft.y + y, 0);
 		return newPrefab;
 	}
 }
