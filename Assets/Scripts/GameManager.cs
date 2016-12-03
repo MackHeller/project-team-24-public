@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour {
 		 * allow a centralized way to load levels.
 		 */ 
 		_level = new Level ();
-
-		LevelCreationTool.getInstance ().loadFourInputAndGate ();
 	}
 
 	public static Level getLevel() {
