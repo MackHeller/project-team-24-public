@@ -24,6 +24,9 @@ public class BuiltinModuleController : MonoBehaviour {
     public GameObject[] outputJunctionLocations;
     public JunctionController junctionControllerPrefab;
 
+    private JunctionController[] inputJunctionControllers;
+    private JunctionController[] outputJunctionControllers;
+
     public LogicModule module;
 
     void Start() {
@@ -32,17 +35,19 @@ public class BuiltinModuleController : MonoBehaviour {
             outputJunctionLocations.Length != module.getOutputCount()) {
             throw new IndexOutOfRangeException("Number of input/output controllers do not match gate");
         }
-        for (int i = 0; i < inputJunctionLocations.Length; i++) {
-            module.setInputJunction(i, instantiateJunction(inputJunctionLocations[i]));
-        }
-        for (int i = 0; i < outputJunctionLocations.Length; i++) {
-            module.setOutputJunction(i, instantiateJunction(outputJunctionLocations[i]));
-        }
+        inputJunctionControllers = instantiateJunctionControllers(inputJunctionLocations, i => module.getInputJunction(i));
+        outputJunctionControllers = instantiateJunctionControllers(outputJunctionLocations, i => module.getOutputJunction(i));
     }
 
-    private Junction instantiateJunction(GameObject location) {
-        return ((GameObject)Instantiate(junctionControllerPrefab.gameObject,
-                location.transform.position, Quaternion.Euler(Vector3.zero), transform))
-                    .GetComponent<JunctionController>().junction;
+    private JunctionController[] instantiateJunctionControllers(GameObject[] locations, Func<int, Junction> junctionGetter) {
+        JunctionController[] junctionControllers = new JunctionController[locations.Length];
+        for (int i = 0; i < locations.Length; i++) {
+            JunctionController jc = ((GameObject)Instantiate(junctionControllerPrefab.gameObject,
+                locations[i].transform.position, Quaternion.Euler(Vector3.zero), transform))
+                    .GetComponent<JunctionController>();
+            jc.junction = junctionGetter(i);
+            junctionControllers[i] = jc;
+        }
+        return junctionControllers;
     }
 }

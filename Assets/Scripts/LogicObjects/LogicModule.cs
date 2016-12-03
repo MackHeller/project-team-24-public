@@ -23,9 +23,10 @@ public abstract class LogicModule : LogicObject {
         inputValues = new List<bool?>(numInputs);
         inputJunctions = new List<Junction>(numInputs);
         for (int i = 0; i < numInputs; i++) {
-            inputJunctions.Add(null);
-            inputValues.Add(null);
-            setInputJunction(i, new Junction());
+            Junction input = new Junction();
+            input.addObserver(this, i);
+            inputValues.Add(input.getValue());
+            inputJunctions.Add(input);
         }
 
         outputJunctions = new List<Junction>(numOutputs);

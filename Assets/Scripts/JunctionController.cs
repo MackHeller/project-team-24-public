@@ -11,8 +11,6 @@ public class JunctionController : MonoBehaviour {
     private bool uninteractableOverride = false;
 
     public void Awake() {
-        junction = new Junction();
-
         _collider = GetComponent<Collider2D>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
     }

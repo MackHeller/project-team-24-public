@@ -24,7 +24,7 @@ public class GateAnd : LogicModule {
         bool? output = inputs[0];
         for (int i = 1; i < inputs.Count; i++) {
             if (output == null || inputs[i] == null) {
-                return null;
+                return LogicUtil.oneBoolList(null);
             } else {
                 output = output.Value && inputs[i].Value;
             }
