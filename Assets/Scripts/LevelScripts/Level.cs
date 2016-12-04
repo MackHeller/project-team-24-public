@@ -27,6 +27,11 @@ public class Level : MonoBehaviour {
         saveLevel();
         saveAsNewLevel("mackLevel", "MackHeller2");
         */
+
+		PremadeJsonWriter.createFourInputAndGate ();
+		PremadeJsonWriter.createXorGate ();
+		PremadeJsonWriter.createAndIntoOr ();
+		PremadeJsonWriter.createDoubleCircuit ();
     }
 
     public void loadLevel(string levelName) {

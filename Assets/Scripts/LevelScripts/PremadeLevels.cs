@@ -157,5 +157,41 @@ public class PremadeLevels : MonoBehaviour{
 		throw new NotImplementedException ();
 	}
 
+	/// <summary>
+	/// Create a NOR gate with only AND and NOT gates.
+	/// Requires the use of DeMorgan's laws.
+	/// 
+	/// Available gates: 	AND, NOT
+	/// Difficulty: 		2/3
+	/// Optimal Gates #:	3
+	/// 
+	/// HINT: Recall DeMorgan's Law.
+	/// </summary>
+	public void loadDeMorgans1() {
+		/*
+		 * Waiting on the completion of LevelEditor to implement.
+		 */
+		throw new NotImplementedException ();
+	}
 
+	/// <summary>
+	/// Consider 2 AND gates hooked into an OR gate and their
+	/// state table.
+	/// Create a circuit with only AND and NOT gates that simulates
+	/// this behaviour.
+	/// Requires DeMorgan's Law.
+	/// 
+	/// Available gates: 	AND, NOT
+	/// Difficulty: 		3/3
+	/// Optimal Gates #:	6
+	/// 
+	/// HINT: Recall DeMorgan's Law. Which gate(s) in this circuit
+	/// 	  could it be applied to?
+	/// </summary>
+	public void loadDeMorgans2() {
+		/*
+		 * Waiting on the completion of LevelEditor to implement.
+		 */
+		throw new NotImplementedException ();
+	}
 }
