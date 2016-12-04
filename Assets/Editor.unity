@@ -2797,7 +2797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5509,6 +5509,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1291351696}
   - 114: {fileID: 1291351699}
+  - 114: {fileID: 1291351697}
   m_Layer: 0
   m_Name: DeleteGateButton
   m_TagString: Untagged
@@ -5536,6 +5537,17 @@ RectTransform:
   m_AnchoredPosition: {x: -363, y: 293}
   m_SizeDelta: {x: 108.8, y: 114}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1291351697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291351695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ae779dcbd65f14a8e308ff0673cca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1291351699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5574,7 +5586,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 764517594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1291351697}
+        m_MethodName: OnDeletionClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1322220861

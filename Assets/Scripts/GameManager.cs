@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using C5;
 
 public class GameManager : MonoBehaviour {
 
@@ -7,6 +8,9 @@ public class GameManager : MonoBehaviour {
 
     private bool _isCreatingWire = false;
     private Level _level;
+	private bool _isdeleting = false;
+	private ArrayList<GameObject> _wiresToBeDeleted;
+	private ArrayList<GameObject> _gatesToBeDeleted;
 
     void Awake() {
         if (_instance == null) {
@@ -21,7 +25,8 @@ public class GameManager : MonoBehaviour {
 
         _level = new Level();
         _level.loadLevel("FourInputAndGate-Freddy");
-
+		_wiresToBeDeleted = new ArrayList<GameObject> ();
+		_gatesToBeDeleted = new ArrayList<GameObject> ();
         /*
 		 * NOTE: not sure if due to a gitIgnore, the prefabs placed in LevelCreationTool
 		 * are removed on pulls.
@@ -51,4 +56,35 @@ public class GameManager : MonoBehaviour {
         _isCreatingWire = isCreatingWire;
     }
 
+	public bool isDeleting(){
+		return _isdeleting;
+	}
+
+	public void setIsDelting(bool isdeleting){
+		_isdeleting = isdeleting;
+	}
+
+	public void markWireForDeletion(GameObject wire){
+		_wiresToBeDeleted.Add (wire);
+	}
+
+	public void unmarkWireForDeletion(GameObject wire){
+		_wiresToBeDeleted.Remove (wire);
+	}
+
+	public ArrayList<GameObject> getWiresToBeDeleted(){
+		return _wiresToBeDeleted;
+	}
+
+	public void markGateForDeletion(GameObject gate){
+		_gatesToBeDeleted.Add (gate);
+	}
+
+	public void unmarkGateForDeletion(GameObject gate){
+		_gatesToBeDeleted.Remove (gate);
+	}
+
+	public ArrayList<GameObject> getGatesToBeDeleted(){
+		return _gatesToBeDeleted;
+	}
 }
