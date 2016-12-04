@@ -131,7 +131,7 @@ namespace AssemblyCSharp {
         public void addRemoveModulesTest() {
             LogicManager manager = new LogicManager(2, 1);
             LogicModule addedModule = manager.addModule(new GateOr(10));
-            LogicModule addedModule2 = manager.addModule(new GateXor(3));
+            LogicModule addedModule2 = manager.addModule(new GateNxor(3));
 
             LogicModule foundModule = manager.getModuleAtId(addedModule.getId());
             LogicModule foundModule2 = manager.getModuleAtId(addedModule2.getId());

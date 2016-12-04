@@ -87,7 +87,7 @@ namespace AssemblyCSharp {
 		 */
         [Test]
         public void xorTest() {
-            GateXor gate = new GateXor(2);
+            GateNxor gate = new GateNxor(2);
 
             gate.getInputJunction(0).setValue(true);
             gate.getInputJunction(1).setValue(true);

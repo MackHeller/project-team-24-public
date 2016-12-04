@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class BuiltinModuleController : MonoBehaviour {
 
-    public enum BuiltinModules { IN, OUT, NOT, AND, OR, XOR };
+    public enum BuiltinModules { IN, OUT, NOT, AND, OR, XOR, NAND, NOR, NXOR };
 
     private static Dictionary<BuiltinModules, Func<LogicModule>> builtinModuleInstantiators = new Dictionary<BuiltinModules, Func<LogicModule>>() {
         { BuiltinModules.IN, () => new TerminalInput() },
@@ -15,6 +15,9 @@ public class BuiltinModuleController : MonoBehaviour {
         { BuiltinModules.AND, () => new GateAnd(2) },
         { BuiltinModules.OR, () => new GateOr(2) },
         { BuiltinModules.XOR, () => new GateXor(2) },
+        { BuiltinModules.NAND, () => new GateNand(2) },
+        { BuiltinModules.NOR, () => new GateNor(2) },
+        { BuiltinModules.NXOR, () => new GateNxor(2) },
     };
 
     public BuiltinModules builtinModule;
