@@ -25,6 +25,7 @@ GameObject:
   - 114: {fileID: 114000014064995498}
   - 114: {fileID: 114000011682142812}
   - 50: {fileID: 50000012926485130}
+  - 114: {fileID: 114000012765795026}
   m_Layer: 0
   m_Name: GateNAND
   m_TagString: GateTag
@@ -184,6 +185,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e30a46b5a8c29f4f9b63091bcbf18e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000012765795026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011145657838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad93d68e8932b745b9c418bf2956a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114000014064995498

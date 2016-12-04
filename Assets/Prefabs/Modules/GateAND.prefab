@@ -25,6 +25,7 @@ GameObject:
   - 114: {fileID: 114000014064995498}
   - 114: {fileID: 114000011682142812}
   - 50: {fileID: 50000012926485130}
+  - 114: {fileID: 114000010726709684}
   m_Layer: 0
   m_Name: GateAND
   m_TagString: GateTag
@@ -163,6 +164,17 @@ BoxCollider2D:
   m_Offset: {x: -0.005867958, y: 0.007493973}
   serializedVersion: 2
   m_Size: {x: 3.8996763, y: 3.1759753}
+--- !u!114 &114000010726709684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011145657838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad93d68e8932b745b9c418bf2956a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011201839944
 MonoBehaviour:
   m_ObjectHideFlags: 1

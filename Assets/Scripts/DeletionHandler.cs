@@ -20,7 +20,16 @@ public class DeletionHandler : MonoBehaviour {
 				Destroy (wire, 0.0f);
 			}
 			for (int i = 0; i < wires.Count; i++) {
+				Debug.Log ("wire removed");
 				GameManager.getInstance().unmarkWireForDeletion (wires [i]);
+			}
+			ArrayList<GameObject> gates = GameManager.getInstance ().getGatesToBeDeleted ();
+			foreach (GameObject gate in gates) {
+				Destroy (gate, 0.0f);
+			}
+			for (int j = 0; j < gates.Count; j++) {
+				Debug.Log ("gate removed");
+				GameManager.getInstance ().unmarkGateForDeletion (gates [j]);
 			}
 			gameObject.GetComponent<Button> ().image.color = 
 				new Color(1f, 0f, 0f, 0.5f);
