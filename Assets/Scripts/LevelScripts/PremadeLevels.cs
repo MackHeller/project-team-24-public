@@ -72,6 +72,9 @@ public class PremadeLevels : MonoBehaviour{
 	/// Available gates: 	AND
 	/// Difficulty: 		1/3
 	/// Optimal Gates #:	3
+	/// 
+	/// HINT: You can hook up the results of 2-input circuits into
+	/// 	  another 2-input circuit.
 	/// </summary>
 	public void loadFourInputAndGate() {
 
@@ -88,6 +91,8 @@ public class PremadeLevels : MonoBehaviour{
 	/// Available gates: 	OR, NOT
 	/// Difficulty: 		1/3
 	/// Optimal Gates #:	2
+	/// 
+	/// HINT: How does XOR's truth table compare to an OR's?
 	/// </summary>
 	public void loadXorGatePuzzle() {
 		instantiateInputAtIndex (4);
@@ -113,8 +118,11 @@ public class PremadeLevels : MonoBehaviour{
 	/// Available gates: 	OR, NOT
 	/// Difficulty: 		2/3
 	/// Optimal Gates #:	2
+	/// 
+	/// HINT: You can hook up the results of 2-input circuits into
+	/// 	  another 2-input circuit.
 	/// </summary>
-	public void loadXorGatePuzzle() {
+	public void loadAndIntoOrPuzzle() {
 		/*
 		 * Waiting on the completion of LevelEditor to implement.
 		 */
@@ -124,6 +132,7 @@ public class PremadeLevels : MonoBehaviour{
 	/// <summary>
 	/// Create a circuit that simulates the behaviour of
 	/// f = a * b + (b + c)
+	/// Note that b is used in both circuits.
 	/// 
 	/// a	b	c	a*b	b+c	f
 	/// 0	0	0	0	0	0
@@ -136,10 +145,12 @@ public class PremadeLevels : MonoBehaviour{
 	/// 1	1	1	1	1	1
 	/// 
 	/// Available gates: 	All gates.
-	/// Difficulty: 		3/3
-	/// Optimal Gates #:	2
+	/// Difficulty: 		2/3
+	/// Optimal Gates #:	3
+	/// 
+	/// HINT: Inputs can be used in multiple circuits
 	/// </summary>
-	public void loadXorGatePuzzle() {
+	public void loadDoubleCircuitPuzzle() {
 		/*
 		 * Waiting on the completion of LevelEditor to implement.
 		 */

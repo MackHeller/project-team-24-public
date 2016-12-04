@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
 
 		PremadeJsonWriter.createFourInputAndGate ();
 		PremadeJsonWriter.createXorGate ();
+		PremadeJsonWriter.createAndIntoOr ();
+		PremadeJsonWriter.createDoubleCircuit ();
 
 		PremadeLevels.getPremadeLevels ().loadFourInputAndGate ();
 	}

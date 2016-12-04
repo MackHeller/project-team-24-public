@@ -56,4 +56,54 @@ public class PremadeJsonWriter {
 
 		lv.saveLevel ();
 	}
+
+	/// <summary>
+	/// Creates a JSON file for the puzzle level AndIntoOrPuzzle.
+	/// </summary>
+	public static void createAndIntoOr() {
+		Level lv = new Level ();
+		lv.setLevelName ("AndIntoOrPuzzle");
+		lv.setCreator ("Freddy");
+		lv.setMinScore (1);
+
+		ArrayList<bool> arrIn = new ArrayList<bool>();
+		arrIn.Add (true);
+		arrIn.Add (true);
+		arrIn.Add (true);
+		lv.setLevelInput (arrIn);
+
+		ArrayList<bool> arrOut = new ArrayList<bool> ();
+		arrOut.Add (true);
+		lv.setLevelOutput (arrOut);
+
+		ArrayList<LogicModule> gates = new ArrayList<LogicModule> ();
+		lv.setGates (gates);
+
+		lv.saveLevel ();
+	}
+
+	/// <summary>
+	/// Creates a JSON file for the puzzle level DoubleCircuitPuzzle.
+	/// </summary>
+	public static void createDoubleCircuit() {
+		Level lv = new Level ();
+		lv.setLevelName ("DoubleCircuitPuzzle");
+		lv.setCreator ("Freddy");
+		lv.setMinScore (1);
+
+		ArrayList<bool> arrIn = new ArrayList<bool>();
+		arrIn.Add (true);
+		arrIn.Add (true);
+		arrIn.Add (true);
+		lv.setLevelInput (arrIn);
+
+		ArrayList<bool> arrOut = new ArrayList<bool> ();
+		arrOut.Add (true);
+		lv.setLevelOutput (arrOut);
+
+		ArrayList<LogicModule> gates = new ArrayList<LogicModule> ();
+		lv.setGates (gates);
+
+		lv.saveLevel ();
+	}
 }
