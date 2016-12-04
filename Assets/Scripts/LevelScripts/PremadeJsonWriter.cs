@@ -106,4 +106,54 @@ public class PremadeJsonWriter {
 
 		lv.saveLevel ();
 	}
+
+	/// <summary>
+	/// Creates a JSON file for the puzzle level DeMorgans1.
+	/// </summary>
+	public static void createDeMorgans1() {
+		Level lv = new Level ();
+		lv.setLevelName ("DeMorgans1");
+		lv.setCreator ("Freddy");
+		lv.setMinScore (1);
+
+		ArrayList<bool> arrIn = new ArrayList<bool>();
+		arrIn.Add (true);
+		arrIn.Add (true);
+		lv.setLevelInput (arrIn);
+
+		ArrayList<bool> arrOut = new ArrayList<bool> ();
+		arrOut.Add (false);
+		lv.setLevelOutput (arrOut);
+
+		ArrayList<LogicModule> gates = new ArrayList<LogicModule> ();
+		lv.setGates (gates);
+
+		lv.saveLevel ();
+	}
+
+	/// <summary>
+	/// Creates a JSON file for the puzzle level DeMorgans2.
+	/// </summary>
+	public static void createDeMorgans2() {
+		Level lv = new Level ();
+		lv.setLevelName ("DeMorgans2");
+		lv.setCreator ("Freddy");
+		lv.setMinScore (1);
+
+		ArrayList<bool> arrIn = new ArrayList<bool>();
+		arrIn.Add (true);
+		arrIn.Add (true);
+		arrIn.Add (true);
+		arrIn.Add (true);
+		lv.setLevelInput (arrIn);
+
+		ArrayList<bool> arrOut = new ArrayList<bool> ();
+		arrOut.Add (true);
+		lv.setLevelOutput (arrOut);
+
+		ArrayList<LogicModule> gates = new ArrayList<LogicModule> ();
+		lv.setGates (gates);
+
+		lv.saveLevel ();
+	}
 }

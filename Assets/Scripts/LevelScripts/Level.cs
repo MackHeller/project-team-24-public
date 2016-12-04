@@ -32,6 +32,8 @@ public class Level : MonoBehaviour {
 		PremadeJsonWriter.createXorGate ();
 		PremadeJsonWriter.createAndIntoOr ();
 		PremadeJsonWriter.createDoubleCircuit ();
+		PremadeJsonWriter.createDeMorgans1 ();
+		PremadeJsonWriter.createDeMorgans2 ();
     }
 
     public void loadLevel(string levelName) {
