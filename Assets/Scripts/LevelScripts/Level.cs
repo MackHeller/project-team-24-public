@@ -28,12 +28,12 @@ public class Level : MonoBehaviour {
         saveAsNewLevel("mackLevel", "MackHeller2");
         */
 
-		PremadeJsonWriter.createFourInputAndGate ();
-		PremadeJsonWriter.createXorGate ();
-		PremadeJsonWriter.createAndIntoOr ();
-		PremadeJsonWriter.createDoubleCircuit ();
-		PremadeJsonWriter.createDeMorgans1 ();
-		PremadeJsonWriter.createDeMorgans2 ();
+		PremadeLevelSerializer.createFourInputAndGate ();
+		PremadeLevelSerializer.createXorGate ();
+		PremadeLevelSerializer.createAndIntoOr ();
+		PremadeLevelSerializer.createDoubleCircuit ();
+		PremadeLevelSerializer.createDeMorgans1 ();
+		PremadeLevelSerializer.createDeMorgans2 ();
     }
 
     public void loadLevel(string levelName) {

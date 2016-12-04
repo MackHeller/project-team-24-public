@@ -5,10 +5,17 @@ using System;
 using System.IO;
 using C5;
 
-public class PremadeJsonWriter {
+/// <summary>
+/// Contains methods to create the deserialized files for the premade levels.
+/// </summary>
+public class PremadeLevelSerializer {
+	/*
+	 * TODO: adjust after level editor is completed, require for proper implementation
+	 * of these functions.
+	 */ 
 
 	/// <summary>
-	/// Creates a JSON file for the puzzle level FourInputAndGate.
+	/// Creates a serialized file for the puzzle level FourInputAndGate.
 	/// </summary>
 	public static void createFourInputAndGate() {
 		Level lv = new Level ();
@@ -34,7 +41,7 @@ public class PremadeJsonWriter {
 	}
 
 	/// <summary>
-	/// Creates a JSON file for the puzzle level XorGatePuzzle.
+	/// Creates a serialized file for the puzzle level XorGatePuzzle.
 	/// </summary>
 	public static void createXorGate() {
 		Level lv = new Level ();
@@ -58,7 +65,7 @@ public class PremadeJsonWriter {
 	}
 
 	/// <summary>
-	/// Creates a JSON file for the puzzle level AndIntoOrPuzzle.
+	/// Creates a serialized file for the puzzle level AndIntoOrPuzzle.
 	/// </summary>
 	public static void createAndIntoOr() {
 		Level lv = new Level ();
@@ -83,7 +90,7 @@ public class PremadeJsonWriter {
 	}
 
 	/// <summary>
-	/// Creates a JSON file for the puzzle level DoubleCircuitPuzzle.
+	/// Creates a serialized file for the puzzle level DoubleCircuitPuzzle.
 	/// </summary>
 	public static void createDoubleCircuit() {
 		Level lv = new Level ();
@@ -108,7 +115,7 @@ public class PremadeJsonWriter {
 	}
 
 	/// <summary>
-	/// Creates a JSON file for the puzzle level DeMorgans1.
+	/// Creates a serialized file for the puzzle level DeMorgans1.
 	/// </summary>
 	public static void createDeMorgans1() {
 		Level lv = new Level ();
@@ -132,7 +139,7 @@ public class PremadeJsonWriter {
 	}
 
 	/// <summary>
-	/// Creates a JSON file for the puzzle level DeMorgans2.
+	/// Creates a serialized file for the puzzle level DeMorgans2.
 	/// </summary>
 	public static void createDeMorgans2() {
 		Level lv = new Level ();

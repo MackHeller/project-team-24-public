@@ -6,6 +6,10 @@ using System;
 /// Class for loading premade levels. Follows the Singleton Design Pattern.
 /// </summary>
 public class PremadeLevels : MonoBehaviour{
+	/*
+	 * TODO: adjust after level editor is completed, require for proper implementation
+	 * of these functions.
+	 */ 
 	
 	public GameObject inputPrefab;
 	public GameObject outputPrefab;
