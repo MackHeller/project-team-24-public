@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour {
 		 * allow a centralized way to load levels.
 		 */ 
 		_level = new Level ();
-		LevelWriter.createLevelMethod ();
+
+		PremadeJsonWriter.createFourInputAndGate ();
+		PremadeJsonWriter.createXorGate ();
+
 		PremadeLevels.getPremadeLevels ().loadFourInputAndGate ();
-		// level.loadLevel ("");
 	}
 
 	public static Level getLevel() {

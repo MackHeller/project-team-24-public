@@ -1,0 +1,12 @@
+{"LevelName": "XorGatePuzzle",
+"Creator": "Freddy",
+"Par": 0,
+"MinScore":1,
+"Inputs": [{"Id": 0,
+"Value": "True"},
+{"Id": 1,
+"Value": "True"}
+],
+"Outputs": [{"Id": 0,
+"Value": "False"}
+]}

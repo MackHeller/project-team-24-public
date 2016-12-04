@@ -54,30 +54,4 @@ public class LevelWriter {
                 sw.Dispose();
         }
     }
-
-	/// <summary>
-	/// Function for creating new levels. Needs to be adjusted every time for a new level.
-	/// </summary>
-	public static void createLevelMethod() {
-		Level lv = new Level ();
-		lv.setLevelName ("FourInputAndGate");
-		lv.setCreator ("Freddy");
-		lv.setMinScore (1);
-
-		ArrayList<bool> arrIn = new ArrayList<bool>();
-		arrIn.Add (true);
-		arrIn.Add (true);
-		arrIn.Add (true);
-		arrIn.Add (true);
-		lv.setLevelInput (arrIn);
-
-		ArrayList<bool> arrOut = new ArrayList<bool> ();
-		arrOut.Add (true);
-		lv.setLevelOutput (arrOut);
-
-		ArrayList<LogicModule> gates = new ArrayList<LogicModule> ();
-		lv.setGates (gates);
-
-		lv.saveLevel ();
-	}
 }
