@@ -1,33 +1,29 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 
 public class dumbyTerminalController : MonoBehaviour {
     private bool charge;
-    private SpriteRenderer renderer;
-    void Start()
-    {
+    private SpriteRenderer _renderer;
+    void Start() {
         charge = false;
-        renderer = gameObject.GetComponent<SpriteRenderer>();
+        _renderer = gameObject.GetComponent<SpriteRenderer>();
     }
-    void Update()
-    {
-        switch (charge)
-        {
+    void Update() {
+        switch (charge) {
             case true:
-                renderer.color = Color.green;
+                _renderer.color = Color.green;
                 break;
             case false:
-                renderer.color = Color.red;
+                _renderer.color = Color.red;
                 break;
             default:
-                renderer.color = Color.white;
+                _renderer.color = Color.white;
                 break;
         }
     }
 
-    public void OnMouseDown()
-    {
+    public void OnMouseDown() {
         charge = !charge;
     }
 }

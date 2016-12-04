@@ -22,7 +22,7 @@ public class JunctionController : MonoBehaviour {
     }
 
     public void FixedUpdate() {
-        if (GameManager.isCreatingWire()) {
+        if (GameManager.getInstance().isCreatingWire()) {
             toggleInteractable(!junction.hasInputModule());
         } else {
             toggleInteractable(junction.hasInputModule());

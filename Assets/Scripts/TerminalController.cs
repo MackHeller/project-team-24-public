@@ -5,14 +5,14 @@ using System.Collections;
 public class TerminalController : MonoBehaviour {
 
     private BuiltinModuleController moduleController;
-    private SpriteRenderer renderer;
+    private SpriteRenderer _renderer;
     private LogicModule module;
     private bool isInput;
     private bool clicked;
 
     void Start() {
         moduleController = GetComponent<BuiltinModuleController>();
-        renderer = moduleController.gameObject.GetComponent<SpriteRenderer>();
+        _renderer = moduleController.gameObject.GetComponent<SpriteRenderer>();
         module = moduleController.module;
         isInput = moduleController.builtinModule == BuiltinModuleController.BuiltinModules.IN;
     }
@@ -21,13 +21,13 @@ public class TerminalController : MonoBehaviour {
         bool? value = isInput ? ((TerminalInput)module).getOutput() : ((TerminalOutput)module).getValue();
         switch (value) {
             case true:
-                renderer.color = Color.green;
+                _renderer.color = Color.green;
                 break;
             case false:
-                renderer.color = Color.red;
+                _renderer.color = Color.red;
                 break;
             default:
-                renderer.color = Color.green;
+                _renderer.color = Color.green;
                 break;
         }
     }

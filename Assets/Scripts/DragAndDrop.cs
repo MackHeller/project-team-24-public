@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(Collider2D))]
 public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
 
     /// <summary>
@@ -14,7 +13,20 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     private DragAndDrop instantiated;
     private bool collisionWithInstantiated;
 
-    #region Draghandler
+    private bool isIntersectingSidePanel = false;
+
+    public void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "SidePanel") {
+            isIntersectingSidePanel = true;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.tag == "SidePanel") {
+            isIntersectingSidePanel = false;
+        }
+    }
+
 
     public void OnBeginDrag(PointerEventData eventData) {
         if (prefab != null) {
@@ -41,7 +53,7 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     public void OnEndDrag(PointerEventData eventData) {
         if (instantiated) {
             // Destroy instantiated object if it's intersecting with the original
-            if (gameObject.GetComponent<Collider2D>().bounds.Intersects(instantiated.gameObject.GetComponent<Collider2D>().bounds)) {
+            if (isIntersectingSidePanel) {
                 Object.Destroy(instantiated.gameObject);
             }
             instantiated.OnEndDrag(eventData);
@@ -50,7 +62,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         }
     }
 
-    #endregion
 }
 
 

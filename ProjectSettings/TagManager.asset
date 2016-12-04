@@ -8,7 +8,7 @@ TagManager:
   - GateTag
   - Junction
   - InputTag
-  - justdropped
+  - SidePanel
   layers:
   - Default
   - TransparentFX

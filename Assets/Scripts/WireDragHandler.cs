@@ -28,7 +28,7 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         wirePlacementCollider = Instantiate(wirePlacementColliderPrefab);
         wirePlacementCollider.transform.position = startPos;
 
-        GameManager.setCreatingWire(true);
+        GameManager.getInstance().setCreatingWire(true);
     }
 
     public void OnDrag(PointerEventData eventData) {
@@ -50,7 +50,7 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         wire.getInputJunction().setUninteractableOverride(false);
 
         Object.Destroy(wirePlacementCollider.gameObject);
-        GameManager.setCreatingWire(false);
+        GameManager.getInstance().setCreatingWire(false);
     }
 
     #endregion
