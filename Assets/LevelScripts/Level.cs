@@ -12,13 +12,12 @@ using LitJson;
 /// </summary>
 public class Level : MonoBehaviour {
 
-    private String levelName;
-    private String creator;
-    private int levelPar;
-    private int minScore;
+    private string levelName;
+    private string creator;
+    private int[] stars = new int[3];
     private ArrayList<LogicModule> gates;
-    private ArrayList<bool> input;
-    private ArrayList<bool> output;
+    private ArrayList<Int32> input;
+    private ArrayList<Int32> output;
 
     void Start() {
         // for testing only
@@ -27,13 +26,13 @@ public class Level : MonoBehaviour {
         saveLevel();
         saveAsNewLevel("mackLevel", "MackHeller2");
         */
-
+        /*
 		PremadeLevelSerializer.createFourInputAndGate ();
 		PremadeLevelSerializer.createXorGate ();
 		PremadeLevelSerializer.createAndIntoOr ();
 		PremadeLevelSerializer.createDoubleCircuit ();
 		PremadeLevelSerializer.createDeMorgans1 ();
-		PremadeLevelSerializer.createDeMorgans2 ();
+		PremadeLevelSerializer.createDeMorgans2 ();*/
     }
 
     public void loadLevel(string levelName) {
@@ -52,7 +51,7 @@ public class Level : MonoBehaviour {
     /// save level with a new file name
     /// </summary>
     public void saveAsNewLevel(string levelName, string creator) {
-        String filename = createLevelName(levelName, creator);
+        string filename = createLevelName(levelName, creator);
         if (LevelReader.getAllLevelNames().Contains(filename))
             throw new ArgumentException("Cannot create a new File, a level with the name: " + levelName +
                 " created by: " + creator + " already exists");
@@ -62,8 +61,7 @@ public class Level : MonoBehaviour {
 
     public void setLevelValues(JsonData jsonData) {
         this.levelName = LevelReader.getLevelName(jsonData);
-        this.levelPar = LevelReader.getLevelPar(jsonData);
-        this.minScore = LevelReader.getMinScore(jsonData);
+        this.stars = LevelReader.getStars(jsonData);
         this.gates = LevelReader.getGates(jsonData);
         this.input = LevelReader.getLevelInput(jsonData);
         this.output = LevelReader.getLevelOutput(jsonData);
@@ -75,24 +73,22 @@ public class Level : MonoBehaviour {
     #region getters
 
     public ArrayList<LogicModule> getGates() { return gates; }
-    public ArrayList<bool> getLevelInput() { return input; }
-    public ArrayList<bool> getLevelOutput() { return output; }
-    public String getLevelName() { return levelName; }
-    public String getCreator() { return creator; }
-    public int getLevelPar() { return levelPar; }
-    public int getMinScore() { return minScore; }
+    public ArrayList<Int32> getLevelInput() { return input; }
+    public ArrayList<Int32> getLevelOutput() { return output; }
+    public string getLevelName() { return levelName; }
+    public string getCreator() { return creator; }
+    public int[] getStars() { return stars; }
 
     #endregion getters
 
     #region setters
 
     public void setGates(ArrayList<LogicModule> gates) { this.gates = gates; }
-    public void setLevelInput(ArrayList<bool> input) { this.input = input; }
-    public void setLevelOutput(ArrayList<bool> output) { this.output = output; }
-    public void setLevelName(String levelName) { this.levelName = levelName; }
-    public void setLevelPar(int levelPar) { this.levelPar = levelPar; }
-    public void setMinScore(int minScore) { this.minScore = minScore; }
-    public void setCreator(String creator) { this.creator = creator; }
+    public void setLevelInput(ArrayList<Int32> input) { this.input = input; }
+    public void setLevelOutput(ArrayList<Int32> output) { this.output = output; }
+    public void setLevelName(string levelName) { this.levelName = levelName; }
+    public void setStars(int[] stars) { this.stars = stars; }
+    public void setCreator(string creator) { this.creator = creator; }
 
     #endregion setters
 }

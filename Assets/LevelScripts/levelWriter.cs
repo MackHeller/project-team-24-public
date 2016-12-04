@@ -13,7 +13,8 @@ public class LevelWriter {
 
     private static void writerLevel(string filePath, Level level) {
         StreamWriter sw = null;
-        string json = "{\"LevelName\": \"" + level.getLevelName() + "\",\n\"Creator\": \"" + level.getCreator() + "\",\n\"Par\": " + level.getLevelPar() + ",\n\"MinScore\":" + level.getMinScore();
+        string json = "{\"LevelName\": \"" + level.getLevelName() + "\",\n\"Creator\": \"" + level.getCreator() + 
+            "\",\n\"star1\": " + level.getStars()[0] + "\",\n\"star2\": " + level.getStars()[1] + ",\n\"star3\":" + level.getStars()[2];
         //do gates
         ArrayList<LogicModule> gates = level.getGates();
         if (gates.Count > 0)
@@ -25,21 +26,21 @@ public class LevelWriter {
             json = json.Remove(json.Length - 2) + "\n]";
 
         //do inputs
-        ArrayList<bool> inputs = level.getLevelInput();
+        ArrayList<Int32> inputs = level.getLevelInput();
         if (inputs.Count > 0)
             json = json + ",\n\"Inputs\": [";
         for (int i = 0; i < inputs.Count; i++) {
-            json = json + "{\"Id\": " + i + ",\n\"Value\": \"" + inputs[i] + "\"},\n";
+            json = json + "{\"Id\": " + inputs[i] + "},\n";
         }
         if (inputs.Count > 0)
             json = json.Remove(json.Length - 2) + "\n]";
 
         //do outputs
-        ArrayList<bool> outputs = level.getLevelOutput();
+        ArrayList<Int32> outputs = level.getLevelOutput();
         if (outputs.Count > 0)
             json = json + ",\n\"Outputs\": [";
         for (int i = 0; i < outputs.Count; i++) {
-            json = json + "{\"Id\": " + i + ",\n\"Value\": \"" + outputs[i] + "\"},\n";
+            json = json + "{\"Id\": " + inputs[i] + "},\n";
         }
         if (outputs.Count > 0)
             json = json.Remove(json.Length - 2) + "\n]";

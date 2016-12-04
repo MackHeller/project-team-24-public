@@ -78,11 +78,11 @@ public class LevelReader {
     /// <summary>
     /// gets all of the inputs. Returns as an array of booleans
     /// </summary>
-    public static ArrayList<bool> getLevelInput(JsonData levelInformation) {
-        ArrayList<bool> inputs = new ArrayList<bool>();
+    public static ArrayList<Int32> getLevelInput(JsonData levelInformation) {
+        ArrayList<Int32> inputs = new ArrayList<Int32>();
         if (jsonDataContainsKey(levelInformation, "Inputs")) {
             for (int i = 0; i < levelInformation["Inputs"].Count; i++) {
-                inputs.Add(Convert.ToBoolean(levelInformation["Inputs"][i]["Value"].ToString()));
+                inputs.Add(Convert.ToInt32(levelInformation["Inputs"][i]["Id"].ToString()));
             }
         }
         return inputs;
@@ -91,11 +91,11 @@ public class LevelReader {
     /// <summary>
     /// gets all of the outputs. Returns as an array of booleans
     /// </summary>
-    public static ArrayList<bool> getLevelOutput(JsonData levelInformation) {
-        ArrayList<bool> output = new ArrayList<bool>();
+    public static ArrayList<Int32> getLevelOutput(JsonData levelInformation) {
+        ArrayList<Int32> output = new ArrayList<Int32>();
         if (jsonDataContainsKey(levelInformation, "Outputs")) {
             for (int i = 0; i < levelInformation["Outputs"].Count; i++) {
-                output.Add(Convert.ToBoolean(levelInformation["Outputs"][i]["Value"].ToString()));
+                output.Add(Convert.ToInt32(levelInformation["Outputs"][i]["Id"].ToString()));
             }
         }
         return output;
@@ -105,8 +105,12 @@ public class LevelReader {
 
     public static String getLevelName(JsonData levelInformation) { return levelInformation["LevelName"].ToString(); }
     public static String getCreator(JsonData levelInformation) { return levelInformation["Creator"].ToString(); }
-    public static int getLevelPar(JsonData levelInformation) { return Convert.ToInt32(levelInformation["Par"].ToString()); }
-    public static int getMinScore(JsonData levelInformation) { return Convert.ToInt32(levelInformation["MinScore"].ToString()); }
+    public static int[] getStars(JsonData levelInformation) {
+        int[] stars = new int[] { Convert.ToInt32(levelInformation["star1"].ToString()),
+            Convert.ToInt32(levelInformation["star2"].ToString()),
+        Convert.ToInt32(levelInformation["star3"].ToString())};
+        return stars;
+    }
     public static JsonData getAllLevelInformation(JsonData levelInformation) { return levelInformation; }
 
     #endregion getters
