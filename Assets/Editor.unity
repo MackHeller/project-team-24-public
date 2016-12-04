@@ -3666,7 +3666,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Remove
+  m_Text: Submit
 --- !u!222 &874818219
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5682,10 +5682,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c7568ce10326a479e35089a2185fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 884532157}
-  creatorText: {fileID: 1838155699}
-  scoreText: {fileID: 2085297317}
-  starController: {fileID: 499681401}
+  nameText: {fileID: 0}
+  creatorText: {fileID: 0}
+  scoreText: {fileID: 0}
+  starController: {fileID: 0}
 --- !u!4 &1192441933
 Transform:
   m_ObjectHideFlags: 0
@@ -9318,7 +9318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
