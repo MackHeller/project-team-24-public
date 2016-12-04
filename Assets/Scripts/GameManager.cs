@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using C5;
 
 public class GameManager : MonoBehaviour {
@@ -11,6 +12,10 @@ public class GameManager : MonoBehaviour {
 	private bool _isdeleting = false;
 	private ArrayList<GameObject> _wiresToBeDeleted;
 	private ArrayList<GameObject> _gatesToBeDeleted;
+	public Text nameText;
+	public Text creatorText;
+	public Text scoreText;
+	public StarsController starController;
 
     void Awake() {
         if (_instance == null) {
@@ -87,4 +92,10 @@ public class GameManager : MonoBehaviour {
 	public ArrayList<GameObject> getGatesToBeDeleted(){
 		return _gatesToBeDeleted;
 	}
+
+	//panel text field setters
+	public void setName(string name) {nameText.text = name;}
+	public void setCreator(string creator) {creatorText.text = creator;}
+	public void setScore(int score) {scoreText.text = score.ToString();}
+	public void setStars(int numStars) {starController.setStars (numStars);}
 }
