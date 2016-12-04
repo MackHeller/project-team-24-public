@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 		 */ 
 		_level = new Level ();
 
-		PremadeLevels.getPremadeLevels ().loadFourInputAndGate ();
+		LevelCreationTool.getInstance ().loadFourInputAndGate ();
 	}
 
 	public static Level getLevel() {
