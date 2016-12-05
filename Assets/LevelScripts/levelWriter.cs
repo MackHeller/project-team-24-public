@@ -8,7 +8,7 @@ using C5;
 public class LevelWriter {
 
     public static string saveAsNewLevel(Level level) {
-        string filePath = Application.dataPath + "/Levels/" + level.getFileName() + ".JSON";
+        string filePath = Application.dataPath + "/StreamingAssets/Levels/" + level.getFileName() + ".JSON";
         writerLevel(filePath, level);
         return filePath;
     }

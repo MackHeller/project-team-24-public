@@ -13,11 +13,11 @@ using C5;
 public class LevelReader {
 
     public static JsonData loadNewLevel(String levelName) {
-        return Reader(Application.dataPath + "/Levels/" + levelName + ".JSON");
+        return Reader(Application.dataPath + "/StreamingAssets/Levels/" + levelName + ".JSON");
     }
 
     public static JsonData loadLevelMetaData(String levelName) {
-        return Reader(Application.dataPath + "/Levels/levelMetaData.JSON");
+        return Reader(Application.dataPath + "/StreamingAssets/Levels/levelMetaData.JSON");
     }
 
     /// <summary>
@@ -157,9 +157,9 @@ public class LevelReader {
     /// get a list of all level names
     /// </summary>
     public static String[] getAllLevelNames() {
-        String[] allfiles = System.IO.Directory.GetFiles(Application.dataPath + "/Levels/", "*.JSON", System.IO.SearchOption.TopDirectoryOnly);
+        String[] allfiles = System.IO.Directory.GetFiles(Application.dataPath + "/StreamingAssets/Levels/", "*.JSON", System.IO.SearchOption.TopDirectoryOnly);
         for (int i = 0; i < allfiles.Length; i++) {
-            int startIndex = (Application.dataPath + "/Levels/").Length;
+            int startIndex = (Application.dataPath + "/StreamingAssets/Levels/").Length;
             int endIndex = allfiles[i].Length - 5;
             allfiles[i] = allfiles[i].Substring(startIndex, endIndex - startIndex);
             Debug.Log(allfiles[i]);
