@@ -12,7 +12,7 @@ public class EditorLevelCreationDialogueController : MonoBehaviour {
 
     void Start() {
         gameManager = GameManager.getInstance();
-        if (gameManager.getMode() != GameManager.Mode.CREATING) {
+        if (gameManager.getMode() == GameManager.Mode.SANDBOX) {
             return;
         }
         Level level = gameManager.getLevel();
