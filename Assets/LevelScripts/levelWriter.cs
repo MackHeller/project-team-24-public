@@ -14,7 +14,7 @@ public class LevelWriter {
     private static void writerLevel(string filePath, Level level) {
         StreamWriter sw = null;
         string json = "{\"LevelName\": \"" + level.getLevelName() + "\",\n\"Creator\": \"" + level.getCreator() + 
-            "\",\n\"star1\": " + level.getStars()[0] + "\",\n\"star2\": " + level.getStars()[1] + ",\n\"star3\": " + level.getStars()[2];
+            "\",\n\"star1\": " + level.getStars()[0] + ",\n\"star2\": " + level.getStars()[1] + ",\n\"star3\": " + level.getStars()[2];
         //do gates
         HashDictionary<BuiltinModuleController.BuiltinModules, int> gates = level.getGates();
         if (gates.Count > 0)
