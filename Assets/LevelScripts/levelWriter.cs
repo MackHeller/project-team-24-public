@@ -47,38 +47,8 @@ public class LevelWriter {
             json = json.Remove(json.Length - 2) + "\n]";
 
         //do solution
-        json += ",\n\"Solution\": [";
-        ArrayList<ArrayList<bool?>> listOfInputSolutions = level.getSolution().getInputSolutions();
-        ArrayList<ArrayList<bool?>> listOfOutputSolutions = level.getSolution().getOutputSolutions();
-        for (int j = 0; j < listOfInputSolutions.Count; j++) {
-            if (listOfInputSolutions.Count != listOfOutputSolutions.Count) {
-                throw new ArgumentException("input and output solution values must be equal in number");
-            }
-            json += "\n[";
-            //do inputs
-            ArrayList<bool?> inputSolution = listOfInputSolutions[j];
-            if (inputSolution.Count > 0)
-                json += "[";
-            for (int i = 0; i < inputSolution.Count; i++) {
-                json += "\"" + inputSolution[i] + "\",";
-            }
-            if (inputSolution.Count > 0)
-                json = json.Remove(json.Length - 1) + "],";
-
-            //do outputs
-            ArrayList<bool?> outputSolution = listOfOutputSolutions[j];
-            if (outputSolution.Count > 0)
-                json += "[";
-            for (int i = 0; i < outputSolution.Count; i++) {
-                json += "\"" + outputSolution[i] + "\",";
-            }
-            if (outputSolution.Count > 0)
-                json = json.Remove(json.Length - 1) + "]";
-            json += "],";
-        }
-        json = json.Remove(json.Length - 1) + "\n]";
-
-        json = json + "\n}";
+        json += ",\n\"Solution\": " + level.getSolution().ToString();
+        json += "\n}";
         try {
             sw = new StreamWriter(filePath);
             sw.WriteLine(json);

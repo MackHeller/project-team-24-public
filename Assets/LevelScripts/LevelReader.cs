@@ -108,6 +108,36 @@ public class LevelReader {
         return output;
     }
 
+    public static Solution getSolution(JsonData levelInformation, int inputCount, int outputCount) {
+        Solution solution = new Solution(inputCount, outputCount);
+        ArrayList<ArrayList<bool?>> inputSolutions = solution.getInputSolutions();
+        ArrayList<ArrayList<bool?>> outputSolutions = solution.getOutputSolutions();
+        if (jsonDataContainsKey(levelInformation, "Solution")) {
+            JsonData solutionData = levelInformation["Solution"];
+            for (int i = 0; i < solutionData.Count; i++) {
+                inputSolutions.Add(parseBoolArray(solutionData[i][0]));
+                outputSolutions.Add(parseBoolArray(solutionData[i][1]));
+            }
+        }
+        return solution;
+    }
+
+    private static ArrayList<bool?> parseBoolArray(JsonData data) {
+        ArrayList<bool?> boolArray = new ArrayList<bool?>();
+        for (int j = 0; j < data.Count; j++) {
+            bool? val = castToBool(data[j].ToString());
+            boolArray.Add(val);
+        }
+        return boolArray;
+    }
+
+    private static bool? castToBool(String s) {
+        bool b;
+        if (bool.TryParse(s, out b))
+            return b;
+        return null;
+    }
+
     #region getters
 
     public static String getLevelName(JsonData levelInformation) { return levelInformation["LevelName"].ToString(); }

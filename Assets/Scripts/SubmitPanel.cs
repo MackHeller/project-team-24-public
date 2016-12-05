@@ -17,6 +17,7 @@ public class SubmitPanel : MonoBehaviour {
     public Text levelCreatorText;
     public Text scoreText;
     public StarsController starsController;
+    public Text correctnessText;
     public InputField saveLocationField;
 
     public void Submit() {
@@ -26,10 +27,12 @@ public class SubmitPanel : MonoBehaviour {
         levelNameText.text = level.getLevelName();
         levelCreatorText.text = level.getCreator();
         gameObject.SetActive(true);
+
         if (gameManager.getMode() == GameManager.Mode.SOLVING) {
             displayWhenSolving.SetActive(true);
             scoreText.text = editorManager.getScore().ToString();
             starsController.setStars(editorManager.getStars());
+            correctnessText.text = editorManager.getCorrectnessMessage();
 
         } else if (gameManager.getMode() == GameManager.Mode.CREATING) {
             displayWhenCreating.SetActive(true);
@@ -37,6 +40,8 @@ public class SubmitPanel : MonoBehaviour {
             level.setSolution(solution);
             string saveLocation = level.saveAsNewLevel();
             saveLocationField.text = saveLocation;
+        } else {
+            gameManager.loadMainMenu();
         }
     }
 }

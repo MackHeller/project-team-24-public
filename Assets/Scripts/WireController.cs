@@ -40,11 +40,13 @@ public class WireController : MonoBehaviour {
     public void setInputJunction(JunctionController inputJunction) {
         this.inputJunction = inputJunction;
         wireLogic.setInputJunction(inputJunction ? inputJunction.junction : null);
+        EditorManager.getInstance().checkForCorrectness();
     }
 
     public void setOutputJunction(JunctionController outputJunction) {
         this.outputJunction = outputJunction;
         wireLogic.setOutputJunction(outputJunction ? outputJunction.junction : null);
+        EditorManager.getInstance().checkForCorrectness();
     }
 
     public JunctionController getInputJunction() {

@@ -52,7 +52,7 @@ public class Level {
     public int getStarsForScore(int score) {
         int starCount = 0;
         for (int i = 0; i < stars.Length; i++) {
-            if (score < stars[i]) {
+            if (score <= stars[i]) {
                 starCount = i + 1;
             }
         }
@@ -77,7 +77,14 @@ public class Level {
         this.input = LevelReader.getLevelInput(jsonData);
         this.output = LevelReader.getLevelOutput(jsonData);
         this.creator = LevelReader.getCreator(jsonData);
+        if (creator.Equals("")) {
+            creator = "Unknown";
+        }
         this.description = LevelReader.getDescription(jsonData);
+        if (description.Equals("")) {
+            description = "No description";
+        }
+        this.solution = LevelReader.getSolution(jsonData, this.input.Count, this.output.Count);
     }
 
     private String createLevelName(String level, String creator) { return level + (creator.Equals("") ? "" : "-" + creator); }

@@ -9,6 +9,7 @@ public class LevelSelectButtonController : MonoBehaviour {
     public Text nameText;
     public Text creatorText;
     public Text scoreText;
+    public Text descriptionText;
     public StarsController starController;
 
     private GameManager gameManager;
@@ -25,6 +26,9 @@ public class LevelSelectButtonController : MonoBehaviour {
 
     public void setLevel(Level level) {
         this.level = level;
+        nameText.text = level.getLevelName();
+        creatorText.text = level.getCreator();
+        descriptionText.text = level.getDescription();
     }
 
     public Level getLevel() {

@@ -15,7 +15,6 @@ public class EditorManager : MonoBehaviour {
     private Canvas gatesCanvas;
 
     private bool _isCreatingWire = false;
-    private Level _level;
     private bool _isdeleting = false;
     private ArrayList<GameObject> _wiresToBeDeleted = new ArrayList<GameObject>();
     private ArrayList<GameObject> _gatesToBeDeleted = new ArrayList<GameObject>();
@@ -42,12 +41,21 @@ public class EditorManager : MonoBehaviour {
     }
 
     public void checkForCorrectness() {
+        if (gameManager.getMode() != GameManager.Mode.SOLVING) {
+            return;
+        }
         Solution userSolution = generateSolution();
-        isCorrect = userSolution.Equals(_level.getSolution());
+        isCorrect = userSolution.Equals(gameManager.getLevel().getSolution());
+        Debug.Log("user solution: " + userSolution);
+        Debug.Log("level solution: " + gameManager.getLevel().getSolution());
+        Debug.Log("equal: " + isCorrect);
+        starsController.setStars(getStars());
+        updateStarsAndCorrectnessMessage();
     }
 
     public Solution generateSolution() {
-        Solution solution = new Solution(gameManager.getLevel());
+        Level level = gameManager.getLevel();
+        Solution solution = new Solution(level.getLevelInput().Count, level.getLevelOutput().Count);
         List<TerminalController> inputs = LevelCreationTool.getInstance().getInstantiatedInputs();
         List<TerminalController> outputs = LevelCreationTool.getInstance().getInstantiatedOutputs();
 
@@ -69,6 +77,7 @@ public class EditorManager : MonoBehaviour {
             ArrayList<bool?> outputValues = new ArrayList<bool?>(outputs.Count);
             for (int j = 0; j < outputs.Count; j++) {
                 outputValues.Add(outputs[j].getTerminalValue());
+                Debug.Log(outputs[j].getTerminalValue());
             }
             solution.addARowToSolution(inputValues, outputValues);
         }
@@ -118,6 +127,10 @@ public class EditorManager : MonoBehaviour {
     public void setScore(int score) {
         this.score = score;
         scoreText.text = score.ToString();
+        updateStarsAndCorrectnessMessage();
+    }
+
+    private void updateStarsAndCorrectnessMessage() {
         starsController.setStars(getStars());
         correctnessText.text = getCorrectnessMessage();
     }
@@ -127,7 +140,7 @@ public class EditorManager : MonoBehaviour {
     }
 
     public bool isSolutionCorrect() {
-        return true; //TODO
+        return isCorrect;
     }
 
     public static EditorManager getInstance() {
@@ -176,5 +189,9 @@ public class EditorManager : MonoBehaviour {
 
     public bool bitmaskCheck(int mask, int n) {
         return ((mask >> n) & 1) == 1;
+    }
+
+    public void loadMainMenu() {
+        gameManager.loadMainMenu();
     }
 }
