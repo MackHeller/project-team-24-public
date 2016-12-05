@@ -13,9 +13,11 @@ public class LevelCreationMenu : MonoBehaviour {
     private ArrayList<Int32> outputs;
     private HashDictionary<BuiltinModuleController.BuiltinModules, int> gates;
     private Level levelBeingMade;
+    private GameObject[] gateFields;
     // Use this for initialization
     void Start() {
         levelBeingMade = new Level();
+        gateFields = GameObject.FindGameObjectsWithTag("GateField");
     }
 
     // Update is called once per frame
@@ -44,27 +46,32 @@ public class LevelCreationMenu : MonoBehaviour {
         int i = 0;
         foreach (GameObject terminal in terminals)
         {
-            if (terminal.activeSelf)
-            {
-                if (terminal.transform.eulerAngles.z == 0)
-                    inputs.Add(i);
-                else
-                    outputs.Add(i);
-                i++;
-            }
+            if (terminal.transform.eulerAngles.z == 0)
+                inputs.Add(i);
+            else
+                outputs.Add(i);
+            i++;
         }
     }
     private void setBuiltinGateInfo()
     {
-        GameObject[] gateFields = GameObject.FindGameObjectsWithTag("GateField");
         gates = new HashDictionary<BuiltinModuleController.BuiltinModules, int>();
-        
         foreach (GameObject field in gateFields)
         {
-            int fieldValue = -1; //default value 
+            int fieldValue = -1; //default value
+            String fieldName;
             if (field.activeSelf)
+            {
                 fieldValue = Convert.ToInt32(field.GetComponent<UnityEngine.UI.Text>().text);
-            switch (field.transform.name)
+                fieldName = field.transform.name;
+            }
+            else
+            {
+                field.SetActive(true);
+                fieldName = field.transform.name;
+                field.SetActive(false);
+            }
+            switch (fieldName)
             {
                 case "AndText":
                     gates.Add(BuiltinModuleController.BuiltinModules.AND, fieldValue);

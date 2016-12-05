@@ -7,11 +7,11 @@ public class ToggleMenu : MonoBehaviour {
     public GameObject terminal;
     public void toggleChanged(bool newValue)
     {
-        terminal.SetActive(newValue);
+        terminal.SetActiveRecursively(newValue);
     }
     public void toggleChangedFlip()
     {
-        terminal.SetActive(!terminal.activeSelf);
+        terminal.SetActiveRecursively(!terminal.activeSelf);
     }
     public void clickTerminal()
     {
