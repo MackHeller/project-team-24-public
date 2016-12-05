@@ -10,10 +10,12 @@ public class WireController : MonoBehaviour {
     private float wireSize;
     private JunctionController inputJunction;
     private JunctionController outputJunction;
+    private BoxCollider2D _collider;
 
     public void Awake() {
         wireSize = (float)gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
         wireLogic = new Wire();
+        _collider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class WireController : MonoBehaviour {
 
         float length = diff.magnitude / wireSize;
         transform.localScale = new Vector3(length, transform.localScale.y);
+        _collider.size = new Vector2(1 - (1 / length), _collider.size.y);
 
         float rotation = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotation);

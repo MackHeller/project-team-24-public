@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010945383434}
-  - 58: {fileID: 58000011141082566}
   - 114: {fileID: 114000014118392056}
   - 114: {fileID: 114000012752406598}
+  - 58: {fileID: 58000012158086670}
   m_Layer: 12
   m_Name: Junction
   m_TagString: Junction
@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010087970832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 19.615532, y: 6.8126965, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -72,7 +72,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000010945383434}
   m_RootOrder: 0
---- !u!58 &58000011141082566
+--- !u!58 &58000012158086670
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

@@ -7,8 +7,6 @@ public class JunctionController : MonoBehaviour {
 
     public Junction junction;
 
-    public Text label;
-
     private EditorManager editorManager;
     private SpriteRenderer _sprite;
     private Collider2D _collider;
