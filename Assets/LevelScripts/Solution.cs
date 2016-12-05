@@ -86,9 +86,9 @@ public class Solution {
             if (outputSolution.Count > 0)
                 json = json.Remove(json.Length - 1);
 
-            json += "]]";
+            json += "]],\n";
         }
-        return json + "\n]";
+        return json.Remove(json.Length - 2) + "\n]";
     }
 
     public ArrayList<ArrayList<bool?>> getInputSolutions() { return listOfInputSolutions; }

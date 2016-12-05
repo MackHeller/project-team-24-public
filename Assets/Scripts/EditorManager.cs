@@ -74,7 +74,6 @@ public class EditorManager : MonoBehaviour {
             ArrayList<bool?> outputValues = new ArrayList<bool?>(outputs.Count);
             for (int j = 0; j < outputs.Count; j++) {
                 outputValues.Add(outputs[j].getTerminalValue());
-                Debug.Log(outputs[j].getTerminalValue());
             }
             solution.addARowToSolution(inputValues, outputValues);
         }
