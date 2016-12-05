@@ -10,7 +10,7 @@ using LitJson;
 /// set of LogicObjects, it expects a set of outputs
 /// and compares whether the set of outputs is correct.
 /// </summary>
-public class Level : MonoBehaviour {
+public class Level{
 
     private string levelName;
     private string creator;
@@ -52,6 +52,8 @@ public class Level : MonoBehaviour {
     /// </summary>
     public void saveAsNewLevel(string levelName, string creator) {
         string filename = createLevelName(levelName, creator);
+        this.levelName = levelName;
+        this.creator = creator;
         if (LevelReader.getAllLevelNames().Contains(filename))
             throw new ArgumentException("Cannot create a new File, a level with the name: " + levelName +
                 " created by: " + creator + " already exists");

@@ -11,6 +11,7 @@ public class LevelCreationMenu : MonoBehaviour {
     public GameObject star3;
     private ArrayList<Int32> inputs;
     private ArrayList<Int32> outputs;
+    private HashDictionary<BuiltinModuleController.BuiltinModules, int> gates;
     private Level levelBeingMade;
     // Use this for initialization
     void Start() {
@@ -22,9 +23,11 @@ public class LevelCreationMenu : MonoBehaviour {
         string levelName = levelNameField.GetComponent<UnityEngine.UI.Text>().text;
         string personname = personNameField.GetComponent<UnityEngine.UI.Text>().text;
         setTerminalsInfo();
+        setBuiltinGateInfo();
         levelBeingMade.setStars(getStars());
         levelBeingMade.setLevelInput(inputs);
         levelBeingMade.setLevelOutput(outputs);
+        levelBeingMade.setGates(gates);
         levelBeingMade.saveAsNewLevel(levelName, personname);
     }
     private int[] getStars()
@@ -44,15 +47,50 @@ public class LevelCreationMenu : MonoBehaviour {
             if (terminal.activeSelf)
             {
                 if (terminal.transform.eulerAngles.z == 0)
-                {
                     inputs.Add(i);
-                }
                 else
-                {
                     outputs.Add(i);
-                }
                 i++;
             }
+        }
+    }
+    private void setBuiltinGateInfo()
+    {
+        GameObject[] gateFields = GameObject.FindGameObjectsWithTag("GateField");
+        gates = new HashDictionary<BuiltinModuleController.BuiltinModules, int>();
+        
+        foreach (GameObject field in gateFields)
+        {
+            int fieldValue = -1; //default value 
+            if (field.activeSelf)
+                fieldValue = Convert.ToInt32(field.GetComponent<UnityEngine.UI.Text>().text);
+            switch (field.transform.name)
+            {
+                case "AndText":
+                    gates.Add(BuiltinModuleController.BuiltinModules.AND, fieldValue);
+                    break;
+                case "NandText":
+                    gates.Add(BuiltinModuleController.BuiltinModules.NAND, fieldValue);
+                    break;
+                case "OrText":
+                    gates.Add(BuiltinModuleController.BuiltinModules.OR, fieldValue);
+                    break;
+                case "NorText":
+                    gates.Add(BuiltinModuleController.BuiltinModules.NOR, fieldValue);
+                    break;
+                case "NotText":
+                    gates.Add(BuiltinModuleController.BuiltinModules.NOT, fieldValue);
+                    break;
+                case "XorText":
+                    gates.Add(BuiltinModuleController.BuiltinModules.XOR, fieldValue);
+                    break;
+                case "NxorText":
+                    gates.Add(BuiltinModuleController.BuiltinModules.NXOR, fieldValue);
+                    break;
+                default:
+                    throw new Exception("Cannot find given gate" + field.transform.name);
+            }
+            
         }
     }
 }
