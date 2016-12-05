@@ -1,0 +1,25 @@
+{"LevelName": "Lab2Part1",
+"Creator": "Team24",
+"Description": "Create a 2-to-1 Multiplexer, with C as the switch.
+Difficulty: 4/5
+Hint: Logic is same as Lab1Part1.",
+"star1": 6,
+"star2": 5,
+"star3": 4,
+"Inputs": [{"Id": 0},
+{"Id": 1},
+{"Id": 2}
+],
+"Outputs": [{"Id": 0}
+],
+"Solution": [
+[["False","False","False"],["False"]],
+[["True","False","False"],["True"]],
+[["False","True","False"],["False"]],
+[["True","True","False"],["True"]],
+[["False","False","True"],["False"]],
+[["True","False","True"],["False"]],
+[["False","True","True"],["True"]],
+[["True","True","True"],["True"]]
+]
+}
