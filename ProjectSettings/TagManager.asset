@@ -9,6 +9,8 @@ TagManager:
   - Junction
   - InputTag
   - SidePanel
+  - TerminalField
+  - GateField
   layers:
   - Default
   - TransparentFX
