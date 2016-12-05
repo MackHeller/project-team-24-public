@@ -9,7 +9,6 @@ public class LevelsListController : MonoBehaviour {
 
     void Start() {
         string[] levels = LevelReader.getAllLevelNames();
-        Vector3 pos = this.transform.position;
         foreach (string levelName in levels) {
             Level level = new Level();
             level.loadLevel(levelName);

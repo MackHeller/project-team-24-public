@@ -22,7 +22,7 @@ GameObject:
   - 58: {fileID: 58000011141082566}
   - 114: {fileID: 114000014118392056}
   - 114: {fileID: 114000012752406598}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Junction
   m_TagString: Junction
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011720021150}
   - 212: {fileID: 212000013525235118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

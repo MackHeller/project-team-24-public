@@ -25,7 +25,7 @@ GameObject:
   - 114: {fileID: 114000014064995498}
   - 114: {fileID: 114000011641088592}
   - 50: {fileID: 50000012975823690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TerminalIn
   m_TagString: GateTag
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014226932080}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OutputPos
   m_TagString: Untagged
   m_Icon: {fileID: -3993051910640687065, guid: 0000000000000000d000000000000000, type: 0}

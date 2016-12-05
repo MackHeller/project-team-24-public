@@ -10,18 +10,18 @@ using LitJson;
 /// set of LogicObjects, it expects a set of outputs
 /// and compares whether the set of outputs is correct.
 /// </summary>
-public class Level{
+public class Level {
 
     private string levelName;
     private string creator;
     private int[] stars = new int[3];
-    private HashDictionary<BuiltinModuleController.BuiltinModules,int> gates;
+    private HashDictionary<BuiltinModuleController.BuiltinModules, int> gates;
     private ArrayList<int> input;
     private ArrayList<int> output;
 
     void Start() {
         // for testing only
-		/*
+        /*
         loadLevel("level4-Mack");
         saveLevel();
         saveAsNewLevel("mackLevel", "MackHeller2");
@@ -44,7 +44,17 @@ public class Level{
     /// save level with level's existing file name
     /// </summary>
     public void saveLevel() {
-        LevelWriter.saveAsNewLevel(getFileName(), this);
+        LevelWriter.saveAsNewLevel(createLevelName(this.levelName, this.creator), this);
+    }
+
+    public int getStarsForScore(int score) {
+        int starCount = 0;
+        for (int i = 0; i < stars.Length; i++) {
+            if (score < stars[i]) {
+                starCount = i + 1;
+            }
+        }
+        return starCount;
     }
 
     /// <summary>
@@ -80,7 +90,6 @@ public class Level{
     public string getLevelName() { return levelName; }
     public string getCreator() { return creator; }
     public int[] getStars() { return stars; }
-    public string getFileName() { return createLevelName(this.levelName, this.creator); }
 
     #endregion getters
 

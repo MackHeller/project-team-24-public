@@ -48,7 +48,7 @@ public class JunctionController : MonoBehaviour {
      * <returns>true, if this object was destroyed</returns>
      */
     public bool destroyIfDisconnected() {
-        if (!(junction.hasInputModule() || junction.hasObservers())) {
+        if (gameObject != null && !(junction.hasInputModule() || junction.hasObservers())) {
             Destroy(gameObject);
             return true;
         }

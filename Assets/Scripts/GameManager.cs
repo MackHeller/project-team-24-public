@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    public enum Mode { CREATING, SOLVING };
+    public enum Mode { CREATING, SOLVING, SANDBOX };
 
     private static GameManager _instance;
 
     private Level _level;
-    private Mode _mode;
+    private Mode _mode = Mode.SANDBOX;
 
     void Awake() {
         if (_instance == null) {
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
-
+        _level = new Level();
     }
 
     public static GameManager getInstance() {
@@ -48,5 +48,17 @@ public class GameManager : MonoBehaviour {
 
     public void loadLevel(string levelName) {
         _level.loadLevel(levelName);
+    }
+
+    public void loadMainMenu() {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void loadEditor() {
+        SceneManager.LoadScene("Editor");
+    }
+
+    public void loadLevelCreator() {
+        SceneManager.LoadScene("LevelCreator");
     }
 }

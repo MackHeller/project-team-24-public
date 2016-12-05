@@ -38,6 +38,9 @@ public class BuiltinModuleController : MonoBehaviour {
         }
         inputJunctionControllers = instantiateJunctionControllers(inputJunctionLocations, i => module.getInputJunction(i));
         outputJunctionControllers = instantiateJunctionControllers(outputJunctionLocations, i => module.getOutputJunction(i));
+        if (!isTerminal()) {
+            EditorManager.getInstance().incrementScore();
+        }
     }
 
     private JunctionController[] instantiateJunctionControllers(GameObject[] locations, Func<int, Junction> junctionGetter) {
@@ -52,7 +55,14 @@ public class BuiltinModuleController : MonoBehaviour {
         return junctionControllers;
     }
 
+    public bool isTerminal() {
+        return builtinModule == BuiltinModules.IN || builtinModule == BuiltinModules.OUT;
+    }
+
     void OnDestroy() {
+        if (!isTerminal()) {
+            EditorManager.getInstance().decrementScore();
+        }
         // Destroy all input junctions if they are not connected to anything else
         for (int i = 0; i < inputJunctionControllers.Length; i++) {
             JunctionController jc = inputJunctionControllers[i];

@@ -1,25 +1,39 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SubmitPanel : MonoBehaviour {
 
     private EditorManager editorManager;
     private GameManager gameManager;
 
+    public GameObject displayWhenSolving;
+    public GameObject displayWhenCreating;
+
+    public Text levelNameText;
+    public Text levelCreatorText;
+    public Text scoreText;
+    public StarsController starsController;
+    public InputField saveLocationField;
+
     void Awake() {
         editorManager = EditorManager.getInstance();
         gameManager = GameManager.getInstance();
     }
 
-    void OnEnable() {
-        Level lvl = gameManager.getLevel();
-        string lvlname = lvl.getLevelName();
-        string lvlcreator = lvl.getCreator();
-        editorManager.setName(lvlname);
-        editorManager.setCreator(lvlcreator);
-        //TODO:get score for completed level and
-        //get stars for completed level
-        editorManager.setScore(0); //to be changed
-        editorManager.setStars(0); //to be changed
+    public void Show() {
+        gameObject.SetActive(true);
+        if (gameManager.getMode() == GameManager.Mode.SOLVING) {
+            displayWhenSolving.SetActive(true);
+            Level level = gameManager.getLevel();
+            levelNameText.text = level.getLevelName();
+            levelCreatorText.text = level.getCreator();
+            scoreText.text = editorManager.getScore().ToString();
+            starsController.setStars(editorManager.getStars());
+        } else if (gameManager.getMode() == GameManager.Mode.CREATING) {
+            displayWhenCreating.SetActive(true);
+            // Save created level
+            // Set saveLocationField.text to saved levels file location
+        }
     }
 }

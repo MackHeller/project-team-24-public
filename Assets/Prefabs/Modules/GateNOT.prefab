@@ -23,10 +23,9 @@ GameObject:
   - 61: {fileID: 61000013758267106}
   - 114: {fileID: 114000011201839944}
   - 114: {fileID: 114000014064995498}
-  - 50: {fileID: 50000012483435250}
-  - 114: {fileID: 114000010377327276}
   - 114: {fileID: 114000013060123428}
-  m_Layer: 0
+  - 50: {fileID: 50000012483435250}
+  m_Layer: 10
   m_Name: GateNOT
   m_TagString: GateTag
   m_Icon: {fileID: 0}
@@ -41,7 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014226932080}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OutputPos
   m_TagString: Untagged
   m_Icon: {fileID: -3993051910640687065, guid: 0000000000000000d000000000000000, type: 0}
@@ -56,7 +55,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010028639620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InputPos
   m_TagString: Untagged
   m_Icon: {fileID: 1862873201189522682, guid: 0000000000000000d000000000000000, type: 0}
@@ -135,17 +134,6 @@ BoxCollider2D:
   m_Offset: {x: -0.0058689117, y: 0.007493019}
   serializedVersion: 2
   m_Size: {x: 2.8555126, y: 2.8279243}
---- !u!114 &114000010377327276
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011145657838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e30a46b5a8c29f4f9b63091bcbf18e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000011201839944
 MonoBehaviour:
   m_ObjectHideFlags: 1

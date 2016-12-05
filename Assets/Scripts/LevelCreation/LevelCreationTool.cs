@@ -1,89 +1,106 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Class for loading levels. Follows the Singleton Design Pattern.
 /// </summary>
-public class LevelCreationTool : MonoBehaviour{
-	/*
+public class LevelCreationTool : MonoBehaviour {
+    /*
 	 * TODO: adjust after level editor is completed, require for proper implementation
 	 * of these functions.
-	 */ 
+	 */
 
-	// Input and output prefabs must be attached to LevelCreationTool in the scene in this implementation
-	public GameObject inputPrefab;
-	public GameObject outputPrefab;
+    // Input and output prefabs must be attached to LevelCreationTool in the scene in this implementation
+    public GameObject inputPrefab;
+    public GameObject outputPrefab;
 
-	private float width;
-	private float height;
+    public GameObject inputPositionsParent;
+    public GameObject outputPositionsParent;
 
-	// the bottom-left x, y, z coordinates of the canvas shown on screen
-	private Vector3 bottomLeft;
+    private List<Vector3> inputPositions;
+    private List<Vector3> outputPositions;
 
-	// singleton instance of PremadeLevels
-	private static LevelCreationTool _instance;
+    // the bottom-left x, y, z coordinates of the canvas shown on screen
+    private Vector3 bottomLeft;
 
-	public static LevelCreationTool getInstance() {
-		return _instance;
-	}
+    // singleton instance of PremadeLevels
+    private static LevelCreationTool _instance;
 
-	void Awake() {
-		_instance = this;
-		width = 57.4f;
-		height = 31.9f;
-		bottomLeft = new Vector3 (0 - width / 2, 10 - height / 2, 0);
-	}
+    public static LevelCreationTool getInstance() {
+        return _instance;
+    }
 
-	/// <summary>
-	/// Instantiates the set of inputs/outputs from a level.
-	/// 
-	/// TODO: for whoever is working on the new 'LogicManager', hook these instantiated inputs/outputs up.
-	/// 
-	/// </summary>
-	/// <param name="index">must have between 1-6 inputs and 1-6 outputs for current coordinates</param>
-	public void LoadInputOutputFromLevel (Level level) {
-		for (int i = 1; i < level.getLevelInput ().Count + 1; i++) {
-			this.instantiateInputAtIndex (i);
-		}
-		for (int j = 1; j < level.getLevelOutput ().Count + 1; j++) {
-			this.instantiateOutputAtIndex (j);
-		}
-	}
+    void Awake() {
+        _instance = this;
+    }
 
-	/// <summary>
-	/// Instantiates an input at the left of the screen, at a  location
-	/// based on its input. More lightweight than instantiateInputAt.
-	/// </summary>
-	/// <param name="index">between 1-8</param>
-	public GameObject instantiateInputAtIndex (int index) {
-		return this.instantiateInputAt (width / 4, height / 8 * index - height / 6);
-	}
+    private void Start() {
+        inputPositions = getChildPositions(inputPositionsParent);
+        outputPositions = getChildPositions(outputPositionsParent);
+        if (GameManager.getInstance().getMode() != GameManager.Mode.SANDBOX) {
+            LoadInputOutputFromLevel(GameManager.getInstance().getLevel());
+        }
+    }
 
-	/// <summary>
-	/// Instantiates an output at the left of the screen, at a  location
-	/// based on its input. More lightweight than instantiateOutputAt.
-	/// </summary>
-	/// <param name="index">between 1-8</param>
-	public GameObject instantiateOutputAtIndex (int index) {
-		return this.instantiateOutputAt (width / 8 * 7, height / 8 * index - height / 6);
-	}
+    private List<Vector3> getChildPositions(GameObject parent) {
+        List<Vector3> positions = new List<Vector3>(parent.transform.childCount);
+        foreach (Transform child in parent.transform) {
+            positions.Add(child.position);
+        }
+        return positions;
+    }
 
-	/// <summary>
-	/// Instantiates an input at x, y coordinates.
-	/// </summary>
-	private GameObject instantiateInputAt (float x, float y) {
-		GameObject newPrefab = Instantiate (inputPrefab);
-		newPrefab.transform.position = new Vector3 (bottomLeft.x + x, bottomLeft.y + y, 0);
-		return newPrefab;
-	}
+    /// <summary>
+    /// Instantiates the set of inputs/outputs from a level.
+    /// 
+    /// TODO: for whoever is working on the new 'LogicManager', hook these instantiated inputs/outputs up.
+    /// 
+    /// </summary>
+    /// <param name="index">must have between 1-6 inputs and 1-6 outputs for current coordinates</param>
+    public void LoadInputOutputFromLevel(Level level) {
+        for (int i = 0; i < level.getLevelInput().Count; i++) {
+            this.instantiateInputAtIndex(i);
+        }
+        for (int j = 0; j < level.getLevelOutput().Count; j++) {
+            this.instantiateOutputAtIndex(j);
+        }
+    }
 
-	/// <summary>
-	/// Instantiates an output at x, y coordinates.
-	/// </summary>
-	private GameObject instantiateOutputAt (float x, float y) {
-		GameObject newPrefab = Instantiate (outputPrefab);
-		newPrefab.transform.position = new Vector3 (bottomLeft.x + x, bottomLeft.y + y, 0);
-		return newPrefab;
-	}
+    /// <summary>
+    /// Instantiates an input at the left of the screen, at a  location
+    /// based on its input. More lightweight than instantiateInputAt.
+    /// </summary>
+    /// <param name="index">between 1-8</param>
+    public GameObject instantiateInputAtIndex(int index) {
+        return this.instantiateInputAt(inputPositions[index]);
+    }
+
+    /// <summary>
+    /// Instantiates an output at the left of the screen, at a  location
+    /// based on its input. More lightweight than instantiateOutputAt.
+    /// </summary>
+    /// <param name="index">between 1-8</param>
+    public GameObject instantiateOutputAtIndex(int index) {
+        return this.instantiateOutputAt(outputPositions[index]);
+    }
+
+    /// <summary>
+    /// Instantiates an input at x, y coordinates.
+    /// </summary>
+    private GameObject instantiateInputAt(Vector3 position) {
+        GameObject newPrefab = Instantiate(inputPrefab);
+        newPrefab.transform.position = position;
+        return newPrefab;
+    }
+
+    /// <summary>
+    /// Instantiates an output at x, y coordinates.
+    /// </summary>
+    private GameObject instantiateOutputAt(Vector3 position) {
+        GameObject newPrefab = Instantiate(outputPrefab);
+        newPrefab.transform.position = position;
+        return newPrefab;
+    }
 }

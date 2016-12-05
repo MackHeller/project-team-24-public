@@ -23,10 +23,9 @@ GameObject:
   - 61: {fileID: 61000013758267106}
   - 114: {fileID: 114000011201839944}
   - 114: {fileID: 114000014064995498}
-  - 50: {fileID: 50000013257432252}
-  - 114: {fileID: 114000013675344574}
   - 114: {fileID: 114000014278503938}
-  m_Layer: 0
+  - 50: {fileID: 50000013257432252}
+  m_Layer: 10
   m_Name: GateNOR
   m_TagString: GateTag
   m_Icon: {fileID: 0}
@@ -41,7 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014226932080}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OutputPos
   m_TagString: Untagged
   m_Icon: {fileID: -3993051910640687065, guid: 0000000000000000d000000000000000, type: 0}
@@ -56,7 +55,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010028639620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InputPos1
   m_TagString: Untagged
   m_Icon: {fileID: 1862873201189522682, guid: 0000000000000000d000000000000000, type: 0}
@@ -71,7 +70,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012834288064}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InputPos2
   m_TagString: Untagged
   m_Icon: {fileID: 1862873201189522682, guid: 0000000000000000d000000000000000, type: 0}
@@ -176,17 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
---- !u!114 &114000013675344574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011145657838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e30a46b5a8c29f4f9b63091bcbf18e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000014064995498
 MonoBehaviour:
   m_ObjectHideFlags: 1
