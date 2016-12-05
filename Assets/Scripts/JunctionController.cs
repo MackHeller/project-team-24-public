@@ -6,11 +6,13 @@ public class JunctionController : MonoBehaviour {
 
     public Junction junction;
 
+    private EditorManager editorManager;
     private SpriteRenderer _sprite;
     private Collider2D _collider;
     private bool uninteractableOverride = false;
 
     public void Awake() {
+        editorManager = EditorManager.getInstance();
         junction = new Junction();
         _collider = GetComponent<Collider2D>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
@@ -22,7 +24,7 @@ public class JunctionController : MonoBehaviour {
     }
 
     public void FixedUpdate() {
-        if (GameManager.getInstance().isCreatingWire()) {
+        if (editorManager.isCreatingWire()) {
             toggleInteractable(!junction.hasInputModule());
         } else {
             toggleInteractable(junction.hasInputModule());
@@ -47,7 +49,7 @@ public class JunctionController : MonoBehaviour {
      */
     public bool destroyIfDisconnected() {
         if (!(junction.hasInputModule() || junction.hasObservers())) {
-			Destroy(gameObject);
+            Destroy(gameObject);
             return true;
         }
         return false;

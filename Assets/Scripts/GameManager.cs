@@ -2,20 +2,16 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using C5;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    public enum Mode { CREATING, SOLVING };
+
     private static GameManager _instance;
 
-    private bool _isCreatingWire = false;
     private Level _level;
-	private bool _isdeleting = false;
-	private ArrayList<GameObject> _wiresToBeDeleted;
-	private ArrayList<GameObject> _gatesToBeDeleted;
-	public Text nameText;
-	public Text creatorText;
-	public Text scoreText;
-	public StarsController starController;
+    private Mode _mode;
 
     void Awake() {
         if (_instance == null) {
@@ -28,17 +24,6 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
 
-        _level = new Level();
-        _level.loadLevel("FourInputAndGate-Freddy");
-		_wiresToBeDeleted = new ArrayList<GameObject> ();
-		_gatesToBeDeleted = new ArrayList<GameObject> ();
-        /*
-		 * NOTE: not sure if due to a gitIgnore, the prefabs placed in LevelCreationTool
-		 * are removed on pulls.
-		 */
-        LevelCreationTool.getInstance().LoadInputOutputFromLevel(_level);
-
-
     }
 
     public static GameManager getInstance() {
@@ -49,53 +34,19 @@ public class GameManager : MonoBehaviour {
         return _level;
     }
 
+    public void setLevel(Level level) {
+        _level = level;
+    }
+
+    public Mode getMode() {
+        return _mode;
+    }
+
+    public void setMode(Mode mode) {
+        _mode = mode;
+    }
+
     public void loadLevel(string levelName) {
         _level.loadLevel(levelName);
     }
-
-    public bool isCreatingWire() {
-        return _isCreatingWire;
-    }
-
-    public void setCreatingWire(bool isCreatingWire) {
-        _isCreatingWire = isCreatingWire;
-    }
-
-	public bool isDeleting(){
-		return _isdeleting;
-	}
-
-	public void setIsDelting(bool isdeleting){
-		_isdeleting = isdeleting;
-	}
-
-	public void markWireForDeletion(GameObject wire){
-		_wiresToBeDeleted.Add (wire);
-	}
-
-	public void unmarkWireForDeletion(GameObject wire){
-		_wiresToBeDeleted.Remove (wire);
-	}
-
-	public ArrayList<GameObject> getWiresToBeDeleted(){
-		return _wiresToBeDeleted;
-	}
-
-	public void markGateForDeletion(GameObject gate){
-		_gatesToBeDeleted.Add (gate);
-	}
-
-	public void unmarkGateForDeletion(GameObject gate){
-		_gatesToBeDeleted.Remove (gate);
-	}
-
-	public ArrayList<GameObject> getGatesToBeDeleted(){
-		return _gatesToBeDeleted;
-	}
-
-	//panel text field setters
-	public void setName(string name) {nameText.text = name;}
-	public void setCreator(string creator) {creatorText.text = creator;}
-	public void setScore(int score) {scoreText.text = score.ToString();}
-	public void setStars(int numStars) {starController.setStars (numStars);}
 }
