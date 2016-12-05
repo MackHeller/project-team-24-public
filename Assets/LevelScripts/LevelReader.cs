@@ -46,30 +46,38 @@ public class LevelReader {
     /// Checks if gate exists in the current level
     /// name = name of a valid gate
     /// </summary>
-    public static ArrayList<LogicModule> getGates(JsonData levelInformation) {
-        ArrayList<LogicModule> gates = new ArrayList<LogicModule>();
+    public static HashDictionary<BuiltinModuleController.BuiltinModules, int> getGates(JsonData levelInformation) {
+        HashDictionary<BuiltinModuleController.BuiltinModules, int> gates = new HashDictionary<BuiltinModuleController.BuiltinModules, int>();
         if (jsonDataContainsKey(levelInformation, "Gates")) {
             for (int i = 0; i < levelInformation["Gates"].Count; i++) {
-                LogicModule temp;
+                BuiltinModuleController.BuiltinModules temp;
                 switch (levelInformation["Gates"][i]["Name"].ToString())
                 {
                     case "And":
-                        temp = new GateAnd(2);
+                        temp = BuiltinModuleController.BuiltinModules.AND;
+                        break;
+                    case "Nand":
+                        temp = BuiltinModuleController.BuiltinModules.NAND;
                         break;
                     case "Or":
-                        temp = new GateOr(2);
+                        temp = BuiltinModuleController.BuiltinModules.OR;
+                        break;
+                    case "Nor":
+                        temp = BuiltinModuleController.BuiltinModules.NOR;
                         break;
                     case "Not":
-                        temp = new GateNot();
+                        temp = BuiltinModuleController.BuiltinModules.NOT;
                         break;
                     case "Xor":
-                        temp = new GateNxor(2);
+                        temp = BuiltinModuleController.BuiltinModules.XOR;
+                        break;
+                    case "Nxor":
+                        temp = BuiltinModuleController.BuiltinModules.NXOR;
                         break;
                     default:
                         throw new Exception("Cannot find given gate"+ levelInformation["Gates"][i]["Name"].ToString());
                 }
-                temp.setAmountAllowed(Convert.ToInt32(levelInformation["Gates"][i]["Amount"].ToString()));
-                gates.Add(temp);
+                gates.Add(temp,Convert.ToInt32(levelInformation["Gates"][i]["Amount"].ToString()));
             }
         }
         return gates;

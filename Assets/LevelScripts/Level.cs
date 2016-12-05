@@ -15,9 +15,9 @@ public class Level : MonoBehaviour {
     private string levelName;
     private string creator;
     private int[] stars = new int[3];
-    private ArrayList<LogicModule> gates;
-    private ArrayList<Int32> input;
-    private ArrayList<Int32> output;
+    private HashDictionary<BuiltinModuleController.BuiltinModules,int> gates;
+    private ArrayList<int> input;
+    private ArrayList<int> output;
 
     void Start() {
         // for testing only
@@ -72,9 +72,9 @@ public class Level : MonoBehaviour {
 
     #region getters
 
-    public ArrayList<LogicModule> getGates() { return gates; }
-    public ArrayList<Int32> getLevelInput() { return input; }
-    public ArrayList<Int32> getLevelOutput() { return output; }
+    public HashDictionary<BuiltinModuleController.BuiltinModules, int> getGates() { return gates; }
+    public ArrayList<int> getLevelInput() { return input; }
+    public ArrayList<int> getLevelOutput() { return output; }
     public string getLevelName() { return levelName; }
     public string getCreator() { return creator; }
     public int[] getStars() { return stars; }
@@ -83,9 +83,9 @@ public class Level : MonoBehaviour {
 
     #region setters
 
-    public void setGates(ArrayList<LogicModule> gates) { this.gates = gates; }
-    public void setLevelInput(ArrayList<Int32> input) { this.input = input; }
-    public void setLevelOutput(ArrayList<Int32> output) { this.output = output; }
+    public void setGates(HashDictionary<BuiltinModuleController.BuiltinModules, int> gates) { this.gates = gates; }
+    public void setLevelInput(ArrayList<int> input) { this.input = input; }
+    public void setLevelOutput(ArrayList<int> output) { this.output = output; }
     public void setLevelName(string levelName) { this.levelName = levelName; }
     public void setStars(int[] stars) { this.stars = stars; }
     public void setCreator(string creator) { this.creator = creator; }

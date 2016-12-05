@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
-public class InputOutputMenu : MonoBehaviour {
+public class ToggleMenu : MonoBehaviour {
     public GameObject terminal;
     public void toggleChanged(bool newValue)
     {
         terminal.SetActive(newValue);
+    }
+    public void toggleChangedFlip()
+    {
+        terminal.SetActive(!terminal.activeSelf);
     }
     public void clickTerminal()
     {
