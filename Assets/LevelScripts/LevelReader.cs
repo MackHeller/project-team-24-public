@@ -51,8 +51,7 @@ public class LevelReader {
         if (jsonDataContainsKey(levelInformation, "Gates")) {
             for (int i = 0; i < levelInformation["Gates"].Count; i++) {
                 BuiltinModuleController.BuiltinModules temp;
-                switch (levelInformation["Gates"][i]["Name"].ToString())
-                {
+                switch (levelInformation["Gates"][i]["Name"].ToString()) {
                     case "And":
                         temp = BuiltinModuleController.BuiltinModules.AND;
                         break;
@@ -75,9 +74,9 @@ public class LevelReader {
                         temp = BuiltinModuleController.BuiltinModules.NXOR;
                         break;
                     default:
-                        throw new Exception("Cannot find given gate"+ levelInformation["Gates"][i]["Name"].ToString());
+                        throw new Exception("Cannot find given gate" + levelInformation["Gates"][i]["Name"].ToString());
                 }
-                gates.Add(temp,Convert.ToInt32(levelInformation["Gates"][i]["Amount"].ToString()));
+                gates.Add(temp, Convert.ToInt32(levelInformation["Gates"][i]["Amount"].ToString()));
             }
         }
         return gates;
@@ -113,6 +112,7 @@ public class LevelReader {
 
     public static String getLevelName(JsonData levelInformation) { return levelInformation["LevelName"].ToString(); }
     public static String getCreator(JsonData levelInformation) { return levelInformation["Creator"].ToString(); }
+    public static String getDescription(JsonData levelInformation) { return levelInformation["Description"].ToString(); }
     public static int[] getStars(JsonData levelInformation) {
         int[] stars = new int[] { Convert.ToInt32(levelInformation["star1"].ToString()),
             Convert.ToInt32(levelInformation["star2"].ToString()),

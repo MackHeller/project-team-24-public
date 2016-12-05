@@ -11,6 +11,7 @@ TagManager:
   - SidePanel
   - TerminalField
   - GateField
+  - Gates
   layers:
   - Default
   - TransparentFX
@@ -56,6 +57,9 @@ TagManager:
     locked: 0
   - name: PlacedObjects
     uniqueID: 421852667
+    locked: 0
+  - name: GateLabels
+    uniqueID: 3959309689
     locked: 0
   - name: Wires
     uniqueID: 1841153509

@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using System;
 
 [RequireComponent(typeof(BuiltinModuleController))]
 public class TerminalController : MonoBehaviour {
@@ -9,6 +11,16 @@ public class TerminalController : MonoBehaviour {
     private LogicModule module;
     private bool isInput;
     private bool clicked;
+
+    public Text labelText;
+
+    public void setLabel(string label) {
+        labelText.text = label;
+    }
+
+    public string getLabel() {
+        return labelText.text;
+    }
 
     void Start() {
         moduleController = GetComponent<BuiltinModuleController>();
@@ -27,9 +39,31 @@ public class TerminalController : MonoBehaviour {
                 _renderer.color = Color.red;
                 break;
             default:
-                _renderer.color = Color.green;
+                _renderer.color = Color.white;
                 break;
         }
+    }
+
+    private TerminalInput asInput() {
+        if (!isInput) {
+            throw new ArgumentException("terminal is not an input");
+        }
+        return ((TerminalInput)module);
+    }
+
+    private TerminalOutput asOutput() {
+        if (isInput) {
+            throw new ArgumentException("terminal is not an output");
+        }
+        return ((TerminalOutput)module);
+    }
+
+    public void setTerminalValue(bool? value) {
+        asInput().setValue(value);
+    }
+
+    public bool? getTerminalValue() {
+        return isInput ? asInput().getOutput() : asOutput().getValue();
     }
 
     public void OnMouseOver() {

@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System;
+using C5;
 
 public class SubmitPanel : MonoBehaviour {
 
@@ -16,24 +19,24 @@ public class SubmitPanel : MonoBehaviour {
     public StarsController starsController;
     public InputField saveLocationField;
 
-    void Awake() {
+    public void Submit() {
         editorManager = EditorManager.getInstance();
         gameManager = GameManager.getInstance();
-    }
-
-    public void Show() {
+        Level level = gameManager.getLevel();
+        levelNameText.text = level.getLevelName();
+        levelCreatorText.text = level.getCreator();
         gameObject.SetActive(true);
         if (gameManager.getMode() == GameManager.Mode.SOLVING) {
             displayWhenSolving.SetActive(true);
-            Level level = gameManager.getLevel();
-            levelNameText.text = level.getLevelName();
-            levelCreatorText.text = level.getCreator();
             scoreText.text = editorManager.getScore().ToString();
             starsController.setStars(editorManager.getStars());
+
         } else if (gameManager.getMode() == GameManager.Mode.CREATING) {
             displayWhenCreating.SetActive(true);
-            // Save created level
-            // Set saveLocationField.text to saved levels file location
+            Solution solution = editorManager.generateSolution();
+            level.setSolution(solution);
+            string saveLocation = level.saveAsNewLevel();
+            saveLocationField.text = saveLocation;
         }
     }
 }

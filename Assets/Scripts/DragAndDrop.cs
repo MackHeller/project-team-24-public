@@ -15,6 +15,12 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 
     private bool isIntersectingSidePanel = false;
 
+    private Transform gateParent;
+
+    private void Start() {
+        gateParent = EditorManager.getInstance().getGateCanvas().gameObject.transform;
+    }
+
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "SidePanel") {
             isIntersectingSidePanel = true;
@@ -30,7 +36,7 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData) {
         if (prefab != null) {
-            instantiated = Instantiate(prefab.gameObject).GetComponent<DragAndDrop>();
+            instantiated = (Instantiate(prefab.gameObject, gateParent) as GameObject).GetComponent<DragAndDrop>();
             instantiated.transform.position = transform.position;
             instantiated.OnBeginDrag(eventData);
         } else {

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using C5;
 
@@ -22,30 +22,27 @@ public class LevelCreationMenu : MonoBehaviour {
 
     // Update is called once per frame
     public void startButtonClicked() {
-        string levelName = levelNameField.GetComponent<UnityEngine.UI.Text>().text;
-        string personname = personNameField.GetComponent<UnityEngine.UI.Text>().text;
+        levelBeingMade.setLevelName(levelNameField.GetComponent<UnityEngine.UI.Text>().text);
+        levelBeingMade.setCreator(personNameField.GetComponent<UnityEngine.UI.Text>().text);
         setTerminalsInfo();
         setBuiltinGateInfo();
         levelBeingMade.setStars(getStars());
         levelBeingMade.setLevelInput(inputs);
         levelBeingMade.setLevelOutput(outputs);
         levelBeingMade.setGates(gates);
-        levelBeingMade.saveAsNewLevel(levelName, personname);
+        levelBeingMade.saveAsNewLevel();
     }
-    private int[] getStars()
-    {
+    private int[] getStars() {
         return new int[] { Convert.ToInt32(star1.GetComponent<UnityEngine.UI.Text>().text),
                             Convert.ToInt32(star2.GetComponent<UnityEngine.UI.Text>().text),
                             Convert.ToInt32(star3.GetComponent<UnityEngine.UI.Text>().text)};
     }
-    private void setTerminalsInfo()
-    {
+    private void setTerminalsInfo() {
         GameObject[] terminals = GameObject.FindGameObjectsWithTag("TerminalField");
         inputs = new ArrayList<int>();
         outputs = new ArrayList<int>();
         int i = 0;
-        foreach (GameObject terminal in terminals)
-        {
+        foreach (GameObject terminal in terminals) {
             if (terminal.transform.eulerAngles.z == 0)
                 inputs.Add(i);
             else
@@ -53,26 +50,20 @@ public class LevelCreationMenu : MonoBehaviour {
             i++;
         }
     }
-    private void setBuiltinGateInfo()
-    {
+    private void setBuiltinGateInfo() {
         gates = new HashDictionary<BuiltinModuleController.BuiltinModules, int>();
-        foreach (GameObject field in gateFields)
-        {
+        foreach (GameObject field in gateFields) {
             int fieldValue = -1; //default value
             String fieldName;
-            if (field.activeSelf)
-            {
+            if (field.activeSelf) {
                 fieldValue = Convert.ToInt32(field.GetComponent<UnityEngine.UI.Text>().text);
                 fieldName = field.transform.name;
-            }
-            else
-            {
+            } else {
                 field.SetActive(true);
                 fieldName = field.transform.name;
                 field.SetActive(false);
             }
-            switch (fieldName)
-            {
+            switch (fieldName) {
                 case "AndText":
                     gates.Add(BuiltinModuleController.BuiltinModules.AND, fieldValue);
                     break;
@@ -97,7 +88,7 @@ public class LevelCreationMenu : MonoBehaviour {
                 default:
                     throw new Exception("Cannot find given gate" + field.transform.name);
             }
-            
+
         }
     }
 }

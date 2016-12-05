@@ -2,19 +2,19 @@ using UnityEngine;
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class for loading levels. Follows the Singleton Design Pattern.
 /// </summary>
 public class LevelCreationTool : MonoBehaviour {
-    /*
-	 * TODO: adjust after level editor is completed, require for proper implementation
-	 * of these functions.
-	 */
+
+    private static string[] inputLabels = { "A", "B", "C", "D", "E", "F" };
+    private static string[] outputLabels = { "U", "V", "W", "X", "Y", "Z" };
 
     // Input and output prefabs must be attached to LevelCreationTool in the scene in this implementation
-    public GameObject inputPrefab;
-    public GameObject outputPrefab;
+    public TerminalController inputPrefab;
+    public TerminalController outputPrefab;
 
     public GameObject inputPositionsParent;
     public GameObject outputPositionsParent;
@@ -22,11 +22,16 @@ public class LevelCreationTool : MonoBehaviour {
     private List<Vector3> inputPositions;
     private List<Vector3> outputPositions;
 
+    private List<TerminalController> instantiatedInputs;
+    private List<TerminalController> instantiatedOutputs;
+
     // the bottom-left x, y, z coordinates of the canvas shown on screen
     private Vector3 bottomLeft;
 
     // singleton instance of PremadeLevels
     private static LevelCreationTool _instance;
+
+    private Transform gateParent;
 
     public static LevelCreationTool getInstance() {
         return _instance;
@@ -37,8 +42,11 @@ public class LevelCreationTool : MonoBehaviour {
     }
 
     private void Start() {
+        gateParent = EditorManager.getInstance().getGateCanvas().gameObject.transform;
         inputPositions = getChildPositions(inputPositionsParent);
         outputPositions = getChildPositions(outputPositionsParent);
+        instantiatedInputs = new List<TerminalController>();
+        instantiatedOutputs = new List<TerminalController>();
         if (GameManager.getInstance().getMode() != GameManager.Mode.SANDBOX) {
             LoadInputOutputFromLevel(GameManager.getInstance().getLevel());
         }
@@ -52,6 +60,14 @@ public class LevelCreationTool : MonoBehaviour {
         return positions;
     }
 
+    public List<TerminalController> getInstantiatedInputs() {
+        return instantiatedInputs;
+    }
+
+    public List<TerminalController> getInstantiatedOutputs() {
+        return instantiatedOutputs;
+    }
+
     /// <summary>
     /// Instantiates the set of inputs/outputs from a level.
     /// 
@@ -60,11 +76,11 @@ public class LevelCreationTool : MonoBehaviour {
     /// </summary>
     /// <param name="index">must have between 1-6 inputs and 1-6 outputs for current coordinates</param>
     public void LoadInputOutputFromLevel(Level level) {
-        for (int i = 0; i < level.getLevelInput().Count; i++) {
-            this.instantiateInputAtIndex(i);
+        foreach (int inputId in level.getLevelInput()) {
+            instantiatedInputs.Add(instantiateInputAtIndex(inputId));
         }
-        for (int j = 0; j < level.getLevelOutput().Count; j++) {
-            this.instantiateOutputAtIndex(j);
+        foreach (int outputId in level.getLevelOutput()) {
+            instantiatedOutputs.Add(instantiateOutputAtIndex(outputId));
         }
     }
 
@@ -73,8 +89,11 @@ public class LevelCreationTool : MonoBehaviour {
     /// based on its input. More lightweight than instantiateInputAt.
     /// </summary>
     /// <param name="index">between 1-8</param>
-    public GameObject instantiateInputAtIndex(int index) {
-        return this.instantiateInputAt(inputPositions[index]);
+    public TerminalController instantiateInputAtIndex(int id) {
+        TerminalController outputTerminal = Instantiate(inputPrefab, gateParent) as TerminalController;
+        outputTerminal.setLabel(inputLabels[id]);
+        outputTerminal.transform.position = inputPositions[id];
+        return outputTerminal;
     }
 
     /// <summary>
@@ -82,25 +101,10 @@ public class LevelCreationTool : MonoBehaviour {
     /// based on its input. More lightweight than instantiateOutputAt.
     /// </summary>
     /// <param name="index">between 1-8</param>
-    public GameObject instantiateOutputAtIndex(int index) {
-        return this.instantiateOutputAt(outputPositions[index]);
-    }
-
-    /// <summary>
-    /// Instantiates an input at x, y coordinates.
-    /// </summary>
-    private GameObject instantiateInputAt(Vector3 position) {
-        GameObject newPrefab = Instantiate(inputPrefab);
-        newPrefab.transform.position = position;
-        return newPrefab;
-    }
-
-    /// <summary>
-    /// Instantiates an output at x, y coordinates.
-    /// </summary>
-    private GameObject instantiateOutputAt(Vector3 position) {
-        GameObject newPrefab = Instantiate(outputPrefab);
-        newPrefab.transform.position = position;
-        return newPrefab;
+    public TerminalController instantiateOutputAtIndex(int id) {
+        TerminalController inputTerminal = Instantiate(outputPrefab, gateParent) as TerminalController;
+        inputTerminal.setLabel(outputLabels[id]);
+        inputTerminal.transform.position = outputPositions[id];
+        return inputTerminal;
     }
 }

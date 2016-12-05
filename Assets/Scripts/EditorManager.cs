@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using C5;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
 
 public class EditorManager : MonoBehaviour {
 
@@ -10,6 +12,7 @@ public class EditorManager : MonoBehaviour {
     private static EditorManager _instance;
 
     private GameManager gameManager;
+    private Canvas gatesCanvas;
 
     private bool _isCreatingWire = false;
     private Level _level;
@@ -21,9 +24,12 @@ public class EditorManager : MonoBehaviour {
 
     public GameObject[] sandboxModeOnlyObjects;
     public GameObject[] solvingModeOnlyObjects;
+    public GameObject[] creatorModeOnlyObjects;
     public Text scoreText;
     public StarsController starsController;
     public Text correctnessText;
+
+    private bool isCorrect = false;
 
     // Use this for initialization
     void Awake() {
@@ -32,12 +38,53 @@ public class EditorManager : MonoBehaviour {
         } else {
             Destroy(this);
         }
+        gatesCanvas = GameObject.FindGameObjectWithTag("Gates").GetComponent<Canvas>();
+    }
+
+    public void checkForCorrectness() {
+        Solution userSolution = generateSolution();
+        isCorrect = userSolution.Equals(_level.getSolution());
+    }
+
+    public Solution generateSolution() {
+        Solution solution = new Solution(gameManager.getLevel());
+        List<TerminalController> inputs = LevelCreationTool.getInstance().getInstantiatedInputs();
+        List<TerminalController> outputs = LevelCreationTool.getInstance().getInstantiatedOutputs();
+
+        // Save inputs to reset after the following simulation
+        List<bool?> originalInputValues = new List<bool?>();
+        foreach (TerminalController terminal in inputs) {
+            originalInputValues.Add(terminal.getTerminalValue());
+        }
+
+        // Simulate every possible input permutation and record outputs for each
+        int numRows = (int)Math.Pow(2, inputs.Count);
+        for (int i = 0; i < numRows; i++) {
+            ArrayList<bool?> inputValues = new ArrayList<bool?>(inputs.Count);
+            for (int j = 0; j < inputs.Count; j++) {
+                bool inputValue = bitmaskCheck(i, j);
+                inputValues.Add(inputValue);
+                inputs[j].setTerminalValue(inputValue);
+            }
+            ArrayList<bool?> outputValues = new ArrayList<bool?>(outputs.Count);
+            for (int j = 0; j < outputs.Count; j++) {
+                outputValues.Add(outputs[j].getTerminalValue());
+            }
+            solution.addARowToSolution(inputValues, outputValues);
+        }
+
+        // Reset inputs to original values
+        for (int i = 0; i < inputs.Count; i++) {
+            inputs[i].setTerminalValue(originalInputValues[i]);
+        }
+        return solution;
     }
 
     void Start() {
         gameManager = GameManager.getInstance();
-        enableOnlyInMode(GameManager.Mode.SANDBOX, sandboxModeOnlyObjects);
         enableOnlyInMode(GameManager.Mode.SOLVING, solvingModeOnlyObjects);
+        enableOnlyInMode(GameManager.Mode.CREATING, creatorModeOnlyObjects);
+        enableOnlyInMode(GameManager.Mode.SANDBOX, sandboxModeOnlyObjects);
     }
 
     private void enableOnlyInMode(GameManager.Mode mode, GameObject[] objects) {
@@ -46,6 +93,10 @@ public class EditorManager : MonoBehaviour {
                 obj.SetActive(false);
             }
         }
+    }
+
+    public Canvas getGateCanvas() {
+        return gatesCanvas;
     }
 
     public int getStars() {
@@ -121,5 +172,9 @@ public class EditorManager : MonoBehaviour {
 
     public ArrayList<GameObject> getGatesToBeDeleted() {
         return _gatesToBeDeleted;
+    }
+
+    public bool bitmaskCheck(int mask, int n) {
+        return ((mask >> n) & 1) == 1;
     }
 }

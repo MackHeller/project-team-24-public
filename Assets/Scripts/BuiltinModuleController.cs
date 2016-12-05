@@ -30,7 +30,7 @@ public class BuiltinModuleController : MonoBehaviour {
 
     public LogicModule module;
 
-    void Start() {
+    void Awake() {
         module = builtinModuleInstantiators[builtinModule]();
         if (inputJunctionLocations.Length != module.getInputCount() ||
             outputJunctionLocations.Length != module.getOutputCount()) {

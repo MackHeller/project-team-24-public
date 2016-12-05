@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Collider2D))]
 public class JunctionController : MonoBehaviour {
 
     public Junction junction;
+
+    public Text label;
 
     private EditorManager editorManager;
     private SpriteRenderer _sprite;
@@ -48,7 +51,7 @@ public class JunctionController : MonoBehaviour {
      * <returns>true, if this object was destroyed</returns>
      */
     public bool destroyIfDisconnected() {
-        if (gameObject != null && !(junction.hasInputModule() || junction.hasObservers())) {
+        if (this != null && !(junction.hasInputModule() || junction.hasObservers())) {
             Destroy(gameObject);
             return true;
         }

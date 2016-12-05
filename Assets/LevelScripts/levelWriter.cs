@@ -7,13 +7,15 @@ using C5;
 
 public class LevelWriter {
 
-    public static void saveAsNewLevel(string levelName, Level level) {
-        writerLevel(Application.dataPath + "/Levels/" + levelName + ".JSON", level);
-	}
+    public static string saveAsNewLevel(Level level) {
+        string filePath = Application.dataPath + "/Levels/" + level.getFileName() + ".JSON";
+        writerLevel(filePath, level);
+        return filePath;
+    }
 
     private static void writerLevel(string filePath, Level level) {
         StreamWriter sw = null;
-        string json = "{\"LevelName\": \"" + level.getLevelName() + "\",\n\"Creator\": \"" + level.getCreator() + 
+        string json = "{\"LevelName\": \"" + level.getLevelName() + "\",\n\"Creator\": \"" + level.getCreator() + "\",\n\"Description\": \"" + level.getDescription() +
             "\",\n\"star1\": " + level.getStars()[0] + ",\n\"star2\": " + level.getStars()[1] + ",\n\"star3\": " + level.getStars()[2];
         //do gates
         HashDictionary<BuiltinModuleController.BuiltinModules, int> gates = level.getGates();
@@ -43,7 +45,40 @@ public class LevelWriter {
         }
         if (outputs.Count > 0)
             json = json.Remove(json.Length - 2) + "\n]";
-        json = json + "}";
+
+        //do solution
+        json += ",\n\"Solution\": [";
+        ArrayList<ArrayList<bool?>> listOfInputSolutions = level.getSolution().getInputSolutions();
+        ArrayList<ArrayList<bool?>> listOfOutputSolutions = level.getSolution().getOutputSolutions();
+        for (int j = 0; j < listOfInputSolutions.Count; j++) {
+            if (listOfInputSolutions.Count != listOfOutputSolutions.Count) {
+                throw new ArgumentException("input and output solution values must be equal in number");
+            }
+            json += "\n[";
+            //do inputs
+            ArrayList<bool?> inputSolution = listOfInputSolutions[j];
+            if (inputSolution.Count > 0)
+                json += "[";
+            for (int i = 0; i < inputSolution.Count; i++) {
+                json += "\"" + inputSolution[i] + "\",";
+            }
+            if (inputSolution.Count > 0)
+                json = json.Remove(json.Length - 1) + "],";
+
+            //do outputs
+            ArrayList<bool?> outputSolution = listOfOutputSolutions[j];
+            if (outputSolution.Count > 0)
+                json += "[";
+            for (int i = 0; i < outputSolution.Count; i++) {
+                json += "\"" + outputSolution[i] + "\",";
+            }
+            if (outputSolution.Count > 0)
+                json = json.Remove(json.Length - 1) + "]";
+            json += "],";
+        }
+        json = json.Remove(json.Length - 1) + "\n]";
+
+        json = json + "\n}";
         try {
             sw = new StreamWriter(filePath);
             sw.WriteLine(json);
@@ -54,11 +89,9 @@ public class LevelWriter {
                 sw.Dispose();
         }
     }
-    private static string getBuildinGate(BuiltinModuleController.BuiltinModules builtin)
-    {
-        switch (builtin)
-        {
-            case BuiltinModuleController.BuiltinModules.AND :
+    private static string getBuildinGate(BuiltinModuleController.BuiltinModules builtin) {
+        switch (builtin) {
+            case BuiltinModuleController.BuiltinModules.AND:
                 return "And";
             case BuiltinModuleController.BuiltinModules.NAND:
                 return "Nand";

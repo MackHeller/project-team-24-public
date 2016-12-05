@@ -14,10 +14,12 @@ public class Level {
 
     private string levelName;
     private string creator;
+    private string description;
     private int[] stars = new int[3];
     private HashDictionary<BuiltinModuleController.BuiltinModules, int> gates;
     private ArrayList<int> input;
     private ArrayList<int> output;
+    private Solution solution;
 
     void Start() {
         // for testing only
@@ -43,8 +45,8 @@ public class Level {
     /// <summary>
     /// save level with level's existing file name
     /// </summary>
-    public void saveLevel() {
-        LevelWriter.saveAsNewLevel(createLevelName(this.levelName, this.creator), this);
+    public string saveLevel() {
+        return LevelWriter.saveAsNewLevel(this);
     }
 
     public int getStarsForScore(int score) {
@@ -60,15 +62,12 @@ public class Level {
     /// <summary>
     /// save level with a new file name
     /// </summary>
-    public void saveAsNewLevel(string levelName, string creator) {
-        string filename = createLevelName(levelName, creator);
-        this.levelName = levelName;
-        this.creator = creator;
-        if (LevelReader.getAllLevelNames().Contains(filename))
+    public string saveAsNewLevel() {
+        if (LevelReader.getAllLevelNames().Contains(getFileName()))
             throw new ArgumentException("Cannot create a new File, a level with the name: " + levelName +
                 " created by: " + creator + " already exists");
         else
-            LevelWriter.saveAsNewLevel(filename, this);
+            return LevelWriter.saveAsNewLevel(this);
     }
 
     public void setLevelValues(JsonData jsonData) {
@@ -78,9 +77,10 @@ public class Level {
         this.input = LevelReader.getLevelInput(jsonData);
         this.output = LevelReader.getLevelOutput(jsonData);
         this.creator = LevelReader.getCreator(jsonData);
+        this.description = LevelReader.getDescription(jsonData);
     }
 
-    private String createLevelName(String level, String creator) { return level + "-" + creator; }
+    private String createLevelName(String level, String creator) { return level + (creator.Equals("") ? "" : "-" + creator); }
 
     #region getters
 
@@ -89,7 +89,10 @@ public class Level {
     public ArrayList<int> getLevelOutput() { return output; }
     public string getLevelName() { return levelName; }
     public string getCreator() { return creator; }
+    public string getDescription() { return description; }
     public int[] getStars() { return stars; }
+    public string getFileName() { return createLevelName(this.levelName, this.creator); }
+    public Solution getSolution() { return solution; }
 
     #endregion getters
 
@@ -98,9 +101,11 @@ public class Level {
     public void setGates(HashDictionary<BuiltinModuleController.BuiltinModules, int> gates) { this.gates = gates; }
     public void setLevelInput(ArrayList<int> input) { this.input = input; }
     public void setLevelOutput(ArrayList<int> output) { this.output = output; }
-    public void setLevelName(string levelName) { this.levelName = levelName; }
+    public void setLevelName(string levelName) { this.levelName = levelName.Trim(); }
     public void setStars(int[] stars) { this.stars = stars; }
-    public void setCreator(string creator) { this.creator = creator; }
+    public void setCreator(string creator) { this.creator = creator.Trim(); }
+    public void setDescription(string description) { this.description = description.Trim(); }
+    public void setSolution(Solution solution) { this.solution = solution; }
 
     #endregion setters
 }
