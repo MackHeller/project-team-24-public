@@ -1,0 +1,20 @@
+{"LevelName": "AlgebraLevel1",
+"Creator": "Freddy",
+"Description": "Create a NOR gate with AND and NOT gates.
+Difficulty: 2/5
+Hint: DeMorgan's laws.",
+"star1": 4,
+"star2": 2,
+"star3": 3,
+"Inputs": [{"Id": 0},
+{"Id": 1}
+],
+"Outputs": [{"Id": 0}
+],
+"Solution": [
+[["False","False"],["True"]],
+[["True","False"],["False"]],
+[["False","True"],["False"]],
+[["True","True"],["False"]]
+]
+}

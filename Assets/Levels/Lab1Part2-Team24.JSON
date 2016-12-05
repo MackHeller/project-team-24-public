@@ -1,0 +1,25 @@
+{"LevelName": "Lab1Part2",
+"Creator": "Team24",
+"Description": "Create a circuit with behaviour f = (a + b)' + c * b'
+Difficulty: 4/5
+Hint: Can be simplified.",
+"star1": 7,
+"star2": 6,
+"star3": 5,
+"Inputs": [{"Id": 0},
+{"Id": 1},
+{"Id": 2}
+],
+"Outputs": [{"Id": 0}
+],
+"Solution": [
+[["False","False","False"],["True"]],
+[["True","False","False"],["False"]],
+[["False","True","False"],["False"]],
+[["True","True","False"],["False"]],
+[["False","False","True"],["True"]],
+[["True","False","True"],["True"]],
+[["False","True","True"],["False"]],
+[["True","True","True"],["False"]]
+]
+}
