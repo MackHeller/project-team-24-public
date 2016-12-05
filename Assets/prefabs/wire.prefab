@@ -24,7 +24,7 @@ GameObject:
   - 114: {fileID: 114000014176225832}
   - 61: {fileID: 61000013094506906}
   m_Layer: 11
-  m_Name: Wire
+  m_Name: wire
   m_TagString: WireTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

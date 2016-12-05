@@ -1,0 +1,20 @@
+{"LevelName": "BasicLevel1",
+"Creator": "Team24",
+"Description": "Create a NOR gate with 2 gates.
+Difficulty: 1/5
+Hint: What's the difference between a NOR and OR?",
+"star1": 1,
+"star2": 3,
+"star3": 2,
+"Inputs": [{"Id": 0},
+{"Id": 1}
+],
+"Outputs": [{"Id": 0}
+],
+"Solution": [
+[["False","False"],["True"]],
+[["True","False"],["False"]],
+[["False","True"],["False"]],
+[["True","True"],["False"]]
+]
+}

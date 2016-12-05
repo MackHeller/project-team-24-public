@@ -1,0 +1,25 @@
+{"LevelName": "BasicLevel3",
+"Creator": "Team24",
+"Description": "Create a circuit with logic function f = a * b + c
+Difficulty: 3/5
+Hint: Order of operations.",
+"star1": 4,
+"star2": 3,
+"star3": 2,
+"Inputs": [{"Id": 0},
+{"Id": 1},
+{"Id": 2}
+],
+"Outputs": [{"Id": 0}
+],
+"Solution": [
+[["False","False","False"],["False"]],
+[["True","False","False"],["False"]],
+[["False","True","False"],["False"]],
+[["True","True","False"],["True"]],
+[["False","False","True"],["True"]],
+[["True","False","True"],["True"]],
+[["False","True","True"],["True"]],
+[["True","True","True"],["True"]]
+]
+}

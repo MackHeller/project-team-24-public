@@ -22,14 +22,10 @@ public class BasicLevels {
 	/// 	  another 2-input circuit.
 	/// </summary>
 	public static void loadFourInputAndGate() {
-		LevelCreationTool ltc = LevelCreationTool.getInstance ();
-
-		ltc.instantiateInputAtIndex (2);
-		ltc.instantiateInputAtIndex (4);
-		ltc.instantiateInputAtIndex (6);
-		ltc.instantiateInputAtIndex (8);
-
-		ltc.instantiateOutputAtIndex (5);
+		/*
+		 * Waiting on the completion of LevelEditor to implement.
+		 */
+		throw new NotImplementedException ();
 	}
 
 	/// <summary>
@@ -41,12 +37,10 @@ public class BasicLevels {
 	/// HINT: How does XOR's truth table compare to an OR's?
 	/// </summary>
 	public static void loadXorGatePuzzle() {
-		LevelCreationTool ltc = LevelCreationTool.getInstance ();
-
-		ltc.instantiateInputAtIndex (4);
-		ltc.instantiateInputAtIndex (6);
-
-		ltc.instantiateOutputAtIndex (5);
+		/*
+		 * Waiting on the completion of LevelEditor to implement.
+		 */
+		throw new NotImplementedException ();
 	}
 
 	/// <summary>

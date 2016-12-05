@@ -1,0 +1,25 @@
+{"LevelName": "BasicLevel4",
+"Creator": "Team24",
+"Description": "Create a circuit with behaviour f = a * b + (b + c)
+Difficulty: 4/5
+Hint: Inputs can be used twice.",
+"star1": 5,
+"star2": 4,
+"star3": 3,
+"Inputs": [{"Id": 0},
+{"Id": 1},
+{"Id": 2}
+],
+"Outputs": [{"Id": 0}
+],
+"Solution": [
+[["False","False","False"],[""]],
+[["True","False","False"],[""]],
+[["False","True","False"],[""]],
+[["True","True","False"],[""]],
+[["False","False","True"],[""]],
+[["True","False","True"],[""]],
+[["False","True","True"],[""]],
+[["True","True","True"],[""]]
+]
+}
