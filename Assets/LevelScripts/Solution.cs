@@ -32,18 +32,15 @@ public class Solution {
             || outputCount != otherSolution.outputCount
             || getInputSolutions().Count != otherSolution.getInputSolutions().Count
             || getOutputSolutions().Count != otherSolution.getOutputSolutions().Count) {
-            Debug.Log("precon");
             return false;
         }
         for (int i = 0; i < getInputSolutions().Count; i++) {
             if (!boolArrayEquals(getInputSolutions()[i], otherSolution.getInputSolutions()[i])) {
-                Debug.Log("inputfail");
                 return false;
             }
         }
         for (int i = 0; i < getOutputSolutions().Count; i++) {
             if (!boolArrayEquals(getOutputSolutions()[i], otherSolution.getOutputSolutions()[i])) {
-                Debug.Log("outputfail");
                 return false;
             }
         }

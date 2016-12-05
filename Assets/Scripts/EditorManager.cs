@@ -46,9 +46,6 @@ public class EditorManager : MonoBehaviour {
         }
         Solution userSolution = generateSolution();
         isCorrect = userSolution.Equals(gameManager.getLevel().getSolution());
-        Debug.Log("user solution: " + userSolution);
-        Debug.Log("level solution: " + gameManager.getLevel().getSolution());
-        Debug.Log("equal: " + isCorrect);
         starsController.setStars(getStars());
         updateStarsAndCorrectnessMessage();
     }
