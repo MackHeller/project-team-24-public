@@ -1,27 +1,33 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelSelectButtonController : MonoBehaviour {
 
+    private Level level;
     public Text nameText;
     public Text creatorText;
     public Text scoreText;
     public StarsController starController;
 
-    public void setName(string name) {
-        nameText.text = name;
+    private GameManager gameManager;
+
+    private void Awake() {
+        gameManager = GameManager.getInstance();
     }
 
-    public void setCreator(string creator) {
-        creatorText.text = creator;
+    public void OnClick() {
+        gameManager.setLevel(level);
+        gameManager.setMode(GameManager.Mode.SOLVING);
+        SceneManager.LoadScene("Editor");
     }
 
-    public void setScore(int score) {
-        scoreText.text = score.ToString();
+    public void setLevel(Level level) {
+        this.level = level;
     }
 
-    public void setStars(int numStars) {
-        starController.setStars(numStars);
+    public Level getLevel() {
+        return level;
     }
 }

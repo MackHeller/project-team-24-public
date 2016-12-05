@@ -11,6 +11,12 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private WirePlacementCollider wirePlacementCollider;
     float zDistFromCamera;
 
+    private EditorManager editorManager;
+
+    private void Awake() {
+        editorManager = EditorManager.getInstance();
+    }
+
     private Vector3 getDragPos() {
         return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistFromCamera));
     }
@@ -28,7 +34,7 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         wirePlacementCollider = Instantiate(wirePlacementColliderPrefab);
         wirePlacementCollider.transform.position = startPos;
 
-        GameManager.getInstance().setCreatingWire(true);
+        editorManager.setCreatingWire(true);
     }
 
     public void OnDrag(PointerEventData eventData) {
@@ -50,7 +56,7 @@ public class WireDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         wire.getInputJunction().setUninteractableOverride(false);
 
         Object.Destroy(wirePlacementCollider.gameObject);
-        GameManager.getInstance().setCreatingWire(false);
+        editorManager.setCreatingWire(false);
     }
 
     #endregion

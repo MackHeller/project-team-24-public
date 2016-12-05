@@ -156,7 +156,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &62445049
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ RectTransform:
   - {fileID: 1453101460}
   - {fileID: 1428171654}
   m_Father: {fileID: 565287387}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -0.000009536743, y: -28}
@@ -367,6 +367,46 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &243551362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 243551364}
+  - 114: {fileID: 243551363}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &243551363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243551362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c7568ce10326a479e35089a2185fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &243551364
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243551362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.009513037, y: 0.20994538, z: -99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1001 &282044162
 Prefab:
   m_ObjectHideFlags: 0
@@ -571,8 +611,8 @@ RectTransform:
   m_Children:
   - {fileID: 487036381}
   - {fileID: 1631166051}
-  - {fileID: 1619706752}
   - {fileID: 172181830}
+  - {fileID: 1619706752}
   m_Father: {fileID: 1022674444}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -659,7 +699,6 @@ GameObject:
   - 223: {fileID: 1022674443}
   - 114: {fileID: 1022674442}
   - 114: {fileID: 1022674441}
-  - 114: {fileID: 1022674445}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -737,23 +776,12 @@ RectTransform:
   - {fileID: 8381074}
   - {fileID: 565287387}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1022674445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1022674440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 761887f08211e7e48869fda0b54aa08f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1399711787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1070,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1619706752}
+  - 114: {fileID: 1619706756}
   - 222: {fileID: 1619706755}
   - 114: {fileID: 1619706754}
   - 114: {fileID: 1619706753}
@@ -1065,7 +1094,7 @@ RectTransform:
   m_Children:
   - {fileID: 62445050}
   m_Father: {fileID: 565287387}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 75, y: -250}
@@ -1110,9 +1139,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022674445}
-        m_MethodName: LoadScene
-        m_Mode: 3
+      - m_Target: {fileID: 1619706756}
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1156,6 +1185,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619706751}
+--- !u!114 &1619706756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1619706751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f01bc414fb0a3d4681b21c6f9895f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1631166050
 GameObject:
   m_ObjectHideFlags: 0

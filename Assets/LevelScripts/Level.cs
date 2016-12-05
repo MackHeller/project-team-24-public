@@ -44,7 +44,7 @@ public class Level{
     /// save level with level's existing file name
     /// </summary>
     public void saveLevel() {
-        LevelWriter.saveAsNewLevel(createLevelName(this.levelName, this.creator), this);
+        LevelWriter.saveAsNewLevel(getFileName(), this);
     }
 
     /// <summary>
@@ -80,6 +80,7 @@ public class Level{
     public string getLevelName() { return levelName; }
     public string getCreator() { return creator; }
     public int[] getStars() { return stars; }
+    public string getFileName() { return createLevelName(this.levelName, this.creator); }
 
     #endregion getters
 

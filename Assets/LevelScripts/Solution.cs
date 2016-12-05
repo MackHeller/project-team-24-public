@@ -17,7 +17,7 @@ public class Solution {
     }
     public void saveSolution(Level level)
     {
-        SolutionWriter.
+        SolutionWriter.saveAsNewSolution(level, this);
     }
 
     public void setInputsAndOutputs(ArrayList<int> inputs, ArrayList<int> outputs)
