@@ -63,3 +63,6 @@ TagManager:
   - name: Junctions
     uniqueID: 3015665835
     locked: 0
+  - name: Foreground
+    uniqueID: 2440654935
+    locked: 0
